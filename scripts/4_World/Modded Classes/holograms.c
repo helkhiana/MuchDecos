@@ -4,7 +4,7 @@ modded class Hologram
 	{
 		MD_Item_Kit item_in_hands = MD_Item_Kit.Cast( m_Player.GetHumanInventory().GetEntityInHands() );
 
-		if ( item_in_hands.IsInherited( MD_Sink_Kit ))
+		if (item_in_hands && item_in_hands.IsInherited( MD_Sink_Kit ))
 		{
 			return "MD_Sink";
 		}

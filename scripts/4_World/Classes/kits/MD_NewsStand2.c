@@ -7,7 +7,7 @@ class MD_NewsStand2_Kit : MD_Item_Kit
 
 	override string Get_MDItemName()
 	{
-		return "MD_NewsStand2";
+		return "Land_MD_NewsStand2";
 	}
 
 	override vector Get_Get_MDItemPos()
@@ -19,7 +19,7 @@ class MD_NewsStand2_Kit : MD_Item_Kit
 class MD_NewsStand2_Holo : MD_Item_Holo
 {}
 
-class MD_NewsStand2 : MD_Item
+class Land_MD_NewsStand2 : MD_OpenableItem_Base
 {	
 	override void Base_Destroy()
 	{
@@ -35,4 +35,9 @@ class MD_NewsStand2 : MD_Item
 	{
 		super.SetActions();
 	}
+
+	override bool CanPutIntoHands( EntityAI parent )
+    {
+        return false;
+    }
 }
