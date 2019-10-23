@@ -172,7 +172,7 @@ class MD_Item_Kit extends ItemBase
 			vector position = player_base.GetLocalProjectionPosition();
 			vector orientation = player_base.GetLocalProjectionOrientation();
 				
-			MD_Item_Kit1 = GetGame().CreateObject("MD_Item", pb.GetLocalProjectionPosition(), false );
+			MD_Item_Kit1 = GetGame().CreateObject(Get_MDItemName(), pb.GetLocalProjectionPosition(), false );
 			MD_Item_Kit1.SetPosition( position + Get_Get_MDItemPos() );
 			MD_Item_Kit1.SetOrientation( orientation );
 		}	
