@@ -62,7 +62,7 @@ class MD_Workbench : MD_CraftedItemBase
 
     bool IsInvEmpty()
 	{   
-		if (GetQuantity() < 1 )
+		if (GetNumberOfItems() < 1 )
 		{
 			return true;
 		}
@@ -276,11 +276,8 @@ class MD_Workbench : MD_CraftedItemBase
 		{
 			return false;
 		}
-		// if ( !IsInvEmpty() )
-		// {
-		// 	return true;
-		// }
-		return true;
+		return IsInvEmpty();
+		 
 	}
 
     override void SetActions()

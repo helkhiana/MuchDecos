@@ -276,7 +276,7 @@ class CfgVehicles
 	};
 	class MD_Shed_M4_Kit: MD_Kit
 	{
-		displayName="Metal Shed";
+		displayName="Metal Shed kit";
 	};
 	class MD_Shed_M4: MD_Item
 	{		
@@ -292,6 +292,296 @@ class CfgVehicles
 		};
 	};
 
+	class MD_Greenhouse_Kit: MD_Kit
+	{
+		displayName="Greenhouse kit";
+	};
+
+	class Land_MD_Greenhouse: MD_OpenableBase
+	{
+		scope=2;
+		displayName="Greenhouse";
+		descriptionShort="A greenhouse with fertile soil";
+		model="\DZ\structures\Residential\Misc\Misc_Greenhouse.p3d";
+		attachments[]=
+		{
+			"SeedBase_1",
+			"SeedBase_2",
+			"SeedBase_3",
+			"SeedBase_4",
+			"SeedBase_5",
+			"SeedBase_6",
+			"SeedBase_7",
+			"SeedBase_8",
+			"SeedBase_9"
+		};
+		storageCategory=1;
+		class GUIInventoryAttachmentsProps
+		{
+			class Filling
+			{
+				name="$STR_attachment_Filling0";
+				description="";
+				attachmentSlots[]=
+				{
+					"SeedBase_1",
+					"SeedBase_2",
+					"SeedBase_3",
+					"SeedBase_4",
+					"SeedBase_5",
+					"SeedBase_6",
+					"SeedBase_7",
+					"SeedBase_8",
+					"SeedBase_9"
+				};
+				icon="cat_gp_filling";
+			};
+		};
+		class Doors
+		{
+			class Doors1
+			{
+				displayName="door 1";
+				component="Doors1";
+				soundPos="doors1_action";
+				animPeriod=1;
+				initPhase=0;
+				initOpened=0.5;
+				soundOpen="doorWoodGreenhouseOpen";
+				soundClose="doorWoodGreenhouseClose";
+				soundLocked="doorWoodGreenhouseRattle";
+				soundOpenABit="doorWoodGreenhouseOpenABit";
+			};
+		};
+		class DamageSystem
+		{
+			class GlobalHealth
+			{
+				class Health
+				{
+					hitpoints=1000;
+				};
+			};
+			class GlobalArmor
+			{
+				class Projectile
+				{
+					class Health
+					{
+						damage=0;
+					};
+					class Blood
+					{
+						damage=0;
+					};
+					class Shock
+					{
+						damage=0;
+					};
+				};
+				class Melee
+				{
+					class Health
+					{
+						damage=0;
+					};
+					class Blood
+					{
+						damage=0;
+					};
+					class Shock
+					{
+						damage=0;
+					};
+				};
+			};
+			class DamageZones
+			{
+				class door1
+				{
+					class Health
+					{
+						hitpoints=1000;
+						transferToGlobalCoef=0;
+					};
+					componentNames[]=
+					{
+						"doors1"
+					};
+					fatalInjuryCoef=-1;
+					class ArmorType
+					{
+						class Projectile
+						{
+							class Health
+							{
+								damage=3;
+							};
+							class Blood
+							{
+								damage=0;
+							};
+							class Shock
+							{
+								damage=0;
+							};
+						};
+						class Melee
+						{
+							class Health
+							{
+								damage=5;
+							};
+							class Blood
+							{
+								damage=0;
+							};
+							class Shock
+							{
+								damage=0;
+							};
+						};
+					};
+				};
+			};
+		};
+		hiddenSelections[]=
+		{
+			"slotDigged_01",
+			"slotDigged_02",
+			"slotDigged_03",
+			"slotDigged_04",
+			"slotDigged_05",
+			"slotDigged_06",
+			"slotDigged_07",
+			"slotDigged_08",
+			"slotDigged_09",
+			"slotCovered_01",
+			"slotCovered_02",
+			"slotCovered_03",
+			"slotCovered_04",
+			"slotCovered_05",
+			"slotCovered_06",
+			"slotCovered_07",
+			"slotCovered_08",
+			"slotCovered_09"
+		};
+		hiddenSelectionsTextures[]=
+		{
+			"dz\gear\cultivation\data\soil_cultivated_co.paa",
+			"dz\gear\cultivation\data\soil_cultivated_limed_CO.paa",
+			"dz\gear\cultivation\data\soil_cultivated_compost_CO.paa",
+			"",
+			"",
+			"",
+			"",
+			"",
+			"",
+			"",
+			"",
+			"",
+			"",
+			"",
+			"",
+			"",
+			"",
+			""
+		};
+		hiddenSelectionsMaterials[]=
+		{
+			"",
+			"",
+			"",
+			"",
+			"",
+			"",
+			"",
+			"",
+			"",
+			"",
+			"",
+			"",
+			"",
+			"",
+			"",
+			"",
+			"",
+			""
+		};
+		class AnimationSources
+		{
+			class Doors1
+			{
+				source="user";
+				initPhase=0;
+				animPeriod=1;
+			};
+			class slotVisible
+			{
+				source="user";
+				animPeriod=0.0099999998;
+				initPhase=0;
+			};
+			class slotHidden: slotVisible
+			{
+				initPhase=1;
+			};
+			class slotDigged_01: slotVisible
+			{
+			};
+			class slotDigged_02: slotVisible
+			{
+			};
+			class slotDigged_03: slotVisible
+			{
+			};
+			class slotDigged_04: slotVisible
+			{
+			};
+			class slotDigged_05: slotVisible
+			{
+			};
+			class slotDigged_06: slotVisible
+			{
+			};
+			class slotDigged_07: slotVisible
+			{
+			};
+			class slotDigged_08: slotVisible
+			{
+			};
+			class slotDigged_09: slotVisible
+			{
+			};
+			class slotCovered_01: slotHidden
+			{
+			};
+			class slotCovered_02: slotHidden
+			{
+			};
+			class slotCovered_03: slotHidden
+			{
+			};
+			class slotCovered_04: slotHidden
+			{
+			};
+			class slotCovered_05: slotHidden
+			{
+			};
+			class slotCovered_06: slotHidden
+			{
+			};
+			class slotCovered_07: slotHidden
+			{
+			};
+			class slotCovered_08: slotHidden
+			{
+			};
+			class slotCovered_09: slotHidden
+			{
+			};
+		};
+	};
 
 	class MD_KitchenChair_Kit: MD_Kit
 	{
@@ -304,5 +594,164 @@ class CfgVehicles
 		descriptionShort="A chair";
 		model="\DZ\structures\furniture\chairs\kitchen_chair_a\kitchen_chair_a.p3d";
 	};
+	
+	class MD_Power_Transformer_Kit: MD_Kit
+	{
+		displayName="Power Transformer";
+	};
+
+	class MD_Power_Transformer: MD_Item
+	{
+		scope=2;
+		displayName="Power Transformer";
+		descriptionShort="A generator with a lot of power and silent";
+		model="\DZ\structures\industrial\power\power_transformer_small.p3d";
+		rotationFlags=2;
+		slopeTolerance=0.30000001;
+		weight=45000;
+		itemSize[]={10,10};
+		itemBehaviour=0;
+		attachments[]=
+		{
+			"SparkPlug"
+		};
+		fuelTankCapacity=200000;
+		carveNavmesh=1;
+		heavyItem=1;
+		hiddenSelections[]=
+		{
+			"socket_1_plugged",
+			"socket_2_plugged",
+			"socket_3_plugged",
+			"socket_4_plugged",
+			"sparkplug_installed",
+			"placing"
+		};
+		hiddenSelectionsTextures[]=
+		{
+			"dz\gear\camping\data\plug_black_CO.paa",
+			"dz\gear\camping\data\plug_yellow_CO.paa",
+			"dz\gear\camping\data\plug_white_CO.paa",
+			"dz\gear\camping\data\plug_orange_CO.paa",
+			"dz\gear\camping\data\power_generator_CO.paa",
+			"dz\gear\camping\data\power_generator_CO.paa"
+		};
+		hiddenSelectionsMaterials[]=
+		{
+			"dz\gear\camping\data\plug.rvmat",
+			"dz\gear\camping\data\plug.rvmat",
+			"dz\gear\camping\data\plug.rvmat",
+			"dz\gear\camping\data\plug.rvmat",
+			"dz\gear\camping\data\power_generator.rvmat",
+			"dz\gear\camping\data\power_generator.rvmat"
+		};
+		class DamageSystem
+		{
+			class GlobalHealth
+			{
+				class Health
+				{
+					hitpoints=1000000;					
+				};
+			};
+		};
+		repairableWithKits[]={5,7};
+		repairCosts[]={30,25};
+		class EnergyManager
+		{
+			hasIcon=1;
+			autoSwitchOff=1;
+			energyStorageMax=200000;
+			energyUsagePerSecond=0.28;
+			reduceMaxEnergyByDamageCoef=0.5;
+			energyAtSpawn=200000;
+			powerSocketsCount=4;
+			compatiblePlugTypes[]={2,6};
+		};
+		class AnimationSources
+		{
+			class socket_1_plugged
+			{
+				source="user";
+				animPeriod=0.0099999998;
+				initPhase=1;
+			};
+			class socket_2_plugged
+			{
+				source="user";
+				animPeriod=0.0099999998;
+				initPhase=1;
+			};
+			class socket_3_plugged
+			{
+				source="user";
+				animPeriod=0.0099999998;
+				initPhase=1;
+			};
+			class socket_4_plugged
+			{
+				source="user";
+				animPeriod=0.0099999998;
+				initPhase=1;
+			};
+			class sparkplug
+			{
+				source="user";
+				animPeriod=0.0099999998;
+				initPhase=0;
+			};
+			class fuel_tank
+			{
+				source="user";
+				animPeriod=0.0099999998;
+				initPhase=0;
+			};
+			class sparkplug_installed
+			{
+				source="user";
+				animPeriod=0.0099999998;
+				initPhase=1;
+			};
+			class placing
+			{
+				source="user";
+				animPeriod=0.0099999998;
+				initPhase=0;
+			};
+			class dial_fuel
+			{
+				source="user";
+				animPeriod=1;
+				initPhase=0;
+			};
+		};
+		class AnimEvents
+		{
+			class SoundWeapon
+			{
+				class walk
+				{
+					soundSet="powergenerator_movement_walk_SoundSet";
+					id=1;
+				};
+				class pickUpItem_Light
+				{
+					soundSet="pickUpPowerGenerator_SoundSet";
+					id=796;
+				};
+				class pickUpItem
+				{
+					soundSet="pickUpPowerGenerator_SoundSet";
+					id=797;
+				};
+				class drop
+				{
+					soundset="powergenerator_drop_SoundSet";
+					id=898;
+				};
+			};
+		};
+	};
+
 
 };

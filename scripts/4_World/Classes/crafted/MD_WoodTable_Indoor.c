@@ -6,7 +6,7 @@ class MD_WoodTable_Indoor : MD_CraftedItemBase
 	}
     override vector Get_MDCraftedItemPos()
 	{
-		return "0 0 0";
+		return "0 0.30 0";
 	}
 
     override bool CanPutInCargo( EntityAI parent )
