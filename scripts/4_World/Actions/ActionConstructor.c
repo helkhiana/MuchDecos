@@ -12,5 +12,6 @@ modded class ActionConstructor
         actions.Insert(ActionSitChair);
         actions.Insert(ActionMdDialCombinationLock);
         actions.Insert(ActionMdNextCombinationLock);
+        actions.Insert(ActionTrash);
     }
 }

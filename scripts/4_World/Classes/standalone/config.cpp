@@ -15,7 +15,8 @@ class CfgPatches
 			"DZ_Gear_Tools",
 			"DZ_Gear_Cooking",
 			"DZ_Vehicles_Parts",
-			"DZ_Structures"
+			"DZ_Structures",
+			"MuchDecos_Kits"
         };
     };
 };
@@ -24,6 +25,7 @@ class CfgPatches
 class CfgVehicles
 {
 	class BookDeadSouls;
+	class MD_Item;
 	class MD_Crafting_Book: BookDeadSouls
 	{
 		scope=2;
@@ -43,4 +45,37 @@ class CfgVehicles
 			"camoGround"
 		};	
 	};
+
+	class MD_Box_C: MD_Item
+	{		
+		scope=2;
+		displayName="Box";
+		descriptionShort="A box that's pretty sturdy";
+		model="\DZ\structures\furniture\decoration\box_c\box_c.p3d";		
+		itemSize[]={11,30};
+		physLayer="item_large";
+		class Cargo
+		{
+			itemsCargoSize[]={10,7};
+			openable=0;
+			allowOwnedCargoManipulation=1;
+		};
+	};
+
+	
+
+	class MD_TrashCan: MD_Item
+	{		
+		scope=2;
+		displayName="Trash can";
+		descriptionShort="Place items inside then throw away the trash to dispose of items.";
+		model="\DZ\structures\residential\Misc\Garbage_Bin.p3d";
+		class Cargo
+		{
+			itemsCargoSize[]={10,10};
+			openable=0;
+			allowOwnedCargoManipulation=1;
+		};
+	};
+	
 };
