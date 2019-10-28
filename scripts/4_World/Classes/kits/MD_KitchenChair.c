@@ -34,6 +34,6 @@ class MD_KitchenChair : MD_Item
 	override void SetActions()
 	{
 		super.SetActions();
-		AddAction(ActionSitChair);
+		//AddAction(ActionSitChair);
 	}
 }

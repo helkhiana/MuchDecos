@@ -2,6 +2,20 @@ modded class Hologram
 {	
 	override string ProjectionBasedOnParent()
 	{
+		ItemBase fieldShovel_in_hands = ItemBase.Cast( m_Player.GetHumanInventory().GetEntityInHands() );
+
+        if ( fieldShovel_in_hands && fieldShovel_in_hands.CanMakeMD_Grave() )
+        {
+            return "MD_Grave";
+		}
+
+		MD_CraftedItemBase craftedItem = MD_CraftedItemBase.Cast( m_Player.GetHumanInventory().GetEntityInHands() );
+		
+		if ( craftedItem )
+		{
+			return craftedItem.Get_MDCraftedItemName();
+		}
+
 		MD_Item_Kit item_in_hands = MD_Item_Kit.Cast( m_Player.GetHumanInventory().GetEntityInHands() );
 
 		if (item_in_hands && item_in_hands.IsInherited( MD_Sink_Kit ))
@@ -13,13 +27,7 @@ modded class Hologram
 		{
 			return item_in_hands.Get_MDItemName();
 		}
-
-		MD_CraftedItemBase craftedItem = MD_CraftedItemBase.Cast( m_Player.GetHumanInventory().GetEntityInHands() );
 		
-		if ( craftedItem )
-		{
-			return craftedItem.Get_MDCraftedItemName();
-		}
 		return super.ProjectionBasedOnParent();
 	}
 
@@ -56,8 +64,13 @@ modded class Hologram
 		{
 			SetIsColliding(false);
 			return;
-		}	
+		}		
 		
+		if ( item_in_hands.IsInherited( FieldShovel ))
+		{
+			SetIsColliding(false);
+			return;
+		}
 		super.EvaluateCollision();
 	}
 }

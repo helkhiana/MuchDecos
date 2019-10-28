@@ -12,7 +12,7 @@ class MD_Shed_M4_Kit : MD_Item_Kit
 
 	override vector Get_Get_MDItemPos()
 	{
-		return "0 1.40 0";
+		return "0 1.30 0";
 	}
 }
 

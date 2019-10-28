@@ -41,7 +41,7 @@ class ActionCraftHaybale: ActionContinuousBase
 		MD_Workbench md_workbench = MD_Workbench.Cast( targetObject );
 		if ( targetObject )
 		{
-			if ( md_workbench && md_workbench.HasWoodMaterials(0,3,0,0) )
+			if ( md_workbench && md_workbench.HasWoodMaterials(1,3,0,0) )
 			{
 				return true;
 			}
@@ -62,8 +62,7 @@ class ActionCraftHaybale: ActionContinuousBase
 			myItem.SetPosition( position + "0 1 0" );
 			myItem.SetOrientation( orientation + "0 -90 90" );
             //delete attachments
-			md_workbench.RemoveWoodMaterials(0,3,0,0);
-            md_workbench.RemoveClothing(true,true);
+			md_workbench.RemoveWoodMaterials(1,3,0,0);
 		}		
 	}
 }

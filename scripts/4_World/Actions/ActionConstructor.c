@@ -7,11 +7,12 @@ modded class ActionConstructor
         actions.Insert(ActionDismantle);
         actions.Insert(ActionCraftScarecrow);
         actions.Insert(ActionCraftHaybale);
-        actions.Insert(ActionCloseMd_Item);
-        actions.Insert(ActionOpenMd_Item);
         actions.Insert(ActionSitChair);
-        actions.Insert(ActionMdDialCombinationLock);
-        actions.Insert(ActionMdNextCombinationLock);
         actions.Insert(ActionTrash);
+        actions.Insert(ActionDigGrave);
+        actions.Insert(ActionCraftHayStack);
+        actions.Insert(ActionOpenBuildingDoors);
+        actions.Insert(ActionCloseBuildingDoors);
+        actions.Insert(ActionHousePlantSeed);
     }
 }

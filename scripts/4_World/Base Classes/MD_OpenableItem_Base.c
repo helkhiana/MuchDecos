@@ -2,6 +2,16 @@ class MD_OpenableItem_Base : Container_Base
 {
 	private bool m_IsLocked = false;
 	protected ref OpenableBehaviour m_Openable;
+
+	override bool IsBuilding()
+	{
+		return true;
+	}
+
+	override bool IsInventoryVisible()
+	{
+		return true;
+	}
 	
 	void MD_OpenableItem_Base()
 	{
@@ -15,13 +25,11 @@ class MD_OpenableItem_Base : Container_Base
 	override void EEInit()
 	{
 		super.EEInit();
-		GetInventory().LockInventory(HIDE_INV_FROM_SCRIPT);
 	}
 
 	override void Open()
 	{
-		m_Openable.Open();		
-		GetInventory().UnlockInventory(HIDE_INV_FROM_SCRIPT);
+		m_Openable.Open();
 		SoundSynchRemote();
 		UpdateVisualState();
         SoundPlay();
@@ -30,10 +38,9 @@ class MD_OpenableItem_Base : Container_Base
 	override void Close()
 	{
 		m_Openable.Close();
-		GetInventory().LockInventory(HIDE_INV_FROM_SCRIPT);
 		SoundSynchRemote();
 		UpdateVisualState();
-        SoundPlay();
+       	SoundPlay();
 	}
 
 	override bool IsOpen()
@@ -102,65 +109,23 @@ class MD_OpenableItem_Base : Container_Base
 		return IsOpen();
 	}
 
- /*    override void EEItemAttached( EntityAI item, string slot_name )
-    {
-        super.EEItemAttached( item, slot_name );
-
-        if ( item.IsKindOf ( "CamoNet" ) ) 
-        {
-            SetAnimationPhase( "Camonet", 0 );                
-        }
-        if (AliceBag_ColorBase.Cast(item))
-        {
-            HideSelection("MD_OpenableItem_Basebag");
-        }
-    }
-
-    override void EEItemDetached(EntityAI item, string slot_name)
-    {
-        super.EEItemDetached(item, slot_name);
-                
-        if ( item.IsKindOf ( "CamoNet" ) ) 
-        {
-            SetAnimationPhase( "Camonet", 1 );
-        }
-        if (AliceBag_ColorBase.Cast(item))
-        {
-            ShowSelection("MD_OpenableItem_Basebag");
-        }
-    } */
-	
-    bool IsLocked()
-	{
-		CombinationLock combination_lock = GetCombinationLock();
-		if ( combination_lock && combination_lock.IsLocked() )
-		{
-			return true;
-		}
-		
-		return false;
-	}
-		
-	CombinationLock GetCombinationLock()
-	{
-		CombinationLock combination_lock = CombinationLock.Cast(FindAttachmentBySlotName("Att_CombinationLock"));
-		return combination_lock;
-	}
-
     override bool CanDisplayAttachmentSlot(string slot_name)
 	{		
 		return true;
 	}
 
+	override void OnPlacementStarted( Man player ) 
+	{
+		super.OnPlacementStarted( player );
+		
+		SetTakeable(true);
+	}
 
 
 	override void SetActions()
 	{
 		super.SetActions();
-	
-		AddAction(ActionMdDialCombinationLock);
-		AddAction(ActionMdNextCombinationLock);
-        AddAction(ActionCloseMd_Item);
-        AddAction(ActionOpenMd_Item);
+        AddAction(ActionOpenBuildingDoors);
+        AddAction(ActionCloseBuildingDoors);
 	}
 };

@@ -49,7 +49,7 @@ class CfgVehicles
 		};
 		class Cargo
 		{
-			itemsCargoSize[]={1,1};
+			itemsCargoSize[]={1,2};
 			openable=0;
 			allowOwnedCargoManipulation=1;
 		};
@@ -186,4 +186,393 @@ class CfgVehicles
 		weight=5000;
 		itemSize[]={10,7};		
 	};
+	
+	class MD_GraveCross_One: MD_CraftedItemBase
+	{
+		scope=2;
+		displayName="Wood Cross";
+		descriptionShort="A cross to put at your lost one's grave. Style 1";
+		model="\DZ\structures\specific\cemeteries\cemetery_tombstone9.p3d";
+		weight=5000;
+		itemSize[]={5,9};	
+	};
+	
+	class MD_GraveCross_Two: MD_CraftedItemBase
+	{
+		scope=2;
+		displayName="Wood Cross";
+		descriptionShort="A cross to put at your lost one's grave. Style 2";
+		model="\DZ\structures\specific\cemeteries\cemetery_tombstone3.p3d";
+		weight=5000;
+		itemSize[]={5,9};	
+	};
+	
+	class MD_GraveCross_Three: MD_CraftedItemBase
+	{
+		scope=2;
+		displayName="Wood Cross";
+		descriptionShort="A cross to put at your lost one's grave. Style 3";
+		model="\DZ\structures\specific\cemeteries\cemetery_tombstone11.p3d";
+		weight=5000;
+		itemSize[]={5,9};	
+	};
+	
+	class MD_GraveCross_Four: MD_CraftedItemBase
+	{
+		scope=2;
+		displayName="Wood Cross";
+		descriptionShort="A cross to put at your lost one's grave. Style 4";
+		model="\DZ\structures\specific\cemeteries\cemetery_tombstone10.p3d";
+		weight=5000;
+		itemSize[]={5,9};	
+	};
+
+	class MD_GraveCross_Five: MD_CraftedItemBase
+	{
+		scope=2;
+		displayName="Wood Cross";
+		descriptionShort="A cross to put at your lost one's grave. Style 5";
+		model="\DZ\structures\specific\cemeteries\cemetery_smallcross.p3d";
+		weight=5000;
+		itemSize[]={5,9};	
+	};
+
+	class MD_WoodPileLarge: MD_CraftedItemBase
+	{		
+		scope=2;
+		displayName="Wood Pile Large";
+		descriptionShort="A wood pile to store logs, sticks, planks";
+		model="\DZ\structures\industrial\misc\misc_woodpile_forest3.p3d";
+		itemSize[]={11,5};		
+		itemBehaviour=0;
+		class Cargo
+		{
+			itemsCargoSize[]={10,5};
+			openable=0;
+			allowOwnedCargoManipulation=1;
+		};
+		attachments[]=
+		{
+			"Firewood",
+			"WoodenStick",
+			"Material_L1_WoodenPlanks",
+			"Material_L1W1_WoodenPlanks",
+			"Material_L1W2_WoodenPlanks",
+			"Material_L1W3_WoodenPlanks",
+			"Material_L2_WoodenPlanks",
+			"Material_L2W1_WoodenPlanks",
+			"Material_L2W2_WoodenPlanks",
+			"Material_L2W3_WoodenPlanks",
+			"Material_WoodenLogs",
+			"Material_L1_WoodenLogs",
+			"Material_L2_WoodenLogs",
+			"Material_L3_WoodenLogs"
+		};
+		class GUIInventoryAttachmentsProps
+		{
+			class Firewoodslots
+			{
+				name="Small wood";
+				description="";
+				attachmentSlots[]=
+				{
+					"Firewood",
+					"WoodenStick"
+				};
+				icon="cat_common_cargo";
+				view_index=1;
+			};
+			class WoodenPlankSlots
+			{
+				name="Wooden Planks";
+				description="";
+				attachmentSlots[]=
+				{
+					"Material_L1_WoodenPlanks",
+					"Material_L1W1_WoodenPlanks",
+					"Material_L1W2_WoodenPlanks",
+					"Material_L1W3_WoodenPlanks",
+					"Material_L2_WoodenPlanks",
+					"Material_L2W1_WoodenPlanks",
+					"Material_L2W2_WoodenPlanks",
+					"Material_L2W3_WoodenPlanks"
+				};
+				icon="cat_common_cargo";
+				view_index=4;
+			};
+			class WoodenLogsSlots
+			{
+				name="Wooden Logs";
+				description="";
+				attachmentSlots[]=
+				{
+					"Material_WoodenLogs",
+					"Material_L1_WoodenLogs",
+					"Material_L2_WoodenLogs",
+					"Material_L3_WoodenLogs"
+				};
+				icon="cat_common_cargo";
+				view_index=3;
+			};
+		};
+	};
+
+	class MD_WoodPileSmall: MD_CraftedItemBase
+	{		
+		scope=2;
+		displayName="Wood Pile Small";
+		descriptionShort="A wood pile to store logs, sticks";
+		model="\DZ\structures\residential\misc\misc_woodpile1.p3d";
+		itemSize[]={11,5};		
+		itemBehaviour=0;
+		class Cargo
+		{
+			itemsCargoSize[]={5,5};
+			openable=0;
+			allowOwnedCargoManipulation=1;
+		};
+		attachments[]=
+		{
+			"Firewood",
+			"WoodenStick",
+			"Material_WoodenLogs",
+			"Material_L1_WoodenLogs",
+			"Material_L2_WoodenLogs",
+			"Material_L3_WoodenLogs"
+		};
+		class GUIInventoryAttachmentsProps
+		{
+			class Firewoodslots
+			{
+				name="Small wood";
+				description="";
+				attachmentSlots[]=
+				{
+					"Firewood",
+					"WoodenStick"
+				};
+				icon="cat_common_cargo";
+				view_index=1;
+			};
+			class WoodenLogsSlots
+			{
+				name="Wooden Logs";
+				description="";
+				attachmentSlots[]=
+				{
+					"Material_WoodenLogs",
+					"Material_L1_WoodenLogs",
+					"Material_L2_WoodenLogs",
+					"Material_L3_WoodenLogs"
+				};
+				icon="cat_common_cargo";
+				view_index=3;
+			};
+		};
+	};
+
+	class MD_WoodPileMossy: MD_CraftedItemBase
+	{		
+		scope=2;
+		displayName="Wood Pile Mossy";
+		descriptionShort="A wood pile to store logs, sticks";
+		model="\DZ\structures\residential\misc\misc_woodpile2.p3d";
+		itemSize[]={11,5};		
+		itemBehaviour=0;
+		class Cargo
+		{
+			itemsCargoSize[]={5,5};
+			openable=0;
+			allowOwnedCargoManipulation=1;
+		};
+		attachments[]=
+		{
+			"Firewood",
+			"WoodenStick",
+			"Material_WoodenLogs",
+			"Material_L1_WoodenLogs",
+			"Material_L2_WoodenLogs",
+			"Material_L3_WoodenLogs"
+		};
+		class GUIInventoryAttachmentsProps
+		{
+			class Firewoodslots
+			{
+				name="Small wood";
+				description="";
+				attachmentSlots[]=
+				{
+					"Firewood",
+					"WoodenStick"
+				};
+				icon="cat_common_cargo";
+				view_index=1;
+			};
+			class WoodenLogsSlots
+			{
+				name="Wooden Logs";
+				description="";
+				attachmentSlots[]=
+				{
+					"Material_WoodenLogs",
+					"Material_L1_WoodenLogs",
+					"Material_L2_WoodenLogs",
+					"Material_L3_WoodenLogs"
+				};
+				icon="cat_common_cargo";
+				view_index=3;
+			};
+		};
+	};
+
+	class MD_WoodReserve: MD_CraftedItemBase
+	{		
+		scope=2;
+		displayName="Wood Reserver";
+		descriptionShort="Store your logs, sticks, planks, etc.";
+		model="DZ\structures\residential\misc\misc_woodreserve.p3d";
+		itemSize[]={11,5};		
+		itemBehaviour=0;
+		class Cargo
+		{
+			itemsCargoSize[]={10,5};
+			openable=0;
+			allowOwnedCargoManipulation=1;
+		};
+		attachments[]=
+		{
+			"Firewood",
+			"WoodenStick",
+			"Material_L1_WoodenPlanks",
+			"Material_L1W1_WoodenPlanks",
+			"Material_L1W2_WoodenPlanks",
+			"Material_L1W3_WoodenPlanks",
+			"Material_L2_WoodenPlanks",
+			"Material_L2W1_WoodenPlanks",
+			"Material_L2W2_WoodenPlanks",
+			"Material_L2W3_WoodenPlanks",
+			"Material_WoodenLogs",
+			"Material_L1_WoodenLogs",
+			"Material_L2_WoodenLogs",
+			"Material_L3_WoodenLogs"
+		};
+		class GUIInventoryAttachmentsProps
+		{
+			class Firewoodslots
+			{
+				name="Small wood";
+				description="";
+				attachmentSlots[]=
+				{
+					"Firewood",
+					"WoodenStick"
+				};
+				icon="cat_common_cargo";
+				view_index=1;
+			};
+			class WoodenPlankSlots
+			{
+				name="Wooden Planks";
+				description="";
+				attachmentSlots[]=
+				{
+					"Material_WoodenPlanks",
+					"Material_L1_WoodenPlanks",
+					"Material_L1W1_WoodenPlanks",
+					"Material_L1W2_WoodenPlanks",
+					"Material_L1W3_WoodenPlanks",
+					"Material_L2_WoodenPlanks",
+					"Material_L2W1_WoodenPlanks",
+					"Material_L2W2_WoodenPlanks",
+					"Material_L2W3_WoodenPlanks",
+					"Material_L3_WoodenPlanks",
+					"Material_L3W1_WoodenPlanks",
+					"Material_L3W2_WoodenPlanks",
+					"Material_L3W3_WoodenPlanks"
+				};
+				icon="cat_common_cargo";
+				view_index=4;
+			};
+			class WoodenLogsSlots
+			{
+				name="Wooden Logs";
+				description="";
+				attachmentSlots[]=
+				{
+					"Material_WoodenLogs",
+					"Material_L1_WoodenLogs",
+					"Material_L2_WoodenLogs",
+					"Material_L3_WoodenLogs"
+				};
+				icon="cat_common_cargo";
+				view_index=3;
+			};
+		};
+	};
+
+	class MD_WoodBlock: MD_CraftedItemBase
+	{		
+		scope=2;
+		displayName="Wood Block";
+		descriptionShort="A wood block to hold your firewood";
+		model="\DZ\structures\residential\misc\misc_woodblock.p3d";
+		itemSize[]={5,5};		
+		itemBehaviour=0;
+		class Cargo
+		{
+			itemsCargoSize[]={5,5};
+			openable=0;
+			allowOwnedCargoManipulation=1;
+		};
+		attachments[]=
+		{
+			"Firewood"
+		};
+		class GUIInventoryAttachmentsProps
+		{
+			class Firewoodslots
+			{
+				name="Firewood";
+				description="";
+				attachmentSlots[]=
+				{
+					"Firewood"
+				};
+				icon="cat_common_cargo";
+				view_index=1;
+			};
+		};
+	};
+
+	class MD_DogHouse: MD_CraftedItemBase
+	{
+		scope=2;
+		displayName="Dog House";
+		descriptionShort="";
+		model="\DZ\structures\Residential\Misc\Misc_DogHouse.p3d";
+		weight=5000;
+		itemSize[]={5,9};	
+	};
+
+	class MD_FeedRack: MD_CraftedItemBase
+	{
+		scope=2;
+		displayName="Animal feed rack";
+		descriptionShort="";
+		model="\DZ\structures\residential\misc\misc_feedrack.p3d";
+		weight=5000;
+		itemSize[]={5,9};	
+	};
+
+	class MD_HayStack: MD_CraftedItemBase
+	{
+		scope=2;
+		displayName="Haystack";
+		descriptionShort="";
+		model="\DZ\structures\residential\misc\misc_haystack.p3d";
+		weight=5000;
+		itemSize[]={5,9};	
+	};
+
+	
 };

@@ -33,13 +33,13 @@ class Land_MD_Greenhouse : MD_OpenableItem_Base
 
 	override void OnPlacementComplete( Man player )
 	{
-		super.OnPlacementComplete( player );		
-		Open();
+		super.OnPlacementComplete( player );
 	}
 
 	override void SetActions()
 	{
 		super.SetActions();
+		//AddAction(ActionHousePlantSeed);
 	}
 
 	override bool CanPutIntoHands( EntityAI parent )
