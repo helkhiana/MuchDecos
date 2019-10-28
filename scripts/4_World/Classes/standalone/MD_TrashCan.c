@@ -49,34 +49,7 @@ class MD_TrashCan : MD_Item_Kit
         return true;
     }
 
-    void DestroyCargo()
-	{
-		int item_count = 0;
-        ItemBase item;
-        
-        if ( GetInventory().GetCargo() != NULL )
-        {
-            item_count = GetInventory().GetCargo().GetItemCount();    
-            Print("Cargo count is: " + item_count);
-            for ( int i = 1; i <= item_count; i++ )
-            {
-                Print("Attempting to empty: " + i + "/" + item_count);
-                //item = ItemBase.Cast(GetInventory().GetCargoFromIndex(i));
-                Class.CastTo(item, GetInventory().GetCargo().GetItem(i));
-                if(item){
-                    Print("Attempting to empty trash item:" + item.GetType());
-                    InventoryLocation myInvLoc = new InventoryLocation;
-                    if (item.GetInventory().GetCurrentInventoryLocation(myInvLoc))
-                    {
-                        GetGame().ObjectDelete(myInvLoc.GetItem());
-						GetInventory().ClearInventoryReservation( item, myInvLoc );
-                    }
-                }
-            }
-        }
-	}	
-
-     override void SetActions()
+    override void SetActions()
     {
         super.SetActions();        
         AddAction(ActionTrash);

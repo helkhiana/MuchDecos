@@ -77,5 +77,20 @@ class CfgVehicles
 			allowOwnedCargoManipulation=1;
 		};
 	};
+
+	class HouseNoDestruct;
+	class MD_Grave: HouseNoDestruct
+	{
+		scope=2;
+		model="\DZ\structures\specific\cemeteries\cemetery_grave4.p3d";
+		storageCategory=1;
+		lootCategory="Crafted";
+		useEntityHierarchy="true";
+		slopeTolerance=0.30000001;
+		alignHologramToTerain=1;
+		yawPitchRollLimit[]={10,10,10};
+		hologramMaterial="tile";
+		hologramMaterialPath="dz\gear\cultivation\data";
+	};
 	
 };
