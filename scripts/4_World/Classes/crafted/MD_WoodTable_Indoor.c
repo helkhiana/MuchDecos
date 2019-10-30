@@ -1,26 +1,17 @@
-class MD_WoodTable_Indoor : MD_CraftedItemBase
-{	
-	override string Get_MDCraftedItemName()
+class MD_WoodTable_Indoor_Kit : MD_Item_Kit
+{
+    override string Get_MDItemName()
 	{
 		return "MD_WoodTable_Indoor";
-	}
-    override vector Get_MDCraftedItemPos()
+	} 
+	
+	override vector Get_MDItemPos()
 	{
 		return "0 0.30 0";
 	}
 
-    override bool CanPutInCargo( EntityAI parent )
-    {
-        if( !super.CanPutInCargo(parent) ) {return false;}        
-        if ( GetNumberOfItems() == 0)
-        {
-            return false;
-        }
-        return false;
-    } 
-
     static MD_CraftedItemBaseRecipeValues GetRecipeValues()
-    {   
+    {  
         MD_CraftedItemBaseRecipeValues recipeVals = new MD_CraftedItemBaseRecipeValues;
 		recipeVals.SetIngredientOne(0, -1, -20, false, false);
 		recipeVals.SetIngredientTwo(0, -1, -50, false, false);
@@ -29,7 +20,20 @@ class MD_WoodTable_Indoor : MD_CraftedItemBase
         recipeVals.SetIngredientItemOne("WoodenPlank");
         recipeVals.SetIngredientItemTwo("Nail");
 		recipeVals.SetName("Craft Wood Table Indoor");
-		recipeVals.SetResult("MD_WoodTable_Indoor");  
+		recipeVals.SetResult("MD_WoodTable_Indoor_Kit");  
         return recipeVals;
-    } 
+    }
+}
+
+class MD_WoodTable_Indoor : MD_Item
+{	
+	override void Base_Destroy()
+	{
+		GetGame().ObjectDelete( this );
+	} 
+
+    override string Get_KitName()
+	{
+		return "MD_WoodTable_Indoor_Kit";
+	}   
 }

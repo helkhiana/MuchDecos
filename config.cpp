@@ -30,7 +30,7 @@ class CfgMods
         hideName = 1;
         hidePicture = 1;
         name = "MuchDecos";
-        credits = "";
+        credits = "JestAJoke";
         author = "helkhiana";
         authorID = "0";
         version = "0.1";

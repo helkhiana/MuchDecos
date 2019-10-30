@@ -10,14 +10,11 @@ class MD_Greenhouse_Kit : MD_Item_Kit
 		return "Land_MD_Greenhouse";
 	}
 
-	override vector Get_Get_MDItemPos()
+	override vector Get_MDItemPos()
 	{
 		return "0 1.30 0";
 	}
 }
-
-class MD_Greenhouse_Holo : MD_Item_Holo
-{}
 
 class Land_MD_Greenhouse : MD_OpenableItem_Base
 {

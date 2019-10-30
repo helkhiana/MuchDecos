@@ -14,5 +14,6 @@ modded class ActionConstructor
         actions.Insert(ActionOpenBuildingDoors);
         actions.Insert(ActionCloseBuildingDoors);
         actions.Insert(ActionHousePlantSeed);
+        actions.Insert(ActionHouseWaterSlot);
     }
 }

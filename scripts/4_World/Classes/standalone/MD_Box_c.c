@@ -10,9 +10,9 @@ class MD_Box_C : MD_Item_Kit
 		return "MD_Box_C";
 	} 
 
-	override vector Get_Get_MDItemPos()
+	override vector Get_MDItemPos()
 	{
-		return "0 0.5 0";
+		return "0 0.3 0";
 	}  
 
 	override bool CanPutInCargo( EntityAI parent )

@@ -10,14 +10,12 @@ class MD_TentChair_Kit : MD_Item_Kit
 		return "MD_TentChair";
 	} 
 
-	override vector Get_Get_MDItemPos()
+	override vector Get_MDItemPos()
 	{
 		return "0 0.5 0";
 	}  
 }
 
-class MD_TentChair_Holo : MD_Item_Holo
-{}
 
 class MD_TentChair : MD_Item
 {	

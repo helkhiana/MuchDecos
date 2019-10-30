@@ -22,8 +22,9 @@ class ActionHousePlantSeed: ActionSingleUseBase
 	override bool ActionCondition( PlayerBase player, ActionTarget target, ItemBase item )
 	{
 		MD_GardenBase targetObject = MD_GardenBase.Cast( target.GetObject() );			
-		if( targetObject )
+		if( targetObject  )
 		{	
+            Print("fussing");
 			if ( item != NULL && item.GetQuantity() > 0 && targetObject.CanPlantSeed( target.GetComponentIndex() ) )
 			{
 				return true;

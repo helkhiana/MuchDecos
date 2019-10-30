@@ -25,9 +25,6 @@ class MD_Sink_Kit : MD_Item_Kit
 	}
 }
 
-class MD_Sink_Holo: MD_Item_Holo
-{}
-
 class MD_Sink : MD_Item
 {
 	override void Base_Destroy()

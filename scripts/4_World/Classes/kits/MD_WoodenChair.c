@@ -10,14 +10,11 @@ class MD_WoodenChair_Kit : MD_Item_Kit
 		return "MD_WoodenChair";
 	} 
 	
-	override vector Get_Get_MDItemPos()
+	override vector Get_MDItemPos()
 	{
 		return "0 0 0";
 	}
 }
-
-class MD_WoodenChair_Holo : MD_Item_Holo
-{}
 
 class MD_WoodenChair : MD_Item
 {	

@@ -25,6 +25,14 @@ class CfgVehicles
 	class Inventory_Base;
 	class Container_Base;
 	class WoodenCrate;
+	class MD_Kit;
+
+	class MD_Lumber_Kit: MD_Kit
+	{
+		displayName="Lumber Kit";
+		descriptionShort="Place this.";
+		model="\MuchDecos\data\proxies\sneakylumberpileS.p3d";
+	};
 
 	class MD_CraftedItemBase: Inventory_Base
 	{
@@ -64,6 +72,11 @@ class CfgVehicles
 			};
 		};
 	};	
+
+	class MD_Workbench_Kit: MD_Lumber_Kit
+	{
+		displayName="Workbench";
+	};
 
 	class MD_Workbench: MD_CraftedItemBase
 	{		
@@ -177,6 +190,11 @@ class CfgVehicles
 		};
 	};
 
+	class MD_WoodTable_Indoor_Kit: MD_Lumber_Kit
+	{
+		displayName="Wood Table Indoor";
+	};
+
 	class MD_WoodTable_Indoor: MD_CraftedItemBase
 	{
 		scope=2;
@@ -235,6 +253,12 @@ class CfgVehicles
 		model="\DZ\structures\specific\cemeteries\cemetery_smallcross.p3d";
 		weight=5000;
 		itemSize[]={5,9};	
+	};
+
+	
+	class MD_WoodPileLarge_Kit: MD_Lumber_Kit
+	{
+		displayName="Wood Pile Large";
 	};
 
 	class MD_WoodPileLarge: MD_CraftedItemBase
@@ -316,6 +340,11 @@ class CfgVehicles
 			};
 		};
 	};
+	
+	class MD_WoodPileSmall_Kit: MD_Lumber_Kit
+	{
+		displayName="Wood Pile Small";
+	};
 
 	class MD_WoodPileSmall: MD_CraftedItemBase
 	{		
@@ -369,6 +398,11 @@ class CfgVehicles
 				view_index=3;
 			};
 		};
+	};
+
+	class MD_WoodPileMossy_Kit: MD_Lumber_Kit
+	{
+		displayName="Wood Pile Mossy";
 	};
 
 	class MD_WoodPileMossy: MD_CraftedItemBase
@@ -425,10 +459,15 @@ class CfgVehicles
 		};
 	};
 
+	class MD_WoodReserve_Kit: MD_Lumber_Kit
+	{
+		displayName="Wood Reserve";
+	};
+
 	class MD_WoodReserve: MD_CraftedItemBase
 	{		
 		scope=2;
-		displayName="Wood Reserver";
+		displayName="Wood Reserve";
 		descriptionShort="Store your logs, sticks, planks, etc.";
 		model="DZ\structures\residential\misc\misc_woodreserve.p3d";
 		itemSize[]={11,5};		
@@ -544,6 +583,11 @@ class CfgVehicles
 		};
 	};
 
+	class MD_DogHouse_Kit: MD_Lumber_Kit
+	{
+		displayName="Dog House";
+	};
+
 	class MD_DogHouse: MD_CraftedItemBase
 	{
 		scope=2;
@@ -552,6 +596,11 @@ class CfgVehicles
 		model="\DZ\structures\Residential\Misc\Misc_DogHouse.p3d";
 		weight=5000;
 		itemSize[]={5,9};	
+	};
+
+	class MD_FeedRack_Kit: MD_Lumber_Kit
+	{
+		displayName="Animal feed rack";
 	};
 
 	class MD_FeedRack: MD_CraftedItemBase
@@ -572,7 +621,5 @@ class CfgVehicles
 		model="\DZ\structures\residential\misc\misc_haystack.p3d";
 		weight=5000;
 		itemSize[]={5,9};	
-	};
-
-	
+	};	
 };
