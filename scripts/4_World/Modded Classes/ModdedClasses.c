@@ -14,13 +14,33 @@ modded class ItemBase
         return false;
     }
 };
-modded class SeedBase : Inventory_Base
+modded class SeedBase
 {
 	override void SetActions()
 	{
 		super.SetActions();
 		
 		AddAction(ActionHousePlantSeed);
-		AddAction(ActionPlantSeed);
+	}
+};
+
+modded class Bottle_Base
+{
+    override void SetActions()
+	{
+		super.SetActions();
+		RemoveAction(ActionWaterGardenSlot);
+		AddAction(ActionHouseWaterSlot);
+	}
+
+};
+
+modded class WaterBottle
+{
+    override void SetActions()
+	{
+		super.SetActions();
+		RemoveAction(ActionWaterGardenSlot);
+		AddAction(ActionHouseWaterSlot);
 	}
 };

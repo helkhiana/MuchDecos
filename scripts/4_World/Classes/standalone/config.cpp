@@ -26,6 +26,8 @@ class CfgVehicles
 {
 	class BookDeadSouls;
 	class MD_Item;
+	class MD_Kit;
+	class MD_Large_Kit;
 	class MD_Crafting_Book: BookDeadSouls
 	{
 		scope=2;
@@ -38,7 +40,7 @@ class CfgVehicles
 		itemSize[]={1,2};
 		hiddenSelectionsTextures[]=
 		{
-			"\MuchDecos\data\book_crafting_guide_texture.paa"
+			"\MuchDecos\data\book\book_crafting_guide_texture.paa"
 		};
 		hiddenSelections[]=
 		{
@@ -61,8 +63,6 @@ class CfgVehicles
 			allowOwnedCargoManipulation=1;
 		};
 	};
-
-	
 
 	class MD_TrashCan: MD_Item
 	{		
@@ -91,6 +91,46 @@ class CfgVehicles
 		yawPitchRollLimit[]={10,10,10};
 		hologramMaterial="tile";
 		hologramMaterialPath="dz\gear\cultivation\data";
+	};
+
+	class MD_Small_WoodBox: MD_Kit
+	{
+		
+		displayName="Small Wooden Box";
+		descriptionShort="Small box used to transport goods.";
+		model="\MuchDecos\data\kitbox\kitbox_small.p3d";
+		itemSize[]={8,6};
+		physLayer="item_large";	
+		hiddenSelectionsTextures[]=
+		{
+			"\MuchDecos\data\kitbox\woodbox_o.paa"
+		};
+		class Cargo
+		{
+			itemsCargoSize[]={10,30};
+			openable=0;
+			allowOwnedCargoManipulation=1;
+		};
+	};
+
+	class MD_Large_WoodBox: MD_Large_Kit
+	{
+		
+		displayName="Large Wooden Box";
+		descriptionShort="Large box used to transport goods.";
+		model="\MuchDecos\data\kitbox\kitbox_large.p3d";	
+		itemSize[]={8,6};
+		physLayer="item_large";		
+		hiddenSelectionsTextures[]=
+		{
+			"\MuchDecos\data\kitbox\woodbox_o.paa"
+		};
+		class Cargo
+		{
+			itemsCargoSize[]={10,30};
+			openable=0;
+			allowOwnedCargoManipulation=1;
+		};
 	};
 	
 };

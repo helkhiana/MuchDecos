@@ -10,14 +10,11 @@ class MD_Stand_Grocery_Kit : MD_Item_Kit
 		return "Land_MD_Stand_Grocery";
 	}
 
-	override vector Get_Get_MDItemPos()
+	override vector Get_MDItemPos()
 	{
-		return "0 1.9 0";
+		return "0 1.7 0";
 	}
 }
-
-class MD_Stand_Grocery_Holo : MD_Item_Holo
-{}
 
 class Land_MD_Stand_Grocery : MD_OpenableItem_Base
 {	

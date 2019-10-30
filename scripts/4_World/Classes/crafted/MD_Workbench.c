@@ -1,4 +1,31 @@
-class MD_Workbench : MD_CraftedItemBase
+class MD_Workbench_Kit : MD_Item_Kit
+{
+    override string Get_MDItemName()
+	{
+		return "MD_Workbench";
+	} 
+	
+	override vector Get_MDItemPos()
+	{
+		return "0 0.5 0";
+	}
+
+    static MD_CraftedItemBaseRecipeValues GetRecipeValues()
+    {  
+        MD_CraftedItemBaseRecipeValues recipeVals = new MD_CraftedItemBaseRecipeValues;
+		recipeVals.SetIngredientOne(0, -1, -10, false, false);
+		recipeVals.SetIngredientTwo(0, -1, -30, false, false);
+        recipeVals.SetMinMaxIngredientOne(-1, -1, 10,	-1);
+        recipeVals.SetMinMaxIngredientTwo(-1, -1, 30,	-1);
+        recipeVals.SetIngredientItemOne("WoodenPlank");
+        recipeVals.SetIngredientItemTwo("Nail");
+		recipeVals.SetName("Craft Workbench");
+		recipeVals.SetResult("MD_Workbench_Kit");  
+        return recipeVals;
+    }
+}
+
+class MD_Workbench : MD_Item
 {    
     ItemBase MD_Firewood_Slot;
     ItemBase MD_Body_Slot;
@@ -51,14 +78,15 @@ class MD_Workbench : MD_CraftedItemBase
 		MD_Stones_Slot = ItemBase.Cast( GetInventory().FindAttachment(slot_id) ); 
     }
 
-	override string Get_MDCraftedItemName()
+	override void Base_Destroy()
 	{
-		return "MD_Workbench";
-	}
-    override vector Get_MDCraftedItemPos()
+		GetGame().ObjectDelete( this );
+	} 
+
+    override string Get_KitName()
 	{
-		return "0 0.5 0";
-	}
+		return "MD_WoodTable_Indoor_Kit";
+	} 
 
     bool IsInvEmpty()
 	{   
@@ -257,33 +285,5 @@ class MD_Workbench : MD_CraftedItemBase
             MD_Material_MetalSheets_Slot.SetQuantity(MD_Material_MetalSheets_Slot.GetQuantity() - metalsheets);
         if(MD_Stones_Slot)
             MD_Stones_Slot.SetQuantity(MD_Stones_Slot.GetQuantity() - stones);        
-	} 
-
-
-    override bool CanPutInCargo( EntityAI parent )
-    {
-        if( !super.CanPutInCargo(parent) ) {return false;}        
-        if ( GetNumberOfItems() == 0)
-        {
-            return false;
-        }
-        return false;
-    }
-
-    override bool CanPutIntoHands(EntityAI parent)
-	{
-		if( !super.CanPutIntoHands( parent ) )
-		{
-			return false;
-		}
-		return IsInvEmpty();
-		 
 	}
-
-    override void SetActions()
-    {
-        super.SetActions();
-        AddAction(ActionTogglePlaceObject);
-		AddAction(ActionPlaceObject);
-    }
 }

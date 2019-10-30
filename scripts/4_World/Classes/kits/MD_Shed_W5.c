@@ -10,14 +10,11 @@ class MD_Shed_W5_Kit : MD_Item_Kit
 		return "Land_MD_Shed_W5";
 	}
 
-	override vector Get_Get_MDItemPos()
+	override vector Get_MDItemPos()
 	{
 		return "0 1.5 0";
 	}
 }
-
-class MD_Shed_W5_Holo : MD_Item_Holo
-{}
 
 class Land_MD_Shed_W5 : MD_OpenableItem_Base
 {	

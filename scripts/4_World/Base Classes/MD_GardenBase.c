@@ -313,11 +313,8 @@ class MD_GardenBase : MD_OpenableItem_Base
 			slot.m_PlantType = plant_type;
 			slot.SetSeed(seed);
 			slot.SetSlotComponent(selection_component);
-			
-			if ( !slot.NeedsWater() )
-			{
-				CreatePlant(slot);
-			}
+			Print("not needing water");
+			CreatePlant(slot);
 		}
 	}
 	
@@ -563,13 +560,11 @@ class MD_GardenBase : MD_OpenableItem_Base
 
 	Slot GetSlotBySlotName( string slot_name )
 	{
-		
 		if (slot_name.Length() > 0)
 		{
 			int length = slot_name.Length();
-			Print("slot name length: " + length);
-			string num_str = slot_name.Substring(9,length);
-			Print("num_str for slot is " + num_str);
+			int end = slot_name.Length() - 9;
+			string num_str = slot_name.Substring(9,end);
 			int slot_index = num_str.ToInt();
 			
 			slot_index = slot_index - 1;
@@ -799,7 +794,6 @@ class MD_GardenBase : MD_OpenableItem_Base
 	override void SetActions()
 	{
 		super.SetActions();
-		AddAction(ActionHousePlantSeed);
 	}
 
 };

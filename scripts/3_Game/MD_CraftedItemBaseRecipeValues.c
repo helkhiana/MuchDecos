@@ -23,7 +23,7 @@ class MD_CraftedItemBaseRecipeValues
 	float   g_setHealthResult 	        = -1;
 	float   g_inheritsHealthResult 	    = -1;
 	float   g_inheritsColorResult 	    = -1;
-	float   g_resultToInvResult       	= -1;
+	float   g_resultToInvResult       	= -2;
 	bool    g_useSoftSkillResult	    = false;
 	float   g_replaceIngredientResult 	= -1;
 

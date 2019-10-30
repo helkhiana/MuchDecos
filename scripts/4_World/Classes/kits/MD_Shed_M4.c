@@ -10,14 +10,11 @@ class MD_Shed_M4_Kit : MD_Item_Kit
 		return "MD_Shed_M4";
 	} 
 
-	override vector Get_Get_MDItemPos()
+	override vector Get_MDItemPos()
 	{
-		return "0 1.30 0";
+		return "0 1.1 0";
 	}
 }
-
-class MD_Shed_M4_Holo : MD_Item_Holo
-{}
 
 class MD_Shed_M4 : MD_Item
 {	

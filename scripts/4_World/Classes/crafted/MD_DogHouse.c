@@ -1,23 +1,14 @@
-class MD_DogHouse : MD_CraftedItemBase
-{	
-	override string Get_MDCraftedItemName()
+class MD_DogHouse_Kit : MD_Item_Kit
+{
+    override string Get_MDItemName()
 	{
 		return "MD_DogHouse";
-	}
-    override vector Get_MDCraftedItemPos()
+	} 
+	
+	override vector Get_MDItemPos()
 	{
 		return "0 0.90 0";
 	}
-
-    override bool CanPutInCargo( EntityAI parent )
-    {
-        if( !super.CanPutInCargo(parent) ) {return false;}        
-        if ( GetNumberOfItems() == 0)
-        {
-            return false;
-        }
-        return false;
-    } 
 
     static MD_CraftedItemBaseRecipeValues GetRecipeValues()
     {   
@@ -28,8 +19,22 @@ class MD_DogHouse : MD_CraftedItemBase
         recipeVals.SetMinMaxIngredientTwo(-1, -1, 3,	-1);
         recipeVals.SetIngredientItemOne("MetalPlate");
         recipeVals.SetIngredientItemTwo("WoodenPlank");
-		recipeVals.SetName("Craft Dog House");
-		recipeVals.SetResult("MD_DogHouse");  
+		recipeVals.SetName("Craft Dog House kit");
+		recipeVals.SetResult("MD_DogHouse_Kit");  
         return recipeVals;
-    } 
+    }
+}
+
+
+class MD_DogHouse : MD_Item
+{	
+	override void Base_Destroy()
+	{
+		GetGame().ObjectDelete( this );
+	} 
+
+    override string Get_KitName()
+	{
+		return "MD_DogHouse_Kit";
+	}   
 }

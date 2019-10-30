@@ -40,7 +40,7 @@ class CfgVehicles
 		canBeDigged=0;
 		heavyItem=1;
 		weight=10;
-		itemSize[]={5,3};
+		itemSize[]={10,10};
 		itemBehaviour=1;
 		physLayer="item_large";
 		lootTag[]=
@@ -72,18 +72,18 @@ class CfgVehicles
 	class MD_Kit: WoodenCrate
 	{
 		scope=2;
-		displayName="A Kit";		
-		descriptionShort="Dismantle with screwdriver.";
-		model="\MuchDecos\data\amazonbox\amazonboxkit.p3d";		
+		displayName="Wooden Box Kit";
+		descriptionShort="Small wooden box used to transport small items.";
+		model="\MuchDecos\data\kitbox\kitbox_small.p3d";		
 		hiddenSelectionsTextures[]=
 		{
-			"\MuchDecos\data\amazonbox\textures\amazonboxkit.paa"
+			"\MuchDecos\data\kitbox\woodbox_o.paa"
 		};
 		itemSize[]={8,6};
 		carveNavmesh=1;
 		canBeDigged=0;
 		simulation="inventoryItem";
-		physLayer="item_small";
+		physLayer="item_large";
 		rotationFlags=2;
 		InteractActions[]={};
 		weight=300;
@@ -200,8 +200,18 @@ class CfgVehicles
 			"camoGround"
 		};
 	};
+	
+	class MD_Large_Kit: MD_Kit
+	{
+		displayName="Large Kit";
+		model="\MuchDecos\data\kitbox\kitbox_large.p3d";		
+		hiddenSelectionsTextures[]=
+		{
+			"\MuchDecos\data\kitbox\woodbox_o.paa"
+		};
+	};
 
-	class MD_NewsStand2_Kit: MD_Kit
+	class MD_NewsStand2_Kit: MD_Large_Kit
 	{
 		displayName="News stand green";
 	};
@@ -276,7 +286,7 @@ class CfgVehicles
 			};
 		};
 	};
-	class MD_Shed_M4_Kit: MD_Kit
+	class MD_Shed_M4_Kit: MD_Large_Kit
 	{
 		displayName="Metal Shed kit";
 	};
@@ -294,7 +304,7 @@ class CfgVehicles
 		};
 	};
 
-	class MD_Greenhouse_Kit: MD_Kit
+	class MD_Greenhouse_Kit: MD_Large_Kit
 	{
 		displayName="Greenhouse kit";
 	};
@@ -597,7 +607,7 @@ class CfgVehicles
 		model="\DZ\structures\furniture\chairs\kitchen_chair_a\kitchen_chair_a.p3d";
 	};
 	
-	class MD_Power_Transformer_Kit: MD_Kit
+	class MD_Power_Transformer_Kit: MD_Large_Kit
 	{
 		displayName="Power Transformer";
 	};
@@ -755,7 +765,7 @@ class CfgVehicles
 		};
 	};
 
-	class MD_Polytunnel_Kit: MD_Kit
+	class MD_Polytunnel_Kit: MD_Large_Kit
 	{
 		displayName="Polytunnel kit";
 	};
@@ -1235,7 +1245,7 @@ class CfgVehicles
 	};
 
 
-	class MD_Shed_W5_Kit: MD_Kit
+	class MD_Shed_W5_Kit: MD_Large_Kit
 	{
 		displayName="Man cave kit";
 	};
@@ -1312,7 +1322,7 @@ class CfgVehicles
 	};
 
 
-	class MD_Stand_Grocery_Kit: MD_Kit
+	class MD_Stand_Grocery_Kit: MD_Large_Kit
 	{
 		displayName="Grocery stand kit";
 	};
@@ -1386,8 +1396,5 @@ class CfgVehicles
 				soundOpenABit="doorWoodSmallOpenABit";				
 			};
 		};
-	};
-
-
-	
+	};	
 };

@@ -10,14 +10,11 @@ class MD_NewsStand2_Kit : MD_Item_Kit
 		return "Land_MD_NewsStand2";
 	}
 
-	override vector Get_Get_MDItemPos()
+	override vector Get_MDItemPos()
 	{
 		return "0 1.45 0";
 	}
 }
-
-class MD_NewsStand2_Holo : MD_Item_Holo
-{}
 
 class Land_MD_NewsStand2 : MD_OpenableItem_Base
 {	

@@ -10,14 +10,11 @@ class MD_Power_Transformer_Kit : MD_Item_Kit
 		return "MD_Power_Transformer";
 	} 
 
-	override vector Get_Get_MDItemPos()
+	override vector Get_MDItemPos()
 	{
 		return "0 1.75 0";
 	}  
 }
-
-class MD_Power_Transformer_Holo : MD_Item_Holo
-{}
 
 class MD_Power_Transformer : PowerGenerator
 {	

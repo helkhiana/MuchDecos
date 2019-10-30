@@ -1,26 +1,17 @@
-class MD_WoodPileSmall : MD_CraftedItemBase
-{	
-	override string Get_MDCraftedItemName()
+class MD_WoodPileSmall_Kit : MD_Item_Kit
+{
+    override string Get_MDItemName()
 	{
 		return "MD_WoodPileSmall";
-	}
-    override vector Get_MDCraftedItemPos()
+	} 
+	
+	override vector Get_MDItemPos()
 	{
 		return "0 0.30 0";
 	}
 
-    override bool CanPutInCargo( EntityAI parent )
-    {
-        if( !super.CanPutInCargo(parent) ) {return false;}        
-        if ( GetNumberOfItems() == 0)
-        {
-            return false;
-        }
-        return false;
-    } 
-
     static MD_CraftedItemBaseRecipeValues GetRecipeValues()
-    {   
+    {  
         MD_CraftedItemBaseRecipeValues recipeVals = new MD_CraftedItemBaseRecipeValues;
 		recipeVals.SetIngredientOne(0, -1, 0, false, false);
 		recipeVals.SetIngredientTwo(0, -1, -3, false, false);
@@ -29,7 +20,21 @@ class MD_WoodPileSmall : MD_CraftedItemBase
         recipeVals.SetIngredientItemOne("WoodAxe");
         recipeVals.SetIngredientItemTwo("WoodenLog");
 		recipeVals.SetName("Craft Wood Pile Small");
-		recipeVals.SetResult("MD_WoodPileSmall");  
+		recipeVals.SetResult("MD_WoodPileSmall_Kit");  
         return recipeVals;
-    } 
+    }
+}
+
+
+class MD_WoodPileSmall : MD_Item
+{	
+	override void Base_Destroy()
+	{
+		GetGame().ObjectDelete( this );
+	} 
+
+    override string Get_KitName()
+	{
+		return "MD_WoodPileSmall_Kit";
+	}   
 }

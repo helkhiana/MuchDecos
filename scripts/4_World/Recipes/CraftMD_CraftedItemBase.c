@@ -30,7 +30,7 @@ class CraftMD_CraftedItemBase extends RecipeBase
 	float   setHealthResult 	        = -1;
 	float   inheritsHealthResult 	    = -1;
 	float   inheritsColorResult 	    = -1;
-	float   resultToInvResult       	= -1;
+	float   resultToInvResult       	= -2;
 	bool    useSoftSkillResult	    	= false;
 	float   replaceIngredientResult 	= -1;
 

@@ -10,7 +10,7 @@ class MD_Polytunnel_Kit : MD_Item_Kit
 		return "Land_MD_Polytunnel";
 	}
 
-	override vector Get_Get_MDItemPos()
+	override vector Get_MDItemPos()
 	{
 		return "0 1.30 0";
 	}
