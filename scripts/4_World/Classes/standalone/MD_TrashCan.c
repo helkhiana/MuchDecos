@@ -54,4 +54,4 @@ class MD_TrashCan : MD_Item_Kit
         super.SetActions();        
         AddAction(ActionTrash);
     }
-}
+};

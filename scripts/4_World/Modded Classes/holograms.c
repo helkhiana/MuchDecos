@@ -1,28 +1,70 @@
 modded class Hologram
 {	
+	override void UpdateHologram( float timeslice )
+	{		
+		if ( !m_Parent )
+		{
+			GetGame().GetCallQueue(CALL_CATEGORY_SYSTEM).Call(m_Player.TogglePlacingLocal);
+			
+			return
+		}
+		
+		if ( m_Player.IsSwimming() || m_Player.IsClimbingLadder() || m_Player.IsRaised() || m_Player.IsClimbing() )
+		{
+			GetGame().GetCallQueue(CALL_CATEGORY_SYSTEM).Call(m_Player.TogglePlacingLocal);
+			
+			return
+		}
+		
+		EvaluateCollision();
+		RefreshTrigger();
+		CheckPowerSource();	
+		RefreshVisual();
+
+		if ( !GetUpdatePosition() )
+		{
+			return;
+		} 
+
+		MD_CraftedItemBase craftedItem = MD_CraftedItemBase.Cast( m_Player.GetHumanInventory().GetEntityInHands() );
+		if(craftedItem){
+			vector pos = GetProjectionEntityPosition( m_Player ) + craftedItem.Get_MDCraftedItemPos();
+			SetProjectionPosition( pos );
+			SetProjectionOrientation( AlignProjectionOnTerrain( timeslice ) );		
+			m_Projection.OnHologramBeingPlaced( m_Player );
+		}
+
+		MD_Item_Kit mdItemKit = MD_Item_Kit.Cast( m_Player.GetHumanInventory().GetEntityInHands() );
+		if(mdItemKit){
+			vector mdItemKitPos = GetProjectionEntityPosition( m_Player ) + mdItemKit.Get_MDItemPos();
+			SetProjectionPosition( mdItemKitPos );
+			SetProjectionOrientation( AlignProjectionOnTerrain( timeslice ) );		
+			m_Projection.OnHologramBeingPlaced( m_Player );
+		}else
+		{
+			SetProjectionPosition( GetProjectionEntityPosition( m_Player ) );
+			SetProjectionOrientation( AlignProjectionOnTerrain( timeslice ) );		
+			m_Projection.OnHologramBeingPlaced( m_Player );
+		}
+		
+	}
+
+
 	override string ProjectionBasedOnParent()
 	{
 		ItemBase fieldShovel_in_hands = ItemBase.Cast( m_Player.GetHumanInventory().GetEntityInHands() );
-
         if ( fieldShovel_in_hands && fieldShovel_in_hands.CanMakeMD_Grave() )
         {
             return "MD_Grave";
 		}
 
 		MD_CraftedItemBase craftedItem = MD_CraftedItemBase.Cast( m_Player.GetHumanInventory().GetEntityInHands() );
-		
 		if ( craftedItem )
 		{
 			return craftedItem.Get_MDCraftedItemName();
 		}
 
 		MD_Item_Kit item_in_hands = MD_Item_Kit.Cast( m_Player.GetHumanInventory().GetEntityInHands() );
-
-		if (item_in_hands && item_in_hands.IsInherited( MD_Sink_Kit ))
-		{
-			return "MD_Sink";
-		}
-
 		if ( item_in_hands )
 		{
 			return item_in_hands.Get_MDItemName();

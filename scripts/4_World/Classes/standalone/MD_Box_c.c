@@ -38,4 +38,4 @@ class MD_Box_C : MD_Item_Kit
 		}
 		return false;
 	}
-}
+};

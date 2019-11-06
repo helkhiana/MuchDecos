@@ -115,7 +115,7 @@ class MD_GardenBase : MD_OpenableItem_Base
 	
 	private static const int 	CHECK_RAIN_INTERVAL 			= 15;
 	
-	protected ref array<ref Slot> m_Slots;
+	protected ref array<ref MD_Slot> m_Slots;
 	protected float m_DefaultFertility = 1;
 	ref Timer 		m_CheckRainTimer;
 	
@@ -133,7 +133,7 @@ class MD_GardenBase : MD_OpenableItem_Base
 	
 	float GetBaseFertility()
 	{
-		return 2;
+		return 5;
 	}
 	
 	override void EOnInit(IEntity other, int extra)
@@ -144,19 +144,19 @@ class MD_GardenBase : MD_OpenableItem_Base
 
 	void InitializeSlots()
 	{
-		m_Slots = new array<ref Slot>;
+		m_Slots = new array<ref MD_Slot>;
 		int slots_count = GetGardenSlotsCount();
 		
 		for ( int i = 0; i < slots_count; i++ )
 		{
-			Slot slot = new Slot(GetBaseFertility());
+			MD_Slot slot = new MD_Slot(GetBaseFertility());
 			slot.SetSlotIndex(i);
 			int i1 = i + 1;
 			string name = "SeedBase_" + i1;
 			int slot_id = InventorySlots.GetSlotIdFromString(name);
 			
 			slot.SetSlotId(slot_id);
-			slot.SetMDGarden(this);
+			slot.SetGarden(this);
 			slot.m_State = Slot.STATE_DIGGED;
 			m_Slots.Insert( slot );
 		}
@@ -187,7 +187,7 @@ class MD_GardenBase : MD_OpenableItem_Base
 		
 		for ( int i = 0; i < slots_count; i++ )
 		{
-			Slot slot = m_Slots.Get( i );
+			MD_Slot slot = m_Slots.Get( i );
 
 			if ( !slot.OnStoreLoadCustom( ctx, version ) )
 				return false;
@@ -208,7 +208,7 @@ class MD_GardenBase : MD_OpenableItem_Base
 		
 		for ( int i = 0; i < slots_count; i++ )
 		{
-			Slot slot = m_Slots.Get( i );
+			MD_Slot slot = m_Slots.Get( i );
 			
 			slot.OnStoreSaveCustom( ctx );
 		}
@@ -216,7 +216,7 @@ class MD_GardenBase : MD_OpenableItem_Base
 
 	bool CanPlantSeed( int selection_component )
 	{
-		Slot slot = GetSlotBySelectionIndex( selection_component );
+		MD_Slot slot = GetSlotBySelectionIndex( selection_component );
 		if ( slot != NULL)
 		{
 			if(slot.m_State == Slot.STATE_DIGGED )
@@ -289,7 +289,7 @@ class MD_GardenBase : MD_OpenableItem_Base
 		if ( IsItemSeed ) 
 		{
 			string converted_slot_name = ConvertAttSlotToPlantSlot(slot_name);
-			Slot slot = GetSlotBySelection(converted_slot_name);
+			MD_Slot slot = GetSlotBySelection(converted_slot_name);
 			
 			if (slot)
 			{
@@ -302,7 +302,7 @@ class MD_GardenBase : MD_OpenableItem_Base
 	// Plants the seed into slot (selection_component)
 	void PlantSeed( ItemBase seed, string selection_component )
 	{
-		Slot slot = GetSlotBySlotName( selection_component );
+		MD_Slot slot = GetSlotBySlotName( selection_component );
 		
 		if ( slot != null )
 		{
@@ -313,31 +313,33 @@ class MD_GardenBase : MD_OpenableItem_Base
 			slot.m_PlantType = plant_type;
 			slot.SetSeed(seed);
 			slot.SetSlotComponent(selection_component);
-			Print("not needing water");
-			CreatePlant(slot);
+			if ( !slot.NeedsWater() )
+			{
+				CreatePlant(slot);
+			}
 		}
 	}
 	
 	// Creates a plant
-	void CreatePlant(Slot slot )
+	void CreatePlant(MD_Slot slot )
 	{
 		ItemBase seed = slot.GetSeed();
 		GetGame().ObjectDelete(seed);
 
-		PlantBase plant = PlantBase.Cast( GetInventory().CreateAttachmentEx( slot.m_PlantType, slot.GetSlotId()) );
+		MD_PlantBase plant = MD_PlantBase.Cast( GetInventory().CreateAttachmentEx( slot.m_PlantType, slot.GetSlotId()) );
 		
 		int slot_index = slot.GetSlotIndex();
 		slot.SetPlant(plant);
 		slot.m_State = Slot.STATE_PLANTED;
-		plant.Init( null, slot.GetFertility(), slot.m_HarvestingEfficiency, slot.GetWater() );
+		plant.Init( this, slot.GetFertility(), slot.m_HarvestingEfficiency, slot.GetWater() );
 		ShowSelection(SLOT_SELECTION_COVERED_PREFIX + (slot_index + 1).ToStringLen(2));
 				
 		plant.LockToParent();
 	}
 		
-	void Fertilize( PlayerBase player, ItemBase item, float consumed_quantity, string selection_component )
+	void Fertilize( PlayerBase player, ItemBase item, float consumed_quantity, int selection_component )
 	{
-		Slot slot = GetSlotBySelection( selection_component );
+		MD_Slot slot = GetSlotBySelectionIndex( selection_component );
 		
 		if ( slot != NULL )
 		{
@@ -380,7 +382,7 @@ class MD_GardenBase : MD_OpenableItem_Base
 
 	bool IsCorrectFertilizer( ItemBase item, string selection_component )
 	{
-		Slot slot = GetSlotBySelection( selection_component );
+		MD_Slot slot = GetSlotBySelection( selection_component );
 		
 		if ( slot != NULL )
 		{
@@ -395,9 +397,9 @@ class MD_GardenBase : MD_OpenableItem_Base
 		return false;
 	}
 
-	bool NeedsFertilization( string selection_component )
+	bool NeedsFertilization( int selection_component )
 	{
-		Slot slot = GetSlotBySelection( selection_component );
+		MD_Slot slot = GetSlotBySelectionIndex( selection_component );
 		
 		if ( slot )
 		{
@@ -413,7 +415,7 @@ class MD_GardenBase : MD_OpenableItem_Base
 	void UpdateSlotTexture( int slot_index )
 	{
 		// TO DO: Fix DAYZ-30633 here!
-		Slot slot = m_Slots.Get( slot_index );
+		MD_Slot slot = m_Slots.Get( slot_index );
 		
 		// Show / Hide selections according to DIGGED or COVERED states.
 		
@@ -446,7 +448,7 @@ class MD_GardenBase : MD_OpenableItem_Base
 		string texture = textures.Get(0);
 		SetObjectTexture( slot_index, texture );
 		
-		Slot slot = m_Slots.Get( slot_index );
+		MD_Slot slot = m_Slots.Get( slot_index );
 		
 		if ( slot.NeedsWater() )
 		{
@@ -471,7 +473,7 @@ class MD_GardenBase : MD_OpenableItem_Base
 		ShowSelection( str_show );
 		SetObjectTexture( slot_index, textures.Get(tex_id) );
 		
-		Slot slot = m_Slots.Get( slot_index );
+		MD_Slot slot = m_Slots.Get( slot_index );
 		
 		int slot_index_offset = 0;
 		
@@ -506,8 +508,8 @@ class MD_GardenBase : MD_OpenableItem_Base
 	{
 		if ( m_Slots != NULL )
 		{	
-			Slot slot = m_Slots.Get( index );
-			PlantBase plant = slot.GetPlant();
+			MD_Slot slot = m_Slots.Get( index );
+			MD_PlantBase plant = slot.GetPlant();
 			
 			if ( plant )
 			{
@@ -531,7 +533,7 @@ class MD_GardenBase : MD_OpenableItem_Base
 		}
 	}
 
-	Slot GetSlotBySelection( string selection_component )
+	MD_Slot GetSlotBySelection( string selection_component )
 	{
 		int slot_index = GetSlotIndexBySelection( selection_component );
 		if ( slot_index > -1 )
@@ -544,7 +546,7 @@ class MD_GardenBase : MD_OpenableItem_Base
 		}
 	}
 
-	Slot GetSlotBySelectionIndex( int selection_index )
+	MD_Slot GetSlotBySelectionIndex( int selection_index )
 	{
 		int slot_index = selection_index - 37;
 		if ( slot_index > -1 )
@@ -558,7 +560,7 @@ class MD_GardenBase : MD_OpenableItem_Base
 	}
 
 
-	Slot GetSlotBySlotName( string slot_name )
+	MD_Slot GetSlotBySlotName( string slot_name )
 	{
 		if (slot_name.Length() > 0)
 		{
@@ -632,7 +634,7 @@ class MD_GardenBase : MD_OpenableItem_Base
 		{
 			for ( int i = 0; i < m_Slots.Count(); i++ )
 			{
-				PlantBase found_plant = m_Slots.Get(i).GetPlant();
+				MD_PlantBase found_plant = m_Slots.Get(i).GetPlant();
 				
 				if ( found_plant == plant )
 				{
@@ -653,7 +655,7 @@ class MD_GardenBase : MD_OpenableItem_Base
 		for ( int i = 0; i < slots_count; i++ )
 		{
 			Print(i);
-			Slot slot = m_Slots.Get(i); // Move this line by a scope higher in this function after debugging
+			MD_Slot slot = m_Slots.Get(i); // Move this line by a scope higher in this function after debugging
 			
 			if (slot)
 			{
@@ -691,13 +693,11 @@ class MD_GardenBase : MD_OpenableItem_Base
 		Print(this);
 		Container_Base gardenItemBase = Container_Base.Cast(this);
 		Print(gardenItemBase);
-		int slots = gardenItemBase.GetInventory().GetAttachmentSlotsCount();	
-
-		Print(slots);
+		int slots = gardenItemBase.GetInventory().GetAttachmentSlotsCount();
 		
 		for ( int i = 0; i < slots ; i++ )
 		{
-			Slot slot = m_Slots.Get(i);
+			MD_Slot slot = m_Slots.Get(i);
 			Print(i);
 			Print(slot);
 
@@ -757,11 +757,11 @@ class MD_GardenBase : MD_OpenableItem_Base
 			{
 				if (m_Slots)
 				{
-					Slot slot = m_Slots.Get( i );
+					MD_Slot slot = m_Slots.Get( i );
 					
 					if (slot)
 					{
-						PlantBase plant = slot.GetPlant();
+						MD_PlantBase plant = slot.GetPlant();
 						
 						if (plant)
 						{
@@ -781,12 +781,12 @@ class MD_GardenBase : MD_OpenableItem_Base
 		}
 	}
 	
-	array<ref Slot> GetSlots()
+	array<ref MD_Slot> GetSlots()
 	{
 		return m_Slots;
 	}
 	
-	Slot GetSlotByIndex( int index )
+	MD_Slot GetSlotByIndex( int index )
 	{
 		return m_Slots.Get(index);
 	}
@@ -794,6 +794,7 @@ class MD_GardenBase : MD_OpenableItem_Base
 	override void SetActions()
 	{
 		super.SetActions();
+		AddAction(ActionHouseWaterSlot);
 	}
 
 };

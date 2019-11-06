@@ -1,8 +1,8 @@
-class MD_TentChair_Kit : MD_Item_Kit
+class MD_KitchenTable_Kit : MD_Item_Kit
 {	
 	override string Get_MDItemName()
 	{
-		return "MD_TentChair";
+		return "MD_KitchenTable";
 	} 
 
 	override vector Get_MDItemPos()
@@ -12,7 +12,7 @@ class MD_TentChair_Kit : MD_Item_Kit
 };
 
 
-class MD_TentChair : MD_Item
+class MD_KitchenTable : MD_Item
 {	
 	override void Base_Destroy()
 	{
@@ -21,6 +21,6 @@ class MD_TentChair : MD_Item
 
 	override string Get_KitName()
 	{
-		return "MD_TentChair_Kit";
+		return "MD_KitchenTable_Kit";
 	}
 };

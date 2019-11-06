@@ -38,6 +38,7 @@ class CfgVehicles
 		overrideDrawArea="3.0";
 		visibilityModifier=0.94999999;
 		canBeDigged=0;
+		alignHologramToTerain=1;
 		heavyItem=1;
 		weight=10;
 		itemSize[]={10,10};
@@ -53,9 +54,6 @@ class CfgVehicles
 		};
 		class Cargo
 		{
-			itemsCargoSize[]={1,1};
-			openable=0;
-			allowOwnedCargoManipulation=1;
 		};
 		class DamageSystem
 		{
@@ -73,7 +71,7 @@ class CfgVehicles
 	{
 		scope=2;
 		displayName="Wooden Box Kit";
-		descriptionShort="Small wooden box used to transport small items.";
+		descriptionShort="Small wooden box used to transport small items. Place to deploy item inside.";
 		model="\MuchDecos\data\kitbox\kitbox_small.p3d";		
 		hiddenSelectionsTextures[]=
 		{
@@ -220,6 +218,7 @@ class CfgVehicles
 		scope=2;
 		displayName="News stand";
 		descriptionShort="News stand";
+		alignHologramToTerain=1;
 		model="\DZ\structures\residential\stores\city_stand_news2.p3d";
 		class AnimationSources
 		{
@@ -1396,5 +1395,125 @@ class CfgVehicles
 				soundOpenABit="doorWoodSmallOpenABit";				
 			};
 		};
-	};	
+	};
+
+	class MD_PostBox_Kit: MD_Kit
+	{
+		displayName="Postbox kit";
+	};
+	class MD_PostBox: MD_Item
+	{		
+		scope=2;
+		displayName="Postbox";
+		descriptionShort="";
+		model="\DZ\structures\residential\misc\misc_postbox1.p3d";
+		class Cargo
+		{
+			itemsCargoSize[]={5,5};
+			openable=0;
+			allowOwnedCargoManipulation=1;
+		};
+	};
+
+	class MD_PostBoxWall_Kit: MD_Kit
+	{
+		displayName="Wall Postbox kit";
+	};
+	class MD_PostBoxWall: MD_Item
+	{		
+		scope=2;
+		displayName="Wall Postbox";
+		descriptionShort="";
+		model="\DZ\structures\residential\misc\misc_postbox2.p3d";
+		class Cargo
+		{
+			itemsCargoSize[]={5,5};
+			openable=0;
+			allowOwnedCargoManipulation=1;
+		};
+	};
+	
+	class MD_BlueBench_Kit: MD_Kit
+	{
+		displayName="Blue Bench kit";
+	};
+	class MD_BlueBench: MD_Item
+	{		
+		scope=2;
+		displayName="Blue Bench";
+		descriptionShort="";
+		model="\DZ\structures\residential\misc\misc_bench1.p3d";
+	};
+	
+	class MD_Sunshade_Kit: MD_Kit
+	{
+		displayName="Sunshade kit";
+	};
+	class MD_Sunshade: MD_Item
+	{		
+		scope=2;
+		displayName="Sunshade";
+		descriptionShort="";
+		model="\DZ\structures\residential\misc\misc_sunshade.p3d";
+	};
+	
+	class MD_KitchenTable_Kit: MD_Kit
+	{
+		displayName="Kitchen Table kit";
+	};
+	class MD_KitchenTable: MD_Item
+	{		
+		scope=2;
+		displayName="Kitchen Table";
+		descriptionShort="";
+		model="\DZ\structures\furniture\tables\kitchen_table_a\kitchen_table_a.p3d";
+	};
+	
+	class MD_OfficeChair_Kit: MD_Kit
+	{
+		displayName="Office chair kit";
+	};
+	class MD_OfficeChair: MD_Item
+	{		
+		scope=2;
+		displayName="Office chair";
+		descriptionShort="";
+		model="\DZ\structures\furniture\chairs\ch_office_b\ch_office_b.p3d";
+	};
+	
+	class MD_StudentChair_Kit: MD_Kit
+	{
+		displayName="Student chair kit";
+	};
+	class MD_StudentChair: MD_Item
+	{		
+		scope=2;
+		displayName="Student chair";
+		descriptionShort="";
+		model="\DZ\structures\furniture\school_equipment\student_chair.p3d";
+	};
+	
+	class MD_RedChair_Kit: MD_Kit
+	{
+		displayName="Red chair kit";
+	};
+	class MD_RedChair: MD_Item
+	{		
+		scope=2;
+		displayName="Red chair";
+		descriptionShort="";
+		model="\DZ\structures\furniture\chairs\office_chair\office_chair.p3d";
+	};
+	
+	class MD_LobbyChair_Kit: MD_Kit
+	{
+		displayName="Lobby chair kit";
+	};
+	class MD_LobbyChair: MD_Item
+	{		
+		scope=2;
+		displayName="Lobby chair";
+		descriptionShort="";
+		model="\DZ\structures\furniture\chairs\lobby_chair\lobby_chair.p3d";
+	};
 };

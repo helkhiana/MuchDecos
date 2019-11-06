@@ -24,7 +24,6 @@ class ActionHousePlantSeed: ActionSingleUseBase
 		MD_GardenBase targetObject = MD_GardenBase.Cast( target.GetObject() );			
 		if( targetObject  )
 		{	
-            Print("fussing");
 			if ( item != NULL && item.GetQuantity() > 0 && targetObject.CanPlantSeed( target.GetComponentIndex() ) )
 			{
 				return true;
@@ -51,7 +50,7 @@ class ActionHousePlantSeed: ActionSingleUseBase
 		if ( targetObject != NULL && targetObject.IsInherited(MD_GardenBase) )
 		{
 			MD_GardenBase garden_base = MD_GardenBase.Cast( targetObject );
-			Slot slot = garden_base.GetSlotBySelectionIndex(action_data.m_Target.GetComponentIndex());
+			MD_Slot slot = garden_base.GetSlotBySelectionIndex(action_data.m_Target.GetComponentIndex());
 			int slot_ID = slot.GetSlotId();
 			
 			ItemBase seed_IB = ItemBase.Cast( action_data.m_MainItem );

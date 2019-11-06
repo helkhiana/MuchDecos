@@ -1,4 +1,4 @@
-class MD_Item extends ItemBase
+class MD_Item: ItemBase
 {
 	override bool CanPutInCargo( EntityAI parent )
     {
@@ -32,48 +32,6 @@ class MD_Item extends ItemBase
 	string Get_KitName()
 	{
 		return "MD_Item_Kit";
-	}  
-	
-	bool IsFacingFront(PlayerBase player)
-    {
-        vector metal_pos = GetPosition();
-        vector player_pos = player.GetPosition();
-        vector metal_dir = GetDirection();
-        
-        vector metal_player_dir = player_pos - metal_pos;
-        metal_player_dir.Normalize();
-        metal_dir.Normalize();
-        
-        if ( metal_dir.Length() != 0 )
-        {
-            float dot = vector.Dot( metal_player_dir, metal_dir );
-            
-            if ( dot > 0 )
-            {
-                return true;
-            }
-        }
-        return false;
-    }
-    
-    bool IsFacingBack(PlayerBase player)
-    {
-        return !IsFacingFront( player );
-    }
-	
-	bool HasProperDistance( string selection, PlayerBase player )
-	{
-		if ( MemoryPointExists( selection ) )
-		{
-			vector selection_pos = ModelToWorld( GetMemoryPointPos( selection ) );
-			float distance = vector.Distance( selection_pos, player.GetPosition() );
-			if ( distance >= 1.3 )
-			{
-				return false;
-			}
-		}
-		
-		return true;
 	}
 	
 	override void SetActions()
@@ -105,7 +63,7 @@ class MD_Item_Holo extends ItemBase
             return false;
         }
         return false;
-    }
+    }	
 }
 
 class MD_Item_Kit extends ItemBase
@@ -163,17 +121,15 @@ class MD_Item_Kit extends ItemBase
 		
 	override void OnPlacementComplete( Man player )
 	{
-		super.OnPlacementComplete( player );
-		
-		PlayerBase pb = PlayerBase.Cast( player );
+		super.OnPlacementComplete( player );		
 		if ( GetGame().IsServer() )
 		{
 			PlayerBase player_base = PlayerBase.Cast( player );
 			vector position = player_base.GetLocalProjectionPosition();
 			vector orientation = player_base.GetLocalProjectionOrientation();
 				
-			MD_Item_Kit1 = GetGame().CreateObject(Get_MDItemName(), pb.GetLocalProjectionPosition(), false );
-			MD_Item_Kit1.SetPosition( position + Get_MDItemPos() );
+			MD_Item_Kit1 = GetGame().CreateObject(Get_MDItemName(), position, false );
+			MD_Item_Kit1.SetPosition( position);
 			MD_Item_Kit1.SetOrientation( orientation );
 		}	
 		

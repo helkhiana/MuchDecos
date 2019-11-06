@@ -31,11 +31,12 @@ class CfgVehicles
 	{
 		displayName="Lumber Kit";
 		descriptionShort="Place this.";
-		model="\MuchDecos\data\proxies\sneakylumberpileS.p3d";
+		model="\MuchDecos\data\kitbox\kitbox_flat.p3d";
 	};
 
 	class MD_CraftedItemBase: Inventory_Base
 	{
+		scope=2;
 		destroyOnEmpty=0;
 		varQuantityDestroyOnMin=0;
 		quantityBar=1;
@@ -56,10 +57,7 @@ class CfgVehicles
 			"camoGround"
 		};
 		class Cargo
-		{
-			itemsCargoSize[]={1,2};
-			openable=0;
-			allowOwnedCargoManipulation=1;
+		{		
 		};
 		class DamageSystem
 		{
@@ -555,6 +553,7 @@ class CfgVehicles
 		displayName="Wood Block";
 		descriptionShort="A wood block to hold your firewood";
 		model="\DZ\structures\residential\misc\misc_woodblock.p3d";
+		//model="\MuchDecos\data\experiment.p3d";
 		itemSize[]={5,5};		
 		itemBehaviour=0;
 		class Cargo
@@ -571,7 +570,7 @@ class CfgVehicles
 		{
 			class Firewoodslots
 			{
-				name="Firewood";
+				name="Wood";
 				description="";
 				attachmentSlots[]=
 				{
@@ -621,5 +620,171 @@ class CfgVehicles
 		model="\DZ\structures\residential\misc\misc_haystack.p3d";
 		weight=5000;
 		itemSize[]={5,9};	
-	};	
+	};
+
+
+	class MD_BarbedWireFence_Kit: MD_Lumber_Kit
+	{
+		displayName="Barbed wire barrier kit";
+	};
+
+	class MD_BarbedWireFence: MD_CraftedItemBase
+	{
+		scope=2;
+		displayName="Barbed wire barrier";
+		descriptionShort="";
+		model="\DZ\structures\military\misc\misc_barbedwire.p3d";
+		weight=5000;
+		itemSize[]={5,9};	
+	};
+
+	
+	class MD_CampBench: MD_CraftedItemBase
+	{
+		scope=2;
+		displayName="Camping bench";
+		descriptionShort="";
+		model="\DZ\structures\residential\misc\misc_bench3.p3d";
+		weight=5000;
+		itemSize[]={5,9};	
+	};
+
+	class MD_LogBench: MD_CraftedItemBase
+	{
+		scope=2;
+		displayName="Log bench";
+		descriptionShort="";
+		model="\DZ\structures\residential\misc\misc_bench5.p3d";
+		weight=5000;
+		itemSize[]={5,9};	
+	};
+
+	class MD_EvergreenFlowerPot: MD_CraftedItemBase
+	{
+		scope=2;
+		displayName="Evergreen Flower Pot";
+		descriptionShort="";
+		model="\DZ\structures\furniture\decoration\flowers\flower_02.p3d";
+		weight=50;
+		itemSize[]={2,9};	
+	};
+	
+	class MD_SnakePlantFlowerPot: MD_CraftedItemBase
+	{
+		scope=2;
+		displayName="Snake Plant Flower Pot";
+		descriptionShort="";
+		model="\DZ\structures\furniture\decoration\flowers\flower_01.p3d";
+		weight=50;
+		itemSize[]={2,9};	
+	};
+
+	class MD_BeigeCouch_Kit: MD_Lumber_Kit
+	{
+		displayName="Beige couch kit";
+	};
+
+	class MD_BeigeCouch: MD_CraftedItemBase
+	{
+		scope=2;
+		displayName="Beige couch";
+		descriptionShort="";
+		model="\DZ\structures\furniture\various\couch_beige84x213x75_dz.p3d";
+		weight=5000;
+		itemSize[]={5,9};	
+	};
+
+	class MD_WhiteCouch_Kit: MD_Lumber_Kit
+	{
+		displayName="White couch kit";
+	};
+
+	class MD_WhiteCouch: MD_CraftedItemBase
+	{
+		scope=2;
+		displayName="White couch";
+		descriptionShort="";
+		model="\DZ\structures\furniture\various\couch_dz.p3d";
+		weight=5000;
+		itemSize[]={5,9};	
+	};
+	class MD_LeatherSofaOld_Kit: MD_Lumber_Kit
+	{
+		displayName="Leather sofa old kit";
+	};
+
+	class MD_LeatherSofaOld: MD_CraftedItemBase
+	{
+		scope=2;
+		displayName="Leather sofa old";
+		descriptionShort="";
+		model="\DZ\structures\furniture\chairs\sofa_leather\sofa_leather_old.p3d";
+		weight=5000;
+		itemSize[]={5,9};	
+	};
+	
+	class MD_LeatherSofaNew_Kit: MD_Lumber_Kit
+	{
+		displayName="Leather sofa new kit";
+	};
+
+	class MD_LeatherSofaNew: MD_CraftedItemBase
+	{
+		scope=2;
+		displayName="Leather sofa new";
+		descriptionShort="";
+		model="\DZ\structures\furniture\chairs\sofa_leather\sofa_leather_new.p3d";
+		weight=5000;
+		itemSize[]={5,9};	
+	};
+		
+	class MD_LobbyTable_Kit: MD_Lumber_Kit
+	{
+		displayName="Lobby table kit";
+	};
+	class MD_LobbyTable: MD_CraftedItemBase
+	{
+		scope=2;
+		displayName="Lobby table";
+		descriptionShort="";
+		model="\DZ\structures\furniture\tables\lobby_table\lobby_table.p3d";
+		weight=5000;
+		itemSize[]={5,9};	
+	};
+	
+	class MD_SquareTable_Kit: MD_Lumber_Kit
+	{
+		displayName="Square table kit";
+	};
+	class MD_SquareTable: MD_CraftedItemBase
+	{
+		scope=2;
+		displayName="Square table";
+		descriptionShort="";
+		model="\DZ\structures\furniture\various\table_dz.p3d";
+		weight=5000;
+		itemSize[]={5,9};	
+	};
+};
+
+class CfgNonAIVehicles
+{
+	class ProxyAttachment;
+	class ProxyMelee;
+	class ProxyMelee1: ProxyMelee
+	{
+		model="\MuchDecos\data\experiment.p3d";
+		ghostIcon="shoulderleft";
+	};
+};
+class CfgSlots
+{
+	class Slot_Shoulder;
+	class Slot_Melee1 : Slot_Shoulder
+	{
+		name="melee1";
+		displayName="melee1";
+		ghostIcon="shoulderleft";
+		selection="melee_dz";
+	};
 };

@@ -1,0 +1,308 @@
+class MD_Slot
+{
+	static const int 		STATE_DIGGED 		= 1;
+	static const int 		STATE_PLANTED 		= 2;
+	
+	private int 			m_WaterQuantity;
+	static private int 		m_WaterNeeded 		= 200; // How much water is needed to water a plant from a bottle. Value is in mililitres
+	static private int 		m_WaterMax 			= 400; // How much water is needed to water a plant from a bottle. Value is in mililitres
+	
+	float m_Fertility;
+	float m_FertilizerUsage;
+	float m_FertilizerQuantity;
+	int m_slotIndex;
+	int m_slotId;
+	
+	string m_FertilizerType;
+	string m_DiggedSlotComponent; // example: "Component02" for the 1st slot in MD_GardenBase
+	string m_PlantType;
+	private ItemBase m_Seed;
+	private MD_GardenBase m_Garden;
+	
+	float m_HarvestingEfficiency;
+	
+	int m_State;
+	
+	private MD_PlantBase  m_Plant;
+	
+	void MD_Slot( float base_fertility )
+	{
+		m_Seed = NULL;
+		m_Plant = NULL;
+		m_WaterQuantity = 0.0;
+		Init( base_fertility );
+	}
+
+	void ~MD_Slot()
+	{
+		if (m_Plant  &&  GetGame()) // GetGame() returns NULL when the game is being quit!
+		{
+			GetGame().ObjectDelete( GetPlant() );
+		}
+	}
+	
+	int GetSlotIndex()
+	{
+		return m_slotIndex;
+	}
+	
+	void SetSlotIndex(int index)
+	{
+		m_slotIndex = index;
+	}
+	
+	int GetSlotId()
+	{
+		return m_slotId;
+	}
+
+	void SetSlotId(int id)
+	{
+		m_slotId = id;
+	}
+	
+	void SetGarden(MD_GardenBase garden)
+	{
+		m_Garden = garden;
+	}
+	
+	MD_GardenBase GetGarden()
+	{
+		return m_Garden;
+	}
+	
+	void SetSeed(ItemBase seed)
+	{
+		m_Seed = seed;
+	}
+	
+	MD_PlantBase  GetPlant()
+	{
+		return m_Plant;
+	}
+	
+	void SetPlant(MD_PlantBase  plant)
+	{
+		m_Plant = plant;
+		
+		if (plant)
+		{
+			plant.SetSlot(this);
+		}
+	}
+	
+	ItemBase GetSeed()
+	{
+		return m_Seed;
+	}
+	
+	bool HasSeed()
+	{
+		if (m_Seed)
+			return true;
+		
+		return false;
+	}
+	
+	void GiveWater( float consumed_quantity )
+	{
+		bool needed_water = NeedsWater();
+		m_WaterQuantity += consumed_quantity;
+		
+		if (m_WaterQuantity > GetWaterMax())
+			m_WaterQuantity = GetWaterMax();
+		
+		if (m_WaterQuantity < 0)
+			m_WaterQuantity = 0;
+		
+		if ( !NeedsWater() )
+		{
+			if ( !GetPlant() )
+			{
+				if ( GetSeed() )
+				{
+					GetGarden().CreatePlant(this);
+				}
+				
+				// if there is no seed then do not create plant. Plant will be created when the seed is inserted into watered slot.
+			}
+		}
+		
+		if ( needed_water != NeedsWater() )
+		{
+			GetGarden().UpdateSlotTexture( GetSlotIndex() );
+		}
+	}
+	
+	bool NeedsWater()
+	{
+		if ( m_WaterQuantity < GetWaterUsage() )
+		{
+			return true;
+		}
+		else
+		{
+			return false;
+		}
+	}
+	
+	bool CanBeWatered()
+	{
+		if ( m_WaterQuantity < GetWaterMax() )
+		{
+			return true;
+		}
+		else
+		{
+			return false;
+		}
+	}
+	
+	float GetWater()
+	{
+		return m_WaterQuantity;
+	}
+	
+	float GetFertility()
+	{
+		return m_Fertility;
+	}
+	
+	float GetFertilityMax()
+	{
+		return m_FertilizerUsage;
+	}
+	
+	void SetFertility(float fertility)
+	{
+		m_Fertility = fertility;
+	}
+	
+	float GetFertilizerQuantity()
+	{
+		return m_FertilizerQuantity;
+	}
+	
+	float GetFertilizerQuantityMax()
+	{
+		return m_FertilizerUsage;
+	}
+	
+	void SetFertilizerQuantity(float fertility)
+	{
+		m_FertilizerQuantity = fertility;
+	}
+	
+	string GetFertilityType()
+	{
+		return m_FertilizerType;
+	}
+	
+	void SetFertilityType(string type)
+	{
+		m_FertilizerType = type;
+	}
+	
+	float GetWaterUsage()
+	{
+		return m_WaterNeeded;
+	}
+	
+	float GetWaterMax()
+	{
+		return m_WaterMax;
+	}
+	
+	int GetState()
+	{
+		return m_State;
+	}
+	
+	void SetState(int new_state)
+	{
+		m_State = new_state;
+	}
+	
+	bool IsDigged()
+	{
+		if (m_State==STATE_DIGGED)
+		{
+			return true;
+		}
+		
+		return false;
+	}
+	bool IsPlanted()
+	{
+		if (m_State==STATE_PLANTED)
+		{
+			return true;
+		}
+		
+		return false;
+	}
+	
+	void Init( float base_fertility )
+	{
+		m_Fertility = base_fertility;
+		m_FertilizerUsage = 200;
+		m_FertilizerQuantity = 0.0;
+		m_FertilizerType = "";
+		m_HarvestingEfficiency = 1.0;
+		m_DiggedSlotComponent = "";
+		m_State = STATE_DIGGED;
+		m_Plant = NULL;
+	}
+
+	void SetSlotComponent(string component)
+	{
+		m_DiggedSlotComponent = component;
+	}
+
+	string GetSlotComponent()
+	{
+		return m_DiggedSlotComponent;
+	}
+	
+	bool OnStoreLoadCustom( ParamsReadContext ctx, int version )
+	{
+		if ( version < 102 )
+		{
+			ctx.Read( m_Fertility );
+			ctx.Read( m_FertilizerUsage );
+			ctx.Read( m_FertilizerQuantity );
+			
+			if ( !ctx.Read( m_FertilizerType ) )
+				m_FertilizerType = "";
+			
+			ctx.Read( m_HarvestingEfficiency );
+			ctx.Read( m_State );
+		}
+		
+		if ( version >= 102 )
+		{
+			ctx.Read( m_Fertility );       
+			ctx.Read( m_FertilizerUsage );
+			ctx.Read( m_FertilizerQuantity );       
+			ctx.Read( m_HarvestingEfficiency );
+			ctx.Read( m_State );
+			
+			if( !ctx.Read( m_FertilizerType ) )
+			{
+				m_FertilizerType = "";
+			}
+		}
+		
+		return true;
+	}
+
+	void OnStoreSaveCustom( ParamsWriteContext ctx )
+	{
+		ctx.Write( m_Fertility );
+		ctx.Write( m_FertilizerUsage );
+		ctx.Write( m_FertilizerQuantity );
+		ctx.Write( m_HarvestingEfficiency );
+		ctx.Write( m_State );
+		ctx.Write( m_FertilizerType );
+	}
+}

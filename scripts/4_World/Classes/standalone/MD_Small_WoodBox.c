@@ -9,4 +9,4 @@ class MD_Small_WoodBox : MD_Box_C
 	{
 		return "0 0 0";
 	}
-}
+};

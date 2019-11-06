@@ -4,7 +4,7 @@ class ActionHouseWaterSlotCB : ActionContinuousBaseCB
 	
 	override void CreateActionComponent()
 	{
-		m_ActionData.m_ActionComponent = new CAContinuousWaterSlot(QUANTITY_USED_PER_SEC);
+		m_ActionData.m_ActionComponent = new CAContinuousHouseWaterSlot(QUANTITY_USED_PER_SEC);
 	}
 };
 
@@ -31,7 +31,6 @@ class ActionHouseWaterSlot: ActionContinuousBase
 	
 	override bool ActionCondition( PlayerBase player, ActionTarget target, ItemBase item )
 	{		
-        Print("I'm at the top");
 		if (item.GetQuantity() == 0)
 			return false;
 		
@@ -40,17 +39,14 @@ class ActionHouseWaterSlot: ActionContinuousBase
 
 		if (liquid_type != LIQUID_WATER)
 		{
-            
-            Print("not water");
 			return false; //  Forbid watering of plants with gasoline and other fluids
 		}
 		
-        Print("I'm at the mid");
 		MD_GardenBase targetObject = MD_GardenBase.Cast( target.GetObject() );			
 		if( targetObject )
 		{	
-			Slot slot = targetObject.GetSlotBySelectionIndex( target.GetComponentIndex() );
-			Print("got slot " + slot.CanBeWatered());
+			MD_Slot slot = targetObject.GetSlotBySelectionIndex( target.GetComponentIndex() );
+			
 			if ( slot  &&  !slot.GetPlant()  &&  slot.CanBeWatered() )
 			{
 				return true;
