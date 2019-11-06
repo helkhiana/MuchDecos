@@ -285,5 +285,5 @@ class MD_Workbench : MD_Item
             MD_Material_MetalSheets_Slot.SetQuantity(MD_Material_MetalSheets_Slot.GetQuantity() - metalsheets);
         if(MD_Stones_Slot)
             MD_Stones_Slot.SetQuantity(MD_Stones_Slot.GetQuantity() - stones);        
-	}
-}
+	}    
+};

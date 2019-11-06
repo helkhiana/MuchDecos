@@ -20,4 +20,4 @@ class MD_Grave : GardenBase
 		
 		return false;
     }
-}
+};

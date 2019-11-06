@@ -58,8 +58,7 @@ class MD_CraftedItemBase extends ItemBase
 			vector orientation = player_base.GetLocalProjectionOrientation();
 				
 			Object MD_MyCraftedItemBase = GetGame().CreateObject(Get_MDCraftedItemName(), pb.GetLocalProjectionPosition(), false );
-            vector pos = Get_MDCraftedItemPos();
-			MD_MyCraftedItemBase.SetPosition( position + pos );
+			MD_MyCraftedItemBase.SetPosition( position);
 			MD_MyCraftedItemBase.SetOrientation( orientation );
 		}	
 		

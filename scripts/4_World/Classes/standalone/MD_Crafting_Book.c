@@ -15,5 +15,6 @@ class MD_Crafting_Book : ItemBase
         super.SetActions();        
         AddAction(ActionCraftScarecrow);
         AddAction(ActionCraftHaybale);
+        AddAction(ActionCraftBarbedWireFence);
     }
-}
+};

@@ -16,7 +16,6 @@ class MD_OpenableItem_Base : Container_Base
 	void MD_OpenableItem_Base()
 	{
 		m_Openable = new OpenableBehaviour(false);
-
 		RegisterNetSyncVariableBool("m_Openable.m_IsOpened");
 		RegisterNetSyncVariableBool("m_IsSoundSynchRemote");
 		RegisterNetSyncVariableBool("m_IsPlaceSound");

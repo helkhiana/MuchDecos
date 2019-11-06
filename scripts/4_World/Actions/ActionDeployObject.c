@@ -35,4 +35,4 @@ modded class ActionDeployObject
             super.OnEndServer(action_data);
         }
     }
-}
+};

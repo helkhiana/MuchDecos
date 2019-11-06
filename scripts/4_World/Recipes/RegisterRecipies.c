@@ -19,5 +19,14 @@ modded class PluginRecipesManager
 		RegisterRecipe(new CraftMD_CraftedItemBase(MD_DogHouse_Kit.GetRecipeValues()));
 		RegisterRecipe(new CraftMD_CraftedItemBase(MD_WoodBlock.GetRecipeValues()));
 		RegisterRecipe(new CraftMD_CraftedItemBase(MD_Workbench_Kit.GetRecipeValues()));
+		RegisterRecipe(new CraftMD_CraftedItemBase(MD_CampBench.GetRecipeValues()));
+		RegisterRecipe(new CraftMD_CraftedItemBase(MD_LogBench.GetRecipeValues()));
+		RegisterRecipe(new CraftMD_CraftedItemBase(MD_BeigeCouch_Kit.GetRecipeValues()));
+		RegisterRecipe(new CraftMD_CraftedItemBase(MD_LeatherSofaNew_Kit.GetRecipeValues()));
+		RegisterRecipe(new CraftMD_CraftedItemBase(MD_LeatherSofaOld_Kit.GetRecipeValues()));
+		RegisterRecipe(new CraftMD_CraftedItemBase(MD_WhiteCouch_Kit.GetRecipeValues()));
+		RegisterRecipe(new CraftMD_CraftedItemBase(MD_EvergreenFlowerPot.GetRecipeValues()));
+		RegisterRecipe(new CraftMD_CraftedItemBase(MD_SnakePlantFlowerPot.GetRecipeValues()));
+		RegisterRecipe(new CraftMD_CraftedItemBase(MD_LobbyTable_Kit.GetRecipeValues()));
 	}			
 }

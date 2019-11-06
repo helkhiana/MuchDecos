@@ -28,9 +28,8 @@ modded class Bottle_Base
 {
     override void SetActions()
 	{
-		super.SetActions();
-		RemoveAction(ActionWaterGardenSlot);
 		AddAction(ActionHouseWaterSlot);
+		super.SetActions();
 	}
 
 };
@@ -39,8 +38,17 @@ modded class WaterBottle
 {
     override void SetActions()
 	{
-		super.SetActions();
-		RemoveAction(ActionWaterGardenSlot);
 		AddAction(ActionHouseWaterSlot);
+		super.SetActions();
 	}
+};
+
+modded class GardenLime
+{
+	override void SetActions()
+	{
+		AddAction(ActionFertilizeHouseSlot);
+		super.SetActions();
+	}
+
 };

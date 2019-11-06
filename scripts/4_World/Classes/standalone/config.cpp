@@ -28,6 +28,7 @@ class CfgVehicles
 	class MD_Item;
 	class MD_Kit;
 	class MD_Large_Kit;
+	class Pot;
 	class MD_Crafting_Book: BookDeadSouls
 	{
 		scope=2;
@@ -132,5 +133,32 @@ class CfgVehicles
 			allowOwnedCargoManipulation=1;
 		};
 	};
+
+	class MD_Flat_WoodBox: MD_Kit
+	{
+		
+		displayName="Flat Wooden Box";
+		descriptionShort="Flat box used to transport goods.";
+		model="\MuchDecos\data\kitbox\kitbox_flat.p3d";	
+		itemSize[]={4,6};
+		physLayer="item_large";		
+		hiddenSelectionsTextures[]=
+		{
+			"\MuchDecos\data\kitbox\woodbox_o.paa"
+		};
+		class Cargo
+		{
+			itemsCargoSize[]={10,30};
+			openable=0;
+			allowOwnedCargoManipulation=1;
+		};
+	};
+
+	class MD_Bucket: Pot
+	{
+		displayName="Bucket";
+		descriptionShort="Bucket used to store water or other small items. Can be used to craft flower pots.";
+		model="\DZ\structures\furniture\decoration\bucket\bucket.p3d";
+	}
 	
 };
