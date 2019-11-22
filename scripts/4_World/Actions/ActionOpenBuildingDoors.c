@@ -24,9 +24,9 @@ class ActionOpenBuildingDoors: ActionInteractBase
 		if( !IsBuilding(target) ) return false;
 
 		MD_OpenableItem_Base building;
-		if( Class.CastTo(building, target.GetObject())  && !player.GetItemInHands() )
+		if(Class.CastTo(building, target.GetObject()))
 		{
-			if( !IsInReach(player, target, UAMaxDistances.DEFAULT) ) return false;
+			if(!IsInReach(player, target, UAMaxDistances.DEFAULT) || building.IsLocked() ) return false;
 			return !building.IsOpen();
 		}
 		return false;

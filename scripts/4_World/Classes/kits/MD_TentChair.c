@@ -13,12 +13,7 @@ class MD_TentChair_Kit : MD_Item_Kit
 
 
 class MD_TentChair : MD_Item
-{	
-	override void Base_Destroy()
-	{
-		GetGame().ObjectDelete( this );
-	}  
-
+{
 	override string Get_KitName()
 	{
 		return "MD_TentChair_Kit";

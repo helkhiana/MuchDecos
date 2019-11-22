@@ -11,15 +11,16 @@ modded class ActionConstructor
         actions.Insert(ActionCraftHayStack);
         actions.Insert(ActionCraftBarbedWireFence);
 
-        actions.Insert(ActionSitChair);
+        //actions.Insert(ActionSitChair);
         actions.Insert(ActionTrash);
         actions.Insert(ActionDigGrave);
 
         actions.Insert(ActionOpenBuildingDoors);
         actions.Insert(ActionCloseBuildingDoors);
-        
-        actions.Insert(ActionHousePlantSeed);
-        actions.Insert(ActionHouseWaterSlot);
-        actions.Insert(ActionFertilizeHouseSlot);
+
+        actions.Insert(ActionNextMD_PadlockDial);
+        actions.Insert(ActionDialMD_Padlock);
+        actions.Insert(ActionDialMD_PadlockOnMD_OpenableItem_Base);
+        actions.Insert(ActionNextMD_PadlockDialOnMD_OpenableItem_Base);
     }
 }

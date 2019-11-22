@@ -5,17 +5,6 @@ class MD_CraftedItemBase extends ItemBase
 	void MD_CraftedItemBase()
 	{
 		RegisterNetSyncVariableBool("m_IsSoundSynchRemote");
-	}
-	
-	
-	override void EEInit()
-	{
-		super.EEInit();
-	}	
-	
-	override void OnItemLocationChanged( EntityAI old_owner, EntityAI new_owner ) 
-	{
-		super.OnItemLocationChanged( old_owner, new_owner );
 	}	
 	
 	override void OnVariablesSynchronized()
@@ -107,4 +96,13 @@ class MD_CraftedItemBase extends ItemBase
 		return "0 0 0";
 	}
 
-}
+    override bool CanPutInCargo( EntityAI parent )
+    {
+        if( !super.CanPutInCargo(parent) ) {return false;}        
+        if ( GetNumberOfItems() == 0)
+        {
+            return false;
+        }
+        return false;
+    }
+};

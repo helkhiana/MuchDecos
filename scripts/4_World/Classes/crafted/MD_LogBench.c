@@ -9,16 +9,6 @@ class MD_LogBench : MD_CraftedItemBase
 		return "0 0.2 0";
 	}
 
-    override bool CanPutInCargo( EntityAI parent )
-    {
-        if( !super.CanPutInCargo(parent) ) {return false;}        
-        if ( GetNumberOfItems() == 0)
-        {
-            return false;
-        }
-        return false;
-    } 
-
     static MD_CraftedItemBaseRecipeValues GetRecipeValues()
     {   
         MD_CraftedItemBaseRecipeValues recipeVals = new MD_CraftedItemBaseRecipeValues;
@@ -32,4 +22,4 @@ class MD_LogBench : MD_CraftedItemBase
 		recipeVals.SetResult("MD_LogBench");  
         return recipeVals;
     } 
-}
+};

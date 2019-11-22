@@ -23,18 +23,12 @@ class MD_DogHouse_Kit : MD_Item_Kit
 		recipeVals.SetResult("MD_DogHouse_Kit");  
         return recipeVals;
     }
-}
-
+};
 
 class MD_DogHouse : MD_Item
-{	
-	override void Base_Destroy()
-	{
-		GetGame().ObjectDelete( this );
-	} 
-
+{
     override string Get_KitName()
 	{
 		return "MD_DogHouse_Kit";
 	}   
-}
+};

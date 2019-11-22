@@ -13,12 +13,7 @@ class MD_Sunshade_Kit : MD_Item_Kit
 
 
 class MD_Sunshade : MD_Item
-{	
-	override void Base_Destroy()
-	{
-		GetGame().ObjectDelete( this );
-	}  
-
+{
 	override string Get_KitName()
 	{
 		return "MD_Sunshade_Kit";

@@ -41,11 +41,7 @@ class ActionDismantle: ActionContinuousBase
 		if ( targetObject )
 		{
 			ItemBase md_item = ItemBase.Cast( targetObject );
-            if ( md_item.IsInherited(MD_Sink) )
-			{
-                return false;            
-			}
-			if ( md_item.IsInherited(MD_Item) )
+			if ( md_item.IsInherited(MD_Item) || md_item.IsInherited(MD_OpenableItem_Base))
 			{
                 return true;            
 			}
@@ -56,19 +52,27 @@ class ActionDismantle: ActionContinuousBase
 	override void OnFinishProgressServer( ActionData action_data ) 
 	{
 		vector pos = action_data.m_Player.GetPosition();
+		string name = "";
 		MD_Item myItem = MD_Item.Cast( action_data.m_Target.GetObject() );
-		if (myItem)
+		if(myItem)
 		{
-			//delete existing model
+			name = myItem.Get_KitName();
 			myItem.Base_Destroy();
-			
-			//add damage to tool
-			action_data.m_MainItem.DecreaseHealth( UADamageApplied.DISMANTLE, false );
-			
-			//return materials			
-			ItemBase.Cast( GetGame().CreateObject(myItem.Get_KitName(), pos) );
-			return;
-		}		
+		}
+
+		MD_OpenableItem_Base openable_Base = MD_OpenableItem_Base.Cast( action_data.m_Target.GetObject() );
+		if(openable_Base)
+		{
+			name = openable_Base.Get_KitName();
+			openable_Base.Base_Destroy();
+		}
+		
+		//add damage to tool
+		action_data.m_MainItem.DecreaseHealth( UADamageApplied.DISMANTLE, false );
+		
+		//return materials			
+		ItemBase.Cast( GetGame().CreateObject(name, pos) );
+		return;	
 	}
 	
 }

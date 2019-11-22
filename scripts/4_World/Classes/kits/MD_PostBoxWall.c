@@ -11,14 +11,8 @@ class MD_PostBoxWall_Kit : MD_Item_Kit
 	}  
 };
 
-
 class MD_PostBoxWall : MD_Item
-{	
-	override void Base_Destroy()
-	{
-		GetGame().ObjectDelete( this );
-	}  
-
+{
 	override string Get_KitName()
 	{
 		return "MD_PostBoxWall_Kit";

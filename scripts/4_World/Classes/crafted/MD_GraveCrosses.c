@@ -9,16 +9,6 @@ class MD_GraveCross_One : MD_CraftedItemBase
 		return "0 0.5 0";
 	}
 
-    override bool CanPutInCargo( EntityAI parent )
-    {
-        if( !super.CanPutInCargo(parent) ) {return false;}        
-        if ( GetNumberOfItems() == 0)
-        {
-            return false;
-        }
-        return false;
-    } 
-
     static MD_CraftedItemBaseRecipeValues GetRecipeValues()
     {   
         MD_CraftedItemBaseRecipeValues recipeVals = new MD_CraftedItemBaseRecipeValues;
@@ -32,7 +22,7 @@ class MD_GraveCross_One : MD_CraftedItemBase
 		recipeVals.SetResult("MD_GraveCross_One");  
         return recipeVals;
     } 
-}
+};
 
 class MD_GraveCross_Two : MD_CraftedItemBase
 {	
@@ -44,16 +34,6 @@ class MD_GraveCross_Two : MD_CraftedItemBase
 	{
 		return "0 0.6 0";
 	}
-
-    override bool CanPutInCargo( EntityAI parent )
-    {
-        if( !super.CanPutInCargo(parent) ) {return false;}        
-        if ( GetNumberOfItems() == 0)
-        {
-            return false;
-        }
-        return false;
-    } 
 
     static MD_CraftedItemBaseRecipeValues GetRecipeValues()
     {   
@@ -68,7 +48,7 @@ class MD_GraveCross_Two : MD_CraftedItemBase
 		recipeVals.SetResult("MD_GraveCross_Two");  
         return recipeVals;
     } 
-}
+};
 
 class MD_GraveCross_Three : MD_CraftedItemBase
 {	
@@ -80,16 +60,6 @@ class MD_GraveCross_Three : MD_CraftedItemBase
 	{
 		return "0 0.6 0";
 	}
-
-    override bool CanPutInCargo( EntityAI parent )
-    {
-        if( !super.CanPutInCargo(parent) ) {return false;}        
-        if ( GetNumberOfItems() == 0)
-        {
-            return false;
-        }
-        return false;
-    } 
 
     static MD_CraftedItemBaseRecipeValues GetRecipeValues()
     {   
@@ -104,7 +74,7 @@ class MD_GraveCross_Three : MD_CraftedItemBase
 		recipeVals.SetResult("MD_GraveCross_Three");  
         return recipeVals;
     } 
-}
+};
 
 class MD_GraveCross_Four : MD_CraftedItemBase
 {	
@@ -116,16 +86,6 @@ class MD_GraveCross_Four : MD_CraftedItemBase
 	{
 		return "0 0.6 0";
 	}
-
-    override bool CanPutInCargo( EntityAI parent )
-    {
-        if( !super.CanPutInCargo(parent) ) {return false;}        
-        if ( GetNumberOfItems() == 0)
-        {
-            return false;
-        }
-        return false;
-    } 
 
     static MD_CraftedItemBaseRecipeValues GetRecipeValues()
     {   
@@ -140,7 +100,7 @@ class MD_GraveCross_Four : MD_CraftedItemBase
 		recipeVals.SetResult("MD_GraveCross_Four");  
         return recipeVals;
     } 
-}
+};
 
 class MD_GraveCross_Five : MD_CraftedItemBase
 {	
@@ -152,16 +112,6 @@ class MD_GraveCross_Five : MD_CraftedItemBase
 	{
 		return "0 0.5 0";
 	}
-
-    override bool CanPutInCargo( EntityAI parent )
-    {
-        if( !super.CanPutInCargo(parent) ) {return false;}        
-        if ( GetNumberOfItems() == 0)
-        {
-            return false;
-        }
-        return false;
-    } 
 
     static MD_CraftedItemBaseRecipeValues GetRecipeValues()
     {   
@@ -176,4 +126,4 @@ class MD_GraveCross_Five : MD_CraftedItemBase
 		recipeVals.SetResult("MD_GraveCross_Five");  
         return recipeVals;
     } 
-}
+};

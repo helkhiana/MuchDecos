@@ -42,7 +42,7 @@ class ActionTrash: ActionContinuousBase
 		return false;
 	}
 		
-	override void OnStartServer( ActionData action_data )
+	override void OnFinishProgressServer( ActionData action_data )
 	{
 		MD_TrashCan myItem = MD_TrashCan.Cast( action_data.m_Target.GetObject() );
 		if (myItem)

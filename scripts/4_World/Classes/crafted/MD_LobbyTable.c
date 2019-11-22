@@ -23,17 +23,12 @@ class MD_LobbyTable_Kit : MD_Item_Kit
 		recipeVals.SetResult("MD_LobbyTable_Kit");  
         return recipeVals;
     } 
-}
+};
 
 class MD_LobbyTable : MD_Item
-{	
-	override void Base_Destroy()
-	{
-		GetGame().ObjectDelete( this );
-	} 
-
+{
     override string Get_KitName()
 	{
 		return "MD_LobbyTable_Kit";
 	}   
-}
+};

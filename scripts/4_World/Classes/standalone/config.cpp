@@ -160,5 +160,22 @@ class CfgVehicles
 		descriptionShort="Bucket used to store water or other small items. Can be used to craft flower pots.";
 		model="\DZ\structures\furniture\decoration\bucket\bucket.p3d";
 	}
+
+	class CombinationLock;
+	class MD_Padlock: CombinationLock
+	{
+		scope=2;
+		displayName="Padlock";
+		descriptionShort="Used to lock MuchDecos buildings";
+		model="\MuchDecos\data\padlock\Padlock.p3d";
+		hiddenSelectionsTextures[]=
+		{
+			"\MuchDecos\data\padlock\Padlock_co.paa"
+		};
+		hiddenSelections[]=
+		{
+			"zbytek"
+		};
+	}
 	
 };

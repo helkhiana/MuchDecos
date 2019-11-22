@@ -1,10 +1,5 @@
 class MD_Box_C : MD_Item_Kit
 {
-    void MD_Box_C()
-	{
-		RegisterNetSyncVariableBool("m_IsSoundSynchRemote");
-	}
-	
 	override string Get_MDItemName()
 	{
 		return "MD_Box_C";

@@ -23,17 +23,12 @@ class MD_FeedRack_Kit : MD_Item_Kit
 		recipeVals.SetResult("MD_FeedRack_Kit");  
         return recipeVals;
     }
-}
+};
 
 class MD_FeedRack : MD_Item
-{	
-	override void Base_Destroy()
-	{
-		GetGame().ObjectDelete( this );
-	} 
-
+{
     override string Get_KitName()
 	{
 		return "MD_FeedRack_Kit";
 	}   
-}
+};

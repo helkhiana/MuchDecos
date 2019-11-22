@@ -23,17 +23,12 @@ class MD_WoodTable_Indoor_Kit : MD_Item_Kit
 		recipeVals.SetResult("MD_WoodTable_Indoor_Kit");  
         return recipeVals;
     }
-}
+};
 
 class MD_WoodTable_Indoor : MD_Item
-{	
-	override void Base_Destroy()
-	{
-		GetGame().ObjectDelete( this );
-	} 
-
+{
     override string Get_KitName()
 	{
 		return "MD_WoodTable_Indoor_Kit";
 	}   
-}
+};

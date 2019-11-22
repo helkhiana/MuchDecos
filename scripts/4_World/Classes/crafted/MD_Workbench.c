@@ -23,7 +23,7 @@ class MD_Workbench_Kit : MD_Item_Kit
 		recipeVals.SetResult("MD_Workbench_Kit");  
         return recipeVals;
     }
-}
+};
 
 class MD_Workbench : MD_Item
 {    
@@ -76,16 +76,11 @@ class MD_Workbench : MD_Item
 		MD_Wall_Barbedwire_2_Slot = ItemBase.Cast( GetInventory().FindAttachment(slot_id) );
 		slot_id = InventorySlots.GetSlotIdFromString("Stones");
 		MD_Stones_Slot = ItemBase.Cast( GetInventory().FindAttachment(slot_id) ); 
-    }
-
-	override void Base_Destroy()
-	{
-		GetGame().ObjectDelete( this );
-	} 
+    } 
 
     override string Get_KitName()
 	{
-		return "MD_WoodTable_Indoor_Kit";
+		return "MD_Workbench_Kit";
 	} 
 
     bool IsInvEmpty()

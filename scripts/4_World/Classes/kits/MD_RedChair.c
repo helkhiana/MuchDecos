@@ -13,12 +13,7 @@ class MD_RedChair_Kit : MD_Item_Kit
 
 
 class MD_RedChair : MD_Item
-{	
-	override void Base_Destroy()
-	{
-		GetGame().ObjectDelete( this );
-	}  
-
+{
 	override string Get_KitName()
 	{
 		return "MD_RedChair_Kit";

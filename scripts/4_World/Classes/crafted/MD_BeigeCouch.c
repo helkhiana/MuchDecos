@@ -23,17 +23,12 @@ class MD_BeigeCouch_Kit : MD_Item_Kit
 		recipeVals.SetResult("MD_BeigeCouch_Kit");  
         return recipeVals;
     } 
-}
+};
 
 class MD_BeigeCouch : MD_Item
-{	
-	override void Base_Destroy()
-	{
-		GetGame().ObjectDelete( this );
-	} 
-
+{
     override string Get_KitName()
 	{
 		return "MD_BeigeCouch_Kit";
 	}   
-}
+};
