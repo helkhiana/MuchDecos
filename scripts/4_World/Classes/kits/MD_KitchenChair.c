@@ -1,10 +1,5 @@
 class MD_KitchenChair_Kit : MD_Item_Kit
-{		
-	void MD_KitchenChair_Kit()
-	{
-		RegisterNetSyncVariableBool("m_IsSoundSynchRemote");
-	}
-
+{
     override string Get_MDItemName()
 	{
 		return "MD_KitchenChair";
@@ -17,12 +12,7 @@ class MD_KitchenChair_Kit : MD_Item_Kit
 }
 
 class MD_KitchenChair : MD_Item
-{	
-	override void Base_Destroy()
-	{
-		GetGame().ObjectDelete( this );
-	} 
-
+{
     override string Get_KitName()
 	{
 		return "MD_KitchenChair_Kit";

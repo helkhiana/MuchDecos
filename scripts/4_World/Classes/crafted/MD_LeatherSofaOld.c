@@ -23,17 +23,12 @@ class MD_LeatherSofaOld_Kit : MD_Item_Kit
 		recipeVals.SetResult("MD_LeatherSofaOld_Kit");  
         return recipeVals;
     } 
-}
+};
 
 class MD_LeatherSofaOld : MD_Item
-{	
-	override void Base_Destroy()
-	{
-		GetGame().ObjectDelete( this );
-	} 
-
+{
     override string Get_KitName()
 	{
 		return "MD_LeatherSofaOld_Kit";
 	}   
-}
+};

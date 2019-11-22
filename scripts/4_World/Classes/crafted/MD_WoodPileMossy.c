@@ -23,18 +23,12 @@ class MD_WoodPileMossy_Kit : MD_Item_Kit
 		recipeVals.SetResult("MD_WoodPileMossy_Kit");  
         return recipeVals;
     }
-}
-
+};
 
 class MD_WoodPileMossy : MD_Item
-{	
-	override void Base_Destroy()
-	{
-		GetGame().ObjectDelete( this );
-	} 
-
+{
     override string Get_KitName()
 	{
 		return "MD_WoodPileMossy_Kit";
 	}   
-}
+};

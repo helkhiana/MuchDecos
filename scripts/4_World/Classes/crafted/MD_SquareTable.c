@@ -1,4 +1,4 @@
-class MD_SquareTable : MD_Item_Kit
+class MD_SquareTable_Kit : MD_Item_Kit
 {	
 	override string Get_MDItemName()
 	{
@@ -8,16 +8,6 @@ class MD_SquareTable : MD_Item_Kit
 	{
 		return "0 0 0";
 	}
-
-    override bool CanPutInCargo( EntityAI parent )
-    {
-        if( !super.CanPutInCargo(parent) ) {return false;}        
-        if ( GetNumberOfItems() == 0)
-        {
-            return false;
-        }
-        return false;
-    } 
 
     static MD_CraftedItemBaseRecipeValues GetRecipeValues()
     {   
@@ -32,17 +22,12 @@ class MD_SquareTable : MD_Item_Kit
 		recipeVals.SetResult("MD_SquareTable");  
         return recipeVals;
     } 
-}
+};
 
 class MD_SquareTable : MD_Item
 {	
-	override void Base_Destroy()
-	{
-		GetGame().ObjectDelete( this );
-	} 
-
     override string Get_KitName()
 	{
 		return "MD_SquareTable_Kit";
 	}   
-}
+};

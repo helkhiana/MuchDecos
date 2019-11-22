@@ -1,10 +1,5 @@
 class MD_Power_Transformer_Kit : MD_Item_Kit
-{		
-	void MD_Power_Transformer_Kit()
-	{
-		RegisterNetSyncVariableBool("m_IsSoundSynchRemote");
-	}
-	
+{
 	override string Get_MDItemName()
 	{
 		return "MD_Power_Transformer";
@@ -14,15 +9,10 @@ class MD_Power_Transformer_Kit : MD_Item_Kit
 	{
 		return "0 1.75 0";
 	}  
-}
+};
 
 class MD_Power_Transformer : PowerGenerator
-{	
-	void Base_Destroy()
-	{
-		GetGame().ObjectDelete( this );
-	}  
-
+{
 	string Get_KitName()
 	{
 		return "MD_Power_Transformer_Kit";
@@ -62,5 +52,4 @@ class MD_Power_Transformer : PowerGenerator
 	{
 		super.SetActions();
 	}
-}
-
+};

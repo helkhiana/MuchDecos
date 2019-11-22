@@ -71,7 +71,7 @@ class MD_Item_Kit extends ItemBase
 	ref protected EffectSound 						m_DeployLoopSound;
 	protected Object								MD_Item_Kit1;
 	
-	void MD_Sink_Kit()
+	void MD_Item_Kit()
 	{
 		RegisterNetSyncVariableBool("m_IsSoundSynchRemote");
 	}
@@ -85,7 +85,14 @@ class MD_Item_Kit extends ItemBase
 	override void OnItemLocationChanged( EntityAI old_owner, EntityAI new_owner ) 
 	{
 		super.OnItemLocationChanged( old_owner, new_owner );
-	}	
+	}
+
+	void Base_Destroy()
+	{
+		//delete object
+		GetGame().ObjectDelete( this );
+	}
+	
 	
 	override void OnVariablesSynchronized()
 	{

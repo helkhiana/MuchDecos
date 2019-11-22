@@ -36,7 +36,7 @@ class MD_CraftedItemBaseRecipeValues
 	float	g_minDamageIngredientTwo = -1;
 	float	g_maxDamageIngredientTwo = -1;
 		
-	float	g_minQuantityIngredientTwo = 1;
+	float	g_minQuantityIngredientTwo = -1;
 	float	g_maxQuantityIngredientTwo = -1;
 
 	void SetIngredientOne(float addHealth, float setHealth, float addQuant, bool destroy, bool useSoftSkill)

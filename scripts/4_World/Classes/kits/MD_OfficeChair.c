@@ -11,14 +11,8 @@ class MD_OfficeChair_Kit : MD_Item_Kit
 	}  
 };
 
-
 class MD_OfficeChair : MD_Item
-{	
-	override void Base_Destroy()
-	{
-		GetGame().ObjectDelete( this );
-	}  
-
+{
 	override string Get_KitName()
 	{
 		return "MD_OfficeChair_Kit";

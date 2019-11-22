@@ -23,8 +23,21 @@ class MD_OpenableItem_Base : Container_Base
 	
 	override void EEInit()
 	{
-		super.EEInit();
+		super.EEInit();		
+        GetInventory().LockInventory(HIDE_INV_FROM_SCRIPT);     
 	}
+
+	override void EEItemAttached( EntityAI item, string slot_name )
+    {
+        super.EEItemAttached( item, slot_name );
+        
+        if ( item.IsInherited( MD_Padlock ) )
+        {
+            MD_Padlock md_padlock = MD_Padlock.Cast( item );
+            md_padlock.Lock( this );
+            Close();
+        }
+    }
 
 	override void Open()
 	{
@@ -32,6 +45,7 @@ class MD_OpenableItem_Base : Container_Base
 		SoundSynchRemote();
 		UpdateVisualState();
         SoundPlay();
+		GetInventory().UnlockInventory(HIDE_INV_FROM_SCRIPT);
 	}
 
 	override void Close()
@@ -40,6 +54,7 @@ class MD_OpenableItem_Base : Container_Base
 		SoundSynchRemote();
 		UpdateVisualState();
        	SoundPlay();
+		GetInventory().LockInventory(HIDE_INV_FROM_SCRIPT);
 	}
 
 	override bool IsOpen()
@@ -84,18 +99,10 @@ class MD_OpenableItem_Base : Container_Base
 
     override bool CanPutInCargo( EntityAI parent )
     {
-        if( !super.CanPutIntoHands( parent ) )
-        {
-            return false;
-        }
         return false;
     }
     override bool CanPutIntoHands( EntityAI parent )
     {
-        if( !super.CanPutIntoHands( parent ) )
-        {
-            return false;
-        } 
         return false;
     }
 	override bool CanReceiveItemIntoCargo(EntityAI cargo)
@@ -120,11 +127,37 @@ class MD_OpenableItem_Base : Container_Base
 		SetTakeable(true);
 	}
 
+	bool IsLocked()
+    {
+        MD_Padlock padlock = GetMD_Padlock();
+        if ( padlock && padlock.IsLockedOnMD_OpenableItem_Base() )
+        {
+            GetInventory().LockInventory(HIDE_INV_FROM_SCRIPT);
+            
+            return true;
+        }
+        
+        return false;
+    }
+
+	MD_Padlock GetMD_Padlock()
+    {
+        MD_Padlock padlock = MD_Padlock.Cast( FindAttachmentBySlotName( "Att_CombinationLock" ) );
+        return padlock;
+    }
+	
+    override bool CanUseConstruction()
+    {
+        return true;
+    }
+
 
 	override void SetActions()
 	{
 		super.SetActions();
         AddAction(ActionOpenBuildingDoors);
         AddAction(ActionCloseBuildingDoors);
+        AddAction(ActionDialMD_PadlockOnMD_OpenableItem_Base);
+        AddAction(ActionNextMD_PadlockDialOnMD_OpenableItem_Base);
 	}
 };

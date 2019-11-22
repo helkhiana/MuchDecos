@@ -9,7 +9,6 @@ class MD_GraveShovel : FieldShovel
         super.SetActions();
         AddAction(ActionDigGrave);
         RemoveAction(ActionDigGardenPlot);
-        RemoveAction(ActionDigGardenPlot);
         RemoveAction(ActionDigWorms);
     }
 };

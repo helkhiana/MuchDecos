@@ -23,18 +23,12 @@ class MD_WoodPileLarge_Kit : MD_Item_Kit
 		recipeVals.SetResult("MD_WoodPileLarge_Kit");  
         return recipeVals;
     }
-}
-
+};
 
 class MD_WoodPileLarge : MD_Item
-{	
-	override void Base_Destroy()
-	{
-		GetGame().ObjectDelete( this );
-	} 
-
+{
     override string Get_KitName()
 	{
 		return "MD_WoodPileLarge_Kit";
 	}   
-}
+};

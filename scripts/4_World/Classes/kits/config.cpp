@@ -769,7 +769,7 @@ class CfgVehicles
 		displayName="Polytunnel kit";
 	};
 
-	class MD_GardenBase: MD_OpenableBase
+	class Land_MD_Polytunnel: MD_OpenableBase
 	{
 		scope=2;
 		displayName="Polytunnel";
@@ -887,249 +887,12 @@ class CfgVehicles
 		};
 		hiddenSelectionsMaterials[]=
 		{
-			"",
-			"",
-			"",
-			"",
-			"",
-			"",
-			"",
-			"",
-			"",
-			"",
-			"",
-			"",
-			"",
-			"",
-			"",
-			"",
-			"",
-			""
-		};
-		class AnimationSources
-		{
-			class Doors1
-			{
-				source="user";
-				initPhase=0;
-				animPeriod=1;
-			};
-
-			class slotVisible
-			{
-				source="user";
-				animPeriod=0.0099999998;
-				initPhase=0;
-			};
-			class slotHidden: slotVisible
-			{
-				initPhase=1;
-			};
-			class SeedBase_1: slotVisible
-			{
-			};
-			class SeedBase_2: slotVisible
-			{
-			};
-			class SeedBase_3: slotVisible
-			{
-			};
-			class SeedBase_4: slotVisible
-			{
-			};
-			class SeedBase_5: slotVisible
-			{
-			};
-			class SeedBase_6: slotVisible
-			{
-			};
-			class SeedBase_7: slotVisible
-			{
-			};
-			class SeedBase_8: slotVisible
-			{
-			};
-			class SeedBase_9: slotVisible
-			{
-			};
-			class SeedBase_10: slotVisible
-			{
-			};
-			class SeedBase_11: slotVisible
-			{
-			};
-			class SeedBase_12: slotVisible
-			{
-			};
-			class SeedBase_13: slotVisible
-			{
-			};
-			class slotCovered_01: slotHidden
-			{
-			};
-			class slotCovered_02: slotHidden
-			{
-			};
-			class slotCovered_03: slotHidden
-			{
-			};
-			class slotCovered_04: slotHidden
-			{
-			};
-			class slotCovered_05: slotHidden
-			{
-			};
-			class slotCovered_06: slotHidden
-			{
-			};
-			class slotCovered_07: slotHidden
-			{
-			};
-			class slotCovered_08: slotHidden
-			{
-			};
-			class slotCovered_09: slotHidden
-			{
-			};
-			class slotCovered_10: slotHidden
-			{
-			};
-			class slotCovered_11: slotHidden
-			{
-			};
-			class slotCovered_12: slotHidden
-			{
-			};
-			class slotCovered_13: slotHidden
-			{
-			};
-		};
-	};
-
-	class Land_MD_Polytunnel: MD_GardenBase
-	{
-		scope=2;
-		displayName="Polytunnel";
-		descriptionShort="A polytunnel with fertile soil";
-		model="\DZ\structures\Residential\Misc\Misc_Polytunnel.p3d";
-		attachments[]=
-		{
-			"SeedBase_1",
-			"SeedBase_2",
-			"SeedBase_3",
-			"SeedBase_4",
-			"SeedBase_5",
-			"SeedBase_6",
-			"SeedBase_7",
-			"SeedBase_8",
-			"SeedBase_9",
-			"SeedBase_10",
-			"SeedBase_11",
-			"SeedBase_12",
-			"SeedBase_13"
-		};
-		storageCategory=1;
-		class GUIInventoryAttachmentsProps
-		{
-			class Filling
-			{
-				name="$STR_attachment_Filling0";
-				description="";
-				attachmentSlots[]=
-				{
-					"SeedBase_1",
-					"SeedBase_2",
-					"SeedBase_3",
-					"SeedBase_4",
-					"SeedBase_5",
-					"SeedBase_6",
-					"SeedBase_7",
-					"SeedBase_8",
-					"SeedBase_9",
-					"SeedBase_10",
-					"SeedBase_11",
-					"SeedBase_12",
-					"SeedBase_13"
-				};
-				icon="cat_gp_filling";
-			};
-		};
-		class Doors
-		{
-			class Doors1
-			{
-				displayName="door 1";
-				component="Doors1";
-				soundPos="doors1_action";
-				animPeriod=1;
-				initPhase=0;
-				initOpened=0.5;
-				soundOpen="doorWoodGreenhouseOpen";
-				soundClose="doorWoodGreenhouseClose";
-				soundLocked="doorWoodGreenhouseRattle";
-				soundOpenABit="doorWoodGreenhouseOpenABit";
-			};
-		};
-		class DamageSystem
-		{
-			class GlobalHealth
-			{
-				class Health
-				{
-					hitpoints=100000000;
-				};
-			};
-		};
-		hiddenSelections[]=
-		{
-			"SeedBase_01",
-			"SeedBase_02",
-			"SeedBase_03",
-			"SeedBase_04",
-			"SeedBase_05",
-			"SeedBase_06",
-			"SeedBase_07",
-			"SeedBase_08",
-			"SeedBase_09",
-			"slotCovered_01",
-			"slotCovered_02",
-			"slotCovered_03",
-			"slotCovered_04",
-			"slotCovered_05",
-			"slotCovered_06",
-			"slotCovered_07",
-			"slotCovered_08",
-			"slotCovered_09"
-		};
-		hiddenSelectionsTextures[]=
-		{
-			"dz\gear\cultivation\data\soil_cultivated_co.paa",
-			"dz\gear\cultivation\data\soil_cultivated_limed_CO.paa",
-			"dz\gear\cultivation\data\soil_cultivated_compost_CO.paa",
-			"",
-			"",
-			"",
-			"",
-			"",
-			"",
-			"",
-			"",
-			"",
-			"",
-			"",
-			"",
-			"",
-			"",
-			""
-		};
-		hiddenSelectionsMaterials[]=
-		{
-			"",
-			"",
-			"",
-			"",
-			"",
-			"",
+			"\MuchDecos\data\Misc_Greenhouse\data\Lod3_Misc_Greenhouse.rvmat",
+			"\MuchDecos\data\Misc_Greenhouse\data\Misc_Greenhouse_concrete.rvmat",
+			"\MuchDecos\data\Misc_Greenhouse\data\Misc_Greenhouse_ground.rvmat",
+			"\MuchDecos\data\Misc_Greenhouse\data\Misc_Greenhouse_metal.rvmat",
+			"\MuchDecos\data\Misc_Greenhouse\data\misc_greenhouse_multi.rvmat",
+			"\MuchDecos\data\Misc_Greenhouse\data\Misc_Greenhouse_windows.rvmat",
 			"",
 			"",
 			"",
@@ -1246,12 +1009,12 @@ class CfgVehicles
 
 	class MD_Shed_W5_Kit: MD_Large_Kit
 	{
-		displayName="Man cave kit";
+		displayName="Shed W5 kit";
 	};
 	class Land_MD_Shed_W5: MD_OpenableBase
 	{
 		scope=2;
-		displayName="Man cave";
+		displayName="Shed W5";
 		descriptionShort="";
 		model="\DZ\structures\Residential\Sheds\Shed_W5.p3d";
 		class AnimationSources

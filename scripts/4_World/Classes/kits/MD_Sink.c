@@ -9,15 +9,10 @@ class MD_Sink_Kit : MD_Item_Kit
 	{
 		return  "0 0.75 0";
 	}  
-}
+};
 
 class MD_Sink : MD_Item
 {
-	override void Base_Destroy()
-	{
-		GetGame().ObjectDelete( this );
-	}
-
 	bool IsWell()
 	{
 		return true;
@@ -29,4 +24,4 @@ class MD_Sink : MD_Item
 		AddAction(ActionWashHandsWell);
 		AddAction(ActionDrinkWellContinuous);
 	}
-}
+};

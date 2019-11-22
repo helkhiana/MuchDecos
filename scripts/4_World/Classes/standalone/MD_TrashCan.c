@@ -1,10 +1,5 @@
 class MD_TrashCan : MD_Item_Kit
 {
-    void MD_TrashCan()
-	{
-		RegisterNetSyncVariableBool("m_IsSoundSynchRemote");
-	}
-	
 	override string Get_MDItemName()
 	{
 		return "MD_TrashCan";
@@ -38,11 +33,6 @@ class MD_TrashCan : MD_Item_Kit
 		}
 		return false;
 	}
-
-	override bool IsHeavyBehaviour() 
-    {
-        return true;
-    }
     
     override bool IsTwoHandedBehaviour() 
     {

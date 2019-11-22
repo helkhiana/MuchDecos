@@ -23,17 +23,12 @@ class MD_WoodReserve_Kit : MD_Item_Kit
 		recipeVals.SetResult("MD_WoodReserve_Kit");  
         return recipeVals;
     }
-}
+};
 
 class MD_WoodReserve : MD_Item
-{	
-	override void Base_Destroy()
-	{
-		GetGame().ObjectDelete( this );
-	} 
-
+{
     override string Get_KitName()
 	{
 		return "MD_WoodReserve_Kit";
 	}   
-}
+};

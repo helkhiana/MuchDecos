@@ -1,30 +1,16 @@
 modded class Hologram
 {	
 	override void UpdateHologram( float timeslice )
-	{		
-		if ( !m_Parent )
-		{
-			GetGame().GetCallQueue(CALL_CATEGORY_SYSTEM).Call(m_Player.TogglePlacingLocal);
-			
-			return
-		}
-		
-		if ( m_Player.IsSwimming() || m_Player.IsClimbingLadder() || m_Player.IsRaised() || m_Player.IsClimbing() )
-		{
-			GetGame().GetCallQueue(CALL_CATEGORY_SYSTEM).Call(m_Player.TogglePlacingLocal);
-			
-			return
-		}
-		
-		EvaluateCollision();
-		RefreshTrigger();
-		CheckPowerSource();	
-		RefreshVisual();
-
-		if ( !GetUpdatePosition() )
-		{
+	{
+		super.UpdateHologram(timeslice);
+		MD_Item_Kit mdItemKit = MD_Item_Kit.Cast( m_Player.GetHumanInventory().GetEntityInHands() );
+		if(mdItemKit){
+			vector mdItemKitPos = GetProjectionEntityPosition( m_Player ) + mdItemKit.Get_MDItemPos();
+			SetProjectionPosition( mdItemKitPos );
+			SetProjectionOrientation( AlignProjectionOnTerrain( timeslice ) );		
+			m_Projection.OnHologramBeingPlaced( m_Player );
 			return;
-		} 
+		}
 
 		MD_CraftedItemBase craftedItem = MD_CraftedItemBase.Cast( m_Player.GetHumanInventory().GetEntityInHands() );
 		if(craftedItem){
@@ -32,21 +18,8 @@ modded class Hologram
 			SetProjectionPosition( pos );
 			SetProjectionOrientation( AlignProjectionOnTerrain( timeslice ) );		
 			m_Projection.OnHologramBeingPlaced( m_Player );
+			return;
 		}
-
-		MD_Item_Kit mdItemKit = MD_Item_Kit.Cast( m_Player.GetHumanInventory().GetEntityInHands() );
-		if(mdItemKit){
-			vector mdItemKitPos = GetProjectionEntityPosition( m_Player ) + mdItemKit.Get_MDItemPos();
-			SetProjectionPosition( mdItemKitPos );
-			SetProjectionOrientation( AlignProjectionOnTerrain( timeslice ) );		
-			m_Projection.OnHologramBeingPlaced( m_Player );
-		}else
-		{
-			SetProjectionPosition( GetProjectionEntityPosition( m_Player ) );
-			SetProjectionOrientation( AlignProjectionOnTerrain( timeslice ) );		
-			m_Projection.OnHologramBeingPlaced( m_Player );
-		}
-		
 	}
 
 
@@ -96,7 +69,7 @@ modded class Hologram
 	{	
 		ItemBase item_in_hands = ItemBase.Cast( m_Player.GetHumanInventory().GetEntityInHands() );
 
-		if ( item_in_hands.IsInherited( MD_Item ))
+		if ( item_in_hands.IsInherited( MD_Item_Kit ))
 		{
 			SetIsColliding(false);
 			return;
