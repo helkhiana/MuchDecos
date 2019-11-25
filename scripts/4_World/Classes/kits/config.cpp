@@ -71,7 +71,7 @@ class CfgVehicles
 	{
 		scope=2;
 		displayName="Wooden Box Kit";
-		descriptionShort="Small wooden box used to transport small items. Place to deploy item inside.";
+		descriptionShort="Wooden box used to transport small items. Place to deploy item inside. The items can be dismantled by screwdriver after deployment.";
 		model="\MuchDecos\data\kitbox\kitbox_small.p3d";		
 		hiddenSelectionsTextures[]=
 		{
@@ -128,53 +128,11 @@ class CfgVehicles
 	{
 		displayName="Sink Kit";
 		descriptionShort="Can be deployed into a sink. Cannot be dismantled.";
-	};	
-
-	class MD_TentChair_Kit: MD_Kit
-	{
-		displayName="Tent Chair Kit";
-		descriptionShort="Dismantle with a crowbar or hatchet.";
 	};
-	
-	class MD_TentChair: MD_Item
-	{		
-		scope=2;
-		displayName="Tent Chair";
-		descriptionShort="A chair";
-		model="\DZ\structures\military\Improvised\proxy\tent_chair.p3d";
-	};
-
-	class MD_WoodenChair_Kit: MD_Kit
-	{
-		displayName="Wooden Chair";
-	};
-
-	class MD_WoodenChair: MD_Item
-	{		
-		scope=2;
-		displayName="Wooden Chair";
-		descriptionShort="A chair";
-		model="\DZ\structures\furniture\chairs\ch_mod_c\ch_mod_c.p3d";
-	};
-
-	class MD_PaddedWoodenChair_Kit: MD_Kit
-	{
-		displayName="Padded Wooden Chair";
-	};
-	class MD_PaddedWoodenChair: MD_Item
-	{		
-		scope=2;
-		displayName="Padded Wooden Chair";
-		descriptionShort="A chair";
-		model="\DZ\structures\furniture\chairs\ch_mod_h\ch_mod_h.p3d";
-	};
-
 	
 	class MD_OpenableBase: Container_Base
 	{
 		scope=2;
-		displayName="Locker";
-		model="\DZ\structures\furniture\cases\locker\locker_closed_v1.p3d";
 		overrideDrawArea="8.0";
 		forceFarBubble="true";
 		destroyOnEmpty=0;
@@ -184,72 +142,16 @@ class CfgVehicles
 		canBeDigged=0;
 		heavyItem=1;
 		weight=10000;
-		//simulation="house";
 		itemSize[]={10,15};
 		itemBehaviour=0;
 		physLayer="item_large";
 		allowOwnedCargoManipulation=1;
-		lootTag[]=
-		{
-			"Work"
-		};
-		hiddenSelections[]=
-		{
-			"camoGround"
-		};
-	};
-	
-	class MD_Large_Kit: MD_Kit
-	{
-		displayName="Large Kit";
-		model="\MuchDecos\data\kitbox\kitbox_large.p3d";		
-		hiddenSelectionsTextures[]=
-		{
-			"\MuchDecos\data\kitbox\woodbox_o.paa"
-		};
-	};
-
-	class MD_NewsStand2_Kit: MD_Large_Kit
-	{
-		displayName="News stand green";
-	};
-	class Land_MD_NewsStand2: MD_OpenableBase
-	{
-		scope=2;
-		displayName="News stand";
-		descriptionShort="News stand";
-		alignHologramToTerain=1;
-		model="\DZ\structures\residential\stores\city_stand_news2.p3d";
-		class AnimationSources
-		{
-			class Doors1
-			{
-				source="user";
-				initPhase=0;
-				animPeriod=1;
-			};
-		};
 		attachments[]=
 		{
-			"Body",
-			"Headgear",
 			"Att_CombinationLock"
 		};
 		class GUIInventoryAttachmentsProps
-		{			
-			class OtherMaterials
-			{
-				name="Other";
-				description="";
-				attachmentSlots[]=
-				{
-					"Body",
-					"Headgear"
-				};
-				icon="cat_common_cargo";
-				view_index=3;
-			};
-
+		{	
 			class Lock
 			{
 				name="Lock";
@@ -262,12 +164,6 @@ class CfgVehicles
 				view_index=3;
 			};
 		};
-		class Cargo
-		{
-			itemsCargoSize[]={10,10};
-			openable=0;
-			allowOwnedCargoManipulation=1;
-		};
 		class Doors
 		{
 			class Doors1
@@ -277,30 +173,29 @@ class CfgVehicles
 				soundPos="doors1_action";
 				animPeriod=1;
 				initPhase=0;
-				initOpened=0.5;
-				soundOpen="doorWoodSmallOpen";
-				soundClose="doorWoodSmallClose";
-				soundLocked="doorWoodSmallRattle";
-				soundOpenABit="doorWoodSmallOpenABit";				
+				initOpened=0;
+				soundOpen="doorWoodNolatchOpen";
+				soundClose="doorWoodNolatchClose";
+				soundLocked="doorWoodNolatchRattle";
+				soundOpenABit="doorWoodNolatchOpenABit";
+			};			
+		};		
+		class AnimationSources
+		{
+			class Doors1
+			{
+				source="user";
+				initPhase=0;
+				animPeriod=1;
 			};
 		};
 	};
-	class MD_Shed_M4_Kit: MD_Large_Kit
+	
+	class MD_Large_Kit: MD_Kit
 	{
-		displayName="Metal Shed kit";
-	};
-	class MD_Shed_M4: MD_Item
-	{		
-		scope=2;
-		displayName="Shed";
-		descriptionShort="A shed";
-		model="\DZ\structures\residential\sheds\shed_m4.p3d";
-		class Cargo
-		{
-			itemsCargoSize[]={10,50};
-			openable=0;
-			allowOwnedCargoManipulation=1;
-		};
+		displayName="Large Kit";
+		model="\MuchDecos\data\kitbox\kitbox_large.p3d";
+		descriptionShort="Large wooden box used to transport enormous items. Place to deploy item inside. The items can be dismantled by screwdriver after deployment.";
 	};
 
 	class MD_Greenhouse_Kit: MD_Large_Kit
@@ -593,18 +488,6 @@ class CfgVehicles
 			};
 		};
 	};
-
-	class MD_KitchenChair_Kit: MD_Kit
-	{
-		displayName="Kitchen Chair";
-	};
-	class MD_KitchenChair: MD_Item
-	{		
-		scope=2;
-		displayName="Kitchen Chair";
-		descriptionShort="A chair";
-		model="\DZ\structures\furniture\chairs\kitchen_chair_a\kitchen_chair_a.p3d";
-	};
 	
 	class MD_Power_Transformer_Kit: MD_Large_Kit
 	{
@@ -674,7 +557,7 @@ class CfgVehicles
 			autoSwitchOff=1;
 			energyStorageMax=200000;
 			energyUsagePerSecond=0.28;
-			reduceMaxEnergyByDamageCoef=0.5;
+			reduceMaxEnergyByDamageCoef=0;
 			energyAtSpawn=200000;
 			powerSocketsCount=4;
 			compatiblePlugTypes[]={2,6};
@@ -1006,160 +889,6 @@ class CfgVehicles
 		};
 	};
 
-
-	class MD_Shed_W5_Kit: MD_Large_Kit
-	{
-		displayName="Shed W5 kit";
-	};
-	class Land_MD_Shed_W5: MD_OpenableBase
-	{
-		scope=2;
-		displayName="Shed W5";
-		descriptionShort="";
-		model="\DZ\structures\Residential\Sheds\Shed_W5.p3d";
-		class AnimationSources
-		{
-			class Doors1
-			{
-				source="user";
-				initPhase=0;
-				animPeriod=1;
-			};
-		};
-		attachments[]=
-		{
-			"Body",
-			"Headgear",
-			"Att_CombinationLock"
-		};
-		class GUIInventoryAttachmentsProps
-		{			
-			class OtherMaterials
-			{
-				name="Other";
-				description="";
-				attachmentSlots[]=
-				{
-					"Body",
-					"Headgear"
-				};
-				icon="cat_common_cargo";
-				view_index=3;
-			};
-
-			class Lock
-			{
-				name="Lock";
-				description="";
-				attachmentSlots[]=
-				{
-					"Att_CombinationLock"
-				};
-				icon="cat_common_cargo";
-				view_index=3;
-			};
-		};
-		class Cargo
-		{
-			itemsCargoSize[]={10,10};
-			openable=0;
-			allowOwnedCargoManipulation=1;
-		};
-		class Doors
-		{
-			class Doors1
-			{
-				displayName="door 1";
-				component="Doors1";
-				soundPos="doors1_action";
-				animPeriod=1;
-				initPhase=0;
-				initOpened=0;
-				soundOpen="doorWoodNolatchOpen";
-				soundClose="doorWoodNolatchClose";
-				soundLocked="doorWoodNolatchRattle";
-				soundOpenABit="doorWoodNolatchOpenABit";
-			};			
-		};
-	};
-
-
-	class MD_Stand_Grocery_Kit: MD_Large_Kit
-	{
-		displayName="Grocery stand kit";
-	};
-	class Land_MD_Stand_Grocery: MD_OpenableBase
-	{
-		scope=2;
-		displayName="Grocery stand";
-		descriptionShort="Grocery stand";
-		model="\DZ\structures\Residential\Stores\City_Stand_Grocery.p3d";
-		class AnimationSources
-		{
-			class Doors1
-			{
-				source="user";
-				initPhase=0;
-				animPeriod=1;
-			};
-		};
-		attachments[]=
-		{
-			"Body",
-			"Headgear",
-			"Att_CombinationLock"
-		};
-		class GUIInventoryAttachmentsProps
-		{			
-			class OtherMaterials
-			{
-				name="Other";
-				description="";
-				attachmentSlots[]=
-				{
-					"Body",
-					"Headgear"
-				};
-				icon="cat_common_cargo";
-				view_index=3;
-			};
-
-			class Lock
-			{
-				name="Lock";
-				description="";
-				attachmentSlots[]=
-				{
-					"Att_CombinationLock"
-				};
-				icon="cat_common_cargo";
-				view_index=3;
-			};
-		};
-		class Cargo
-		{
-			itemsCargoSize[]={10,10};
-			openable=0;
-			allowOwnedCargoManipulation=1;
-		};
-		class Doors
-		{
-			class Doors1
-			{
-				displayName="door 1";
-				component="Doors1";
-				soundPos="doors1_action";
-				animPeriod=1;
-				initPhase=0;
-				initOpened=0.5;
-				soundOpen="doorWoodSmallOpen";
-				soundClose="doorWoodSmallClose";
-				soundLocked="doorWoodSmallRattle";
-				soundOpenABit="doorWoodSmallOpenABit";				
-			};
-		};
-	};
-
 	class MD_PostBox_Kit: MD_Kit
 	{
 		displayName="Postbox kit";
@@ -1220,6 +949,7 @@ class CfgVehicles
 		model="\DZ\structures\residential\misc\misc_sunshade.p3d";
 	};
 	
+	//Tables
 	class MD_KitchenTable_Kit: MD_Kit
 	{
 		displayName="Kitchen Table kit";
@@ -1231,7 +961,8 @@ class CfgVehicles
 		descriptionShort="";
 		model="\DZ\structures\furniture\tables\kitchen_table_a\kitchen_table_a.p3d";
 	};
-	
+
+	//Chairs
 	class MD_OfficeChair_Kit: MD_Kit
 	{
 		displayName="Office chair kit";
@@ -1254,8 +985,7 @@ class CfgVehicles
 		displayName="Student chair";
 		descriptionShort="";
 		model="\DZ\structures\furniture\school_equipment\student_chair.p3d";
-	};
-	
+	};	
 	class MD_RedChair_Kit: MD_Kit
 	{
 		displayName="Red chair kit";
@@ -1264,10 +994,8 @@ class CfgVehicles
 	{		
 		scope=2;
 		displayName="Red chair";
-		descriptionShort="";
 		model="\DZ\structures\furniture\chairs\office_chair\office_chair.p3d";
-	};
-	
+	};	
 	class MD_LobbyChair_Kit: MD_Kit
 	{
 		displayName="Lobby chair kit";
@@ -1276,7 +1004,442 @@ class CfgVehicles
 	{		
 		scope=2;
 		displayName="Lobby chair";
-		descriptionShort="";
 		model="\DZ\structures\furniture\chairs\lobby_chair\lobby_chair.p3d";
+	};class MD_TentChair_Kit: MD_Kit
+	{
+		displayName="Tent Chair Kit";
+	};	
+	class MD_TentChair: MD_Item
+	{		
+		scope=2;
+		displayName="Tent Chair";
+		model="\DZ\structures\military\Improvised\proxy\tent_chair.p3d";
 	};
+	class MD_WoodenChair_Kit: MD_Kit
+	{
+		displayName="Wooden Chair";
+	};
+	class MD_WoodenChair: MD_Item
+	{		
+		scope=2;
+		displayName="Wooden Chair";
+		model="\DZ\structures\furniture\chairs\ch_mod_c\ch_mod_c.p3d";
+	};
+	class MD_PaddedWoodenChair_Kit: MD_Kit
+	{
+		displayName="Padded Wooden Chair";
+	};
+	class MD_PaddedWoodenChair: MD_Item
+	{		
+		scope=2;
+		displayName="Padded Wooden Chair";
+		model="\DZ\structures\furniture\chairs\ch_mod_h\ch_mod_h.p3d";
+	};
+	class MD_KitchenChair_Kit: MD_Kit
+	{
+		displayName="Kitchen Chair";
+	};
+	class MD_KitchenChair: MD_Item
+	{		
+		scope=2;
+		displayName="Kitchen Chair";
+		model="\DZ\structures\furniture\chairs\kitchen_chair_a\kitchen_chair_a.p3d";
+	};
+
+	//Sheds metal
+	class MD_Shed_M1_Kit: MD_Large_Kit
+	{
+		displayName="M1 Metal Shed kit";
+	};
+	class Land_MD_Shed_M1: MD_OpenableBase
+	{		
+		scope=2;
+		displayName="M1 Metal Shed";
+		model="\DZ\structures\residential\sheds\shed_m1.p3d";
+		class Cargo
+		{
+			itemsCargoSize[]={10,30};
+			openable=0;
+			allowOwnedCargoManipulation=1;
+		};
+	};
+	class MD_Shed_M3_Kit: MD_Large_Kit
+	{
+		displayName="M3 Metal Shed kit";
+	};
+	class Land_MD_Shed_M3: MD_OpenableBase
+	{		
+		scope=2;
+		displayName="M3 Metal Shed";
+		model="\DZ\structures\residential\sheds\shed_m3.p3d";
+		class Cargo
+		{
+			itemsCargoSize[]={10,30};
+			openable=0;
+			allowOwnedCargoManipulation=1;
+		};
+	};
+	class MD_Shed_M4_Kit: MD_Large_Kit
+	{
+		displayName="M4 Metal Shed kit";
+	};
+	class Land_MD_Shed_M4: MD_OpenableBase
+	{		
+		scope=2;
+		displayName="M4 Metal Shed";
+		model="\DZ\structures\residential\sheds\shed_m4.p3d";
+		class Cargo
+		{
+			itemsCargoSize[]={10,40};
+			openable=0;
+			allowOwnedCargoManipulation=1;
+		};
+	};
+	//sheds wood
+	class MD_Shed_W1_Kit: MD_Large_Kit
+	{
+		displayName="W1 Wooden Shed kit";
+	};
+	class Land_MD_Shed_W1: MD_OpenableBase
+	{		
+		scope=2;
+		displayName="W1 Wooden Shed";
+		model="\DZ\structures\residential\sheds\shed_w1.p3d";
+		class Cargo
+		{
+			itemsCargoSize[]={10,30};
+			openable=0;
+			allowOwnedCargoManipulation=1;
+		};
+	};
+	class MD_Shed_W2_Kit: MD_Large_Kit
+	{
+		displayName="W2 Wooden Shed kit";
+	};
+	class Land_MD_Shed_W2: MD_OpenableBase
+	{		
+		scope=2;
+		displayName="W2 Wooden Shed";
+		model="\DZ\structures\residential\sheds\shed_w2.p3d";
+		class Cargo
+		{
+			itemsCargoSize[]={10,40};
+			openable=0;
+			allowOwnedCargoManipulation=1;
+		};
+	};
+	class MD_Shed_W3_Kit: MD_Large_Kit
+	{
+		displayName="W3 Wooden Shed kit";
+	};
+	class Land_MD_Shed_W3: MD_OpenableBase
+	{		
+		scope=2;
+		displayName="W3 Wooden Shed";
+		model="\DZ\structures\residential\sheds\shed_w3.p3d";
+		class Cargo
+		{
+			itemsCargoSize[]={10,40};
+			openable=0;
+			allowOwnedCargoManipulation=1;
+		};
+	};
+	class MD_Shed_W4_Kit: MD_Large_Kit
+	{
+		displayName="W4 Wooden Shed kit";
+	};
+	class Land_MD_Shed_W4: MD_OpenableBase
+	{		
+		scope=2;
+		displayName="W4 Wooden Shed";
+		model="\DZ\structures\residential\sheds\shed_w4.p3d";
+		class Cargo
+		{
+			itemsCargoSize[]={10,30};
+			openable=0;
+			allowOwnedCargoManipulation=1;
+		};
+	};
+	class MD_Shed_W5_Kit: MD_Large_Kit
+	{
+		displayName="W5 Wooden Shed kit";
+	};
+	class Land_MD_Shed_W5: MD_OpenableBase
+	{
+		scope=2;
+		displayName="W5 Wooden Shed";
+		model="\DZ\structures\Residential\Sheds\Shed_W5.p3d";		
+		class Cargo
+		{
+			itemsCargoSize[]={10,40};
+			openable=0;
+			allowOwnedCargoManipulation=1;
+		};
+	};
+
+	//Stores
+	class MD_NewsStand1_Kit: MD_Large_Kit
+	{
+		displayName="Red News Stand kit";
+	};
+	class Land_MD_NewsStand1: MD_OpenableBase
+	{
+		scope=2;
+		displayName="Red News Stand";
+		alignHologramToTerain=1;
+		model="\DZ\structures\residential\stores\city_stand_news1.p3d";
+		class Cargo
+		{
+			itemsCargoSize[]={10,30};
+			openable=0;
+			allowOwnedCargoManipulation=1;
+		};
+	};
+	class MD_NewsStand2_Kit: MD_Large_Kit
+	{
+		displayName="Green News Stand kit";
+	};
+	class Land_MD_NewsStand2: MD_OpenableBase
+	{
+		scope=2;
+		displayName="Green News Stand";
+		alignHologramToTerain=1;
+		model="\DZ\structures\residential\stores\city_stand_news2.p3d";
+		class Cargo
+		{
+			itemsCargoSize[]={10,30};
+			openable=0;
+			allowOwnedCargoManipulation=1;
+		};
+	};
+	class MD_FastFoodStand_Kit: MD_Large_Kit
+	{
+		displayName="Fast Food Stand kit";
+	};
+	class Land_MD_FastFoodStand: MD_OpenableBase
+	{
+		scope=2;
+		displayName="Fast Food Stand";
+		alignHologramToTerain=1;
+		model="\DZ\structures\residential\stores\city_stand_fastfood.p3d";
+		class Cargo
+		{
+			itemsCargoSize[]={10,30};
+			openable=0;
+			allowOwnedCargoManipulation=1;
+		};
+	};	
+	class MD_GroceryStand_Kit: MD_Large_Kit
+	{
+		displayName="Grocery Stand kit";
+	};
+	class Land_MD_GroceryStand: MD_OpenableBase
+	{
+		scope=2;
+		displayName="Grocery Stand";
+		model="\DZ\structures\Residential\Stores\City_Stand_Grocery.p3d";
+		class Cargo
+		{
+			itemsCargoSize[]={10,30};
+			openable=0;
+			allowOwnedCargoManipulation=1;
+		};
+	};
+
+	//Camp houses
+	class MD_CampHouse_White_Kit: MD_Large_Kit
+	{
+		displayName="White Camp House kit";
+	};
+	class Land_MD_CampHouse_White: MD_OpenableBase
+	{
+		scope=2;
+		displayName="White Camp House";
+		model="\DZ\structures\specific\camps\camp_house_white.p3d";
+		class Cargo
+		{
+			itemsCargoSize[]={10,50};
+			openable=0;
+			allowOwnedCargoManipulation=1;
+		};
+	};
+	class MD_CampHouse_Brown_Kit: MD_Large_Kit
+	{
+		displayName="Brown Camp House kit";
+	};
+	class Land_MD_CampHouse_Brown: MD_OpenableBase
+	{
+		scope=2;
+		displayName="Brown Camp House";
+		model="\DZ\structures\specific\camps\camp_house_brown.p3d";
+		class Cargo
+		{
+			itemsCargoSize[]={10,50};
+			openable=0;
+			allowOwnedCargoManipulation=1;
+		};
+	};
+	class MD_CampHouse_Red_Kit: MD_Large_Kit
+	{
+		displayName="Red Camp House kit";
+	};
+	class Land_MD_CampHouse_Red: MD_OpenableBase
+	{
+		scope=2;
+		displayName="Red Camp House";
+		model="\DZ\structures\specific\camps\camp_house_red.p3d";
+		class Cargo
+		{
+			itemsCargoSize[]={10,50};
+			openable=0;
+			allowOwnedCargoManipulation=1;
+		};
+	};
+
+	//Caravans
+	class MD_Caravan_WGreen_Kit: MD_Large_Kit
+	{
+		displayName="Green Wood Caravan kit";
+	};
+	class Land_MD_Caravan_WGreen: MD_OpenableBase
+	{
+		scope=2;
+		displayName="Green Wood Caravan";
+		model="\DZ\structures\wrecks\vehicles\wreck_caravan_wgreen.p3d";
+		class Cargo
+		{
+			itemsCargoSize[]={10,40};
+			openable=0;
+			allowOwnedCargoManipulation=1;
+		};
+	};
+	class MD_Caravan_WBrown_Kit: MD_Large_Kit
+	{
+		displayName="Brown Wood Caravan kit";
+	};
+	class Land_MD_Caravan_WBrown: MD_OpenableBase
+	{
+		scope=2;
+		displayName="Brown Wood Caravan";
+		model="\DZ\structures\wrecks\vehicles\wreck_caravan_wbrown.p3d";
+		class Cargo
+		{
+			itemsCargoSize[]={10,40};
+			openable=0;
+			allowOwnedCargoManipulation=1;
+		};
+	};
+	class MD_Caravan_MGreen_Kit: MD_Large_Kit
+	{
+		displayName="Green Metal Caravan kit";
+	};
+	class Land_MD_Caravan_MGreen: MD_OpenableBase
+	{
+		scope=2;
+		displayName="Green Metal Caravan";
+		model="\DZ\structures\wrecks\vehicles\wreck_caravan_mgreen.p3d";
+		class Cargo
+		{
+			itemsCargoSize[]={10,40};
+			openable=0;
+			allowOwnedCargoManipulation=1;
+		};
+	};
+	class MD_Caravan_MRust_Kit: MD_Large_Kit
+	{
+		displayName="Rust Metal Caravan kit";
+	};
+	class Land_MD_Caravan_MRust: MD_OpenableBase
+	{
+		scope=2;
+		displayName="Rust Metal Caravan";
+		model="\DZ\structures\wrecks\vehicles\wreck_caravan_mrust.p3d";
+		class Cargo
+		{
+			itemsCargoSize[]={10,40};
+			openable=0;
+			allowOwnedCargoManipulation=1;
+		};
+	};
+
+	//camonets - needs fabric/camonet kit
+	
+	class MD_CamonetShelter_Kit: MD_Kit
+	{
+		displayName="Camonet Shelter kit";
+		descriptionShort="Deploys into a camonet shelter";
+	};
+	class Land_MD_CamonetShelter: MD_Item
+	{
+		scope=2;
+		displayName="Camonet Shelter";
+		model="\DZ\gear\camping\camo_net_shelter.p3d";
+	};
+	class MD_CamonetShelter_BE_Kit: MD_Kit
+	{
+		displayName="Camonet Shelter BE kit";
+		descriptionShort="Deploys into a camonet shelter, big east variant";
+	};
+	class Land_MD_CamonetShelter_BE: MD_Item
+	{
+		scope=2;
+		displayName="Camonet Shelter BE";
+		model="\DZ\structures\military\improvised\mil_camonet_big_east.p3d";
+	};
+	class MD_CamonetShelter_BN_Kit: MD_Kit
+	{
+		displayName="Camonet Shelter BN kit";
+		descriptionShort="Deploys into a camonet shelter, big nato variant";
+	};
+	class Land_MD_CamonetShelter_BN: MD_Item
+	{
+		scope=2;
+		displayName="Camonet Shelter BN";
+		model="\DZ\structures\military\improvised\mil_camonet_big_nato.p3d";
+	};
+	class MD_CamonetShelter_RE_Kit: MD_Kit
+	{
+		displayName="Camonet Shelter RE kit";
+		descriptionShort="Deploys into a camonet shelter, roof east variant";
+	};
+	class Land_MD_CamonetShelter_RE: MD_Item
+	{
+		scope=2;
+		displayName="Camonet Shelter RE";
+		model="\DZ\structures\military\improvised\mil_camonet_roof_east.p3d";
+	};
+	class MD_CamonetShelter_RN_Kit: MD_Kit
+	{
+		displayName="Camonet Shelter RN kit";
+		descriptionShort="Deploys into a camonet shelter, roof nato variant";
+	};
+	class Land_MD_CamonetShelter_RN: MD_Item
+	{
+		scope=2;
+		displayName="Camonet Shelter RN";
+		model="\DZ\structures\military\improvised\mil_camonet_roof_nato.p3d";
+	};
+	class MD_CamonetShelter_SE_Kit: MD_Kit
+	{
+		displayName="Camonet Shelter SE kit";
+		descriptionShort="Deploys into a camonet shelter, side east variant";
+	};
+	class Land_MD_CamonetShelter_SE: MD_Item
+	{
+		scope=2;
+		displayName="Camonet Shelter SE";
+		model="\DZ\structures\military\improvised\mil_camonet_side_east.p3d";
+	};
+	class MD_CamonetShelter_SN_Kit: MD_Kit
+	{
+		displayName="Camonet Shelter SN kit";
+		descriptionShort="Deploys into a camonet shelter, side nato variant";
+	};
+	class Land_MD_CamonetShelter_SN: MD_Item
+	{
+		scope=2;
+		displayName="Camonet Shelter SN";
+		model="\DZ\structures\military\improvised\mil_camonet_side_nato.p3d";
+	};
+
 };

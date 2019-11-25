@@ -252,7 +252,6 @@ class CfgVehicles
 		weight=5000;
 		itemSize[]={5,9};	
 	};
-
 	
 	class MD_WoodPileLarge_Kit: MD_Lumber_Kit
 	{
@@ -552,8 +551,7 @@ class CfgVehicles
 		scope=2;
 		displayName="Wood Block";
 		descriptionShort="A wood block to hold your firewood";
-		model="\DZ\structures\residential\misc\misc_woodblock.p3d";
-		//model="\MuchDecos\data\experiment.p3d";
+		model="\DZ\structures\residential\misc\misc_woodblock.p3d";		
 		itemSize[]={5,5};		
 		itemBehaviour=0;
 		class Cargo

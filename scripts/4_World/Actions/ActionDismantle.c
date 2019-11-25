@@ -43,6 +43,9 @@ class ActionDismantle: ActionContinuousBase
 			ItemBase md_item = ItemBase.Cast( targetObject );
 			if ( md_item.IsInherited(MD_Item) || md_item.IsInherited(MD_OpenableItem_Base))
 			{
+				MD_OpenableItem_Base openableItem = MD_OpenableItem_Base.Cast(targetObject);
+				if(openableItem && openableItem.IsLocked()) return false;
+				
                 return true;            
 			}
 		}
