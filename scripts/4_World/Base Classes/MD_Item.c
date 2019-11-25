@@ -2,97 +2,28 @@ class MD_Item: ItemBase
 {
 	override bool CanPutInCargo( EntityAI parent )
     {
-        if( !super.CanPutInCargo(parent) ) {return false;}        
-        if ( GetNumberOfItems() == 0)
-        {
-            return false;
-        }
         return false;
     }
     
     override bool CanPutIntoHands(EntityAI parent)
     {
-        if( !super.CanPutIntoHands( parent ) )
-        {
-            return false;
-        }
-        if ( GetNumberOfItems() == 0 )
-        {
-            return false;
-        }
         return false;
     }
-	
-	void Base_Destroy()
-	{
-		//delete object
-		GetGame().ObjectDelete( this );
-	}
 
 	string Get_KitName()
 	{
 		return "MD_Item_Kit";
 	}
-	
-	override void SetActions()
-	{
-		super.SetActions();
-	}
-}
-
-class MD_Item_Holo extends ItemBase
-{
-	override bool CanPutInCargo( EntityAI parent )
-    {
-        if( !super.CanPutInCargo(parent) ) {return false;}        
-        if ( GetNumberOfItems() == 0)
-        {
-            return false;
-        }
-        return false;
-    }
-    
-    override bool CanPutIntoHands(EntityAI parent)
-    {
-        if( !super.CanPutIntoHands( parent ) )
-        {
-            return false;
-        }
-        if ( GetNumberOfItems() == 0 )
-        {
-            return false;
-        }
-        return false;
-    }	
-}
+};
 
 class MD_Item_Kit extends ItemBase
 {	
-	ref protected EffectSound 						m_DeployLoopSound;
-	protected Object								MD_Item_Kit1;
+	ref protected EffectSound m_DeployLoopSound;
 	
 	void MD_Item_Kit()
 	{
 		RegisterNetSyncVariableBool("m_IsSoundSynchRemote");
 	}
-	
-	
-	override void EEInit()
-	{
-		super.EEInit();
-	}	
-	
-	override void OnItemLocationChanged( EntityAI old_owner, EntityAI new_owner ) 
-	{
-		super.OnItemLocationChanged( old_owner, new_owner );
-	}
-
-	void Base_Destroy()
-	{
-		//delete object
-		GetGame().ObjectDelete( this );
-	}
-	
 	
 	override void OnVariablesSynchronized()
 	{
@@ -113,18 +44,6 @@ class MD_Item_Kit extends ItemBase
 			StopDeployLoopSound();
 		}
 	}
-	
-    override void SetActions()
-    {
-        super.SetActions();
-        
-        AddAction(ActionTogglePlaceObject);
-		AddAction(ActionPlaceObject);
-    }
-	
-	//================================================================
-	// ADVANCED PLACEMENT
-	//================================================================			
 		
 	override void OnPlacementComplete( Man player )
 	{
@@ -135,10 +54,10 @@ class MD_Item_Kit extends ItemBase
 			vector position = player_base.GetLocalProjectionPosition();
 			vector orientation = player_base.GetLocalProjectionOrientation();
 				
-			MD_Item_Kit1 = GetGame().CreateObject(Get_MDItemName(), position, false );
-			MD_Item_Kit1.SetPosition( position);
-			MD_Item_Kit1.SetOrientation( orientation );
-		}	
+			Object kitItem = GetGame().CreateObject(Get_MDItemName(), position, false );
+			kitItem.SetPosition(position);
+			kitItem.SetOrientation(orientation);
+		}
 		
 		SetIsDeploySound( true );
 	}
@@ -184,5 +103,12 @@ class MD_Item_Kit extends ItemBase
 	{
 		return "0 0 0";
 	}
-
-}
+	
+    override void SetActions()
+    {
+        super.SetActions();
+        
+        AddAction(ActionTogglePlaceObject);
+		AddAction(ActionPlaceObject);
+    }
+};

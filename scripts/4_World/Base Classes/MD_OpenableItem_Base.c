@@ -85,13 +85,7 @@ class MD_OpenableItem_Base : Container_Base
         EffectSound sound = SEffectManager.PlaySoundOnObject( "DoorWoodTowerOpen_SoundSet", this, 0.1, 0.1, false );
 		sound.SetSoundAutodestroy( true );
 	}
-
-    void Base_Destroy()
-	{
-		//delete object
-		GetGame().ObjectDelete( this );
-	}
-
+	
     string Get_KitName()
 	{
 		return "MD_Item_Kit";
@@ -150,7 +144,6 @@ class MD_OpenableItem_Base : Container_Base
     {
         return true;
     }
-
 
 	override void SetActions()
 	{
