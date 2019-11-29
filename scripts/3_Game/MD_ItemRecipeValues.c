@@ -1,4 +1,4 @@
-class MD_CraftedItemBaseRecipeValues
+class MD_ItemRecipeValues
 {
     string g_name = "Craft";
 

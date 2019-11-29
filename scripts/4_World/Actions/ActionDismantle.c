@@ -56,18 +56,11 @@ class ActionDismantle: ActionContinuousBase
 	{
 		vector pos = action_data.m_Player.GetPosition();
 		string name = "";
-		MD_Item myItem = MD_Item.Cast( action_data.m_Target.GetObject() );
+		ItemBase myItem = ItemBase.Cast( action_data.m_Target.GetObject() );
 		if(myItem)
 		{
 			name = myItem.Get_KitName();
 			myItem.Base_Destroy();
-		}
-
-		MD_OpenableItem_Base openable_Base = MD_OpenableItem_Base.Cast( action_data.m_Target.GetObject() );
-		if(openable_Base)
-		{
-			name = openable_Base.Get_KitName();
-			openable_Base.Base_Destroy();
 		}
 		
 		//add damage to tool

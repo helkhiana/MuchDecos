@@ -10,9 +10,9 @@ class MD_BeigeCouch_Kit : MD_Item_Kit
 		return "0 0 0";
 	}
 
-    static MD_CraftedItemBaseRecipeValues GetRecipeValues()
+    static MD_ItemRecipeValues GetRecipeValues()
     {   
-        MD_CraftedItemBaseRecipeValues recipeVals = new MD_CraftedItemBaseRecipeValues;
+        MD_ItemRecipeValues recipeVals = new MD_ItemRecipeValues;
 		recipeVals.SetIngredientOne(0, -1, -3, false, false);
 		recipeVals.SetIngredientTwo(0, -1, -8, false, false);
         recipeVals.SetMinMaxIngredientOne(-1, -1, 3,	-1);

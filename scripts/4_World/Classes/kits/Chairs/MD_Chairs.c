@@ -25,10 +25,6 @@ class MD_LobbyChair_Kit : MD_Item_Kit
 	{
 		return "MD_LobbyChair";
 	}
-	override vector Get_MDItemPos()
-	{
-		return "0 0.5 0";
-	}  
 };
 class MD_LobbyChair : MD_Item
 {	
@@ -92,11 +88,7 @@ class MD_StudentChair_Kit : MD_Item_Kit
 	override string Get_MDItemName()
 	{
 		return "MD_StudentChair";
-	}
-	override vector Get_MDItemPos()
-	{
-		return "0 0.4 0";
-	}  
+	} 
 };
 class MD_StudentChair : MD_Item
 {

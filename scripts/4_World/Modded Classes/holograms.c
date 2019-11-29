@@ -11,15 +11,6 @@ modded class Hologram
 			m_Projection.OnHologramBeingPlaced( m_Player );
 			return;
 		}
-
-		MD_CraftedItemBase craftedItem = MD_CraftedItemBase.Cast( m_Player.GetHumanInventory().GetEntityInHands() );
-		if(craftedItem){
-			vector pos = GetProjectionEntityPosition( m_Player ) + craftedItem.Get_MDCraftedItemPos();
-			SetProjectionPosition( pos );
-			SetProjectionOrientation( AlignProjectionOnTerrain( timeslice ) );		
-			m_Projection.OnHologramBeingPlaced( m_Player );
-			return;
-		}
 	}
 
 
@@ -29,12 +20,6 @@ modded class Hologram
         if ( fieldShovel_in_hands && fieldShovel_in_hands.CanMakeMD_Grave() )
         {
             return "MD_Grave";
-		}
-
-		MD_CraftedItemBase craftedItem = MD_CraftedItemBase.Cast( m_Player.GetHumanInventory().GetEntityInHands() );
-		if ( craftedItem )
-		{
-			return craftedItem.Get_MDCraftedItemName();
 		}
 
 		MD_Item_Kit item_in_hands = MD_Item_Kit.Cast( m_Player.GetHumanInventory().GetEntityInHands() );
@@ -50,7 +35,7 @@ modded class Hologram
 	{	
 		ItemBase item_in_hands = ItemBase.Cast( m_Player.GetHumanInventory().GetEntityInHands() );
 	
-		if ( item_in_hands && item_in_hands.CanMakeGardenplot() )
+		if ( item_in_hands && item_in_hands.CanMakeGardenplot())
 		{	
 			Class.CastTo(entity_for_placing, GetGame().CreateObject( m_Projection.GetType(), m_Projection.GetPosition()));
 		}
@@ -74,12 +59,6 @@ modded class Hologram
 			SetIsColliding(false);
 			return;
 		}
-
-		if ( item_in_hands.IsInherited( MD_CraftedItemBase ))
-		{
-			SetIsColliding(false);
-			return;
-		}		
 		
 		if ( item_in_hands.IsInherited( FieldShovel ))
 		{
@@ -88,4 +67,29 @@ modded class Hologram
 		}
 		super.EvaluateCollision();
 	}
-}
+
+	override bool IsFloating() 
+	{
+		ItemBase item_in_hands = ItemBase.Cast(m_Player.GetHumanInventory().GetEntityInHands());
+		if (item_in_hands.IsInherited(MD_Item_Kit) )
+		{
+			return true;
+		} 
+		else 
+		{
+			return m_IsFloating;
+		}
+	}
+
+	override void SetProjectionPosition( vector position )
+	{	
+		MD_Item_Kit mdItemKit = MD_Item_Kit.Cast(m_Player.GetHumanInventory().GetEntityInHands());
+		if (mdItemKit && IsFloating())
+		{ 
+			vector mdItemKitPos = SetOnGround( position ) + mdItemKit.Get_MDItemPos();
+			m_Projection.SetPosition( mdItemKitPos );
+			return;
+		}
+		super.SetProjectionPosition(position);
+	}
+};

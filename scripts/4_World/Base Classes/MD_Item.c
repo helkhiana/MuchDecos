@@ -9,11 +9,6 @@ class MD_Item: ItemBase
     {
         return false;
     }
-
-	string Get_KitName()
-	{
-		return "MD_Item_Kit";
-	}
 };
 
 class MD_Item_Kit extends ItemBase
@@ -23,6 +18,15 @@ class MD_Item_Kit extends ItemBase
 	void MD_Item_Kit()
 	{
 		RegisterNetSyncVariableBool("m_IsSoundSynchRemote");
+		//RegisterNetSyncVariableBool("m_IsDeploySound");
+	}
+
+	void ~MD_Item_Kit()
+	{
+		if ( m_DeployLoopSound )
+		{
+			SEffectManager.DestroySound( m_DeployLoopSound );
+		}
 	}
 	
 	override void OnVariablesSynchronized()
@@ -31,17 +35,17 @@ class MD_Item_Kit extends ItemBase
 		
 		if ( IsDeploySound() )
 		{
-			PlayDeploySound();
+			//PlayDeploySound();
 		}
 				
 		if ( CanPlayDeployLoopSound() )
 		{
-			PlayDeployLoopSound();
+			//PlayDeployLoopSound();
 		}
 					
 		if ( m_DeployLoopSound && !CanPlayDeployLoopSound() )
 		{
-			StopDeployLoopSound();
+			//StopDeployLoopSound();
 		}
 	}
 		
@@ -69,19 +73,20 @@ class MD_Item_Kit extends ItemBase
 	
 	override string GetDeploySoundset()
 	{
-		return "placeMediumTent_SoundSet";
+		return "putDown_FenceKit_SoundSet";
 	}
 	
 	override string GetLoopDeploySoundset()
 	{
-		return "mediumtent_deploy_SoundSet";
+		return "";
 	}
 	
 	void PlayDeployLoopSound()
 	{		
 		if ( GetGame().IsMultiplayer() && GetGame().IsClient() || !GetGame().IsMultiplayer() )
-		{		
-			m_DeployLoopSound = SEffectManager.PlaySound( GetLoopDeploySoundset(), GetPosition() );
+		{	
+			if ( !m_DeployLoopSound.IsSoundPlaying() )
+				m_DeployLoopSound = SEffectManager.PlaySound( GetLoopDeploySoundset(), GetPosition() );			
 		}
 	}
 	
@@ -89,10 +94,10 @@ class MD_Item_Kit extends ItemBase
 	{
 		if ( GetGame().IsMultiplayer() && GetGame().IsClient() || !GetGame().IsMultiplayer() )
 		{	
+			m_DeployLoopSound.SetSoundFadeOut(0.5);
 			m_DeployLoopSound.SoundStop();
-			delete m_DeployLoopSound;
 		}
-	}
+	}   
 	
 	string Get_MDItemName()
 	{

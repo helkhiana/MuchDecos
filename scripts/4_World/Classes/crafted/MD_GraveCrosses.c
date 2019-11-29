@@ -1,17 +1,17 @@
-class MD_GraveCross_One : MD_CraftedItemBase
+class MD_GraveCross_One : MD_Item_Kit
 {	
-	override string Get_MDCraftedItemName()
+	override string Get_MDItemName()
 	{
 		return "MD_GraveCross_One";
 	}
-    override vector Get_MDCraftedItemPos()
+    override vector Get_MDItemPos()
 	{
 		return "0 0.5 0";
 	}
 
-    static MD_CraftedItemBaseRecipeValues GetRecipeValues()
+    static MD_ItemRecipeValues GetRecipeValues()
     {   
-        MD_CraftedItemBaseRecipeValues recipeVals = new MD_CraftedItemBaseRecipeValues;
+        MD_ItemRecipeValues recipeVals = new MD_ItemRecipeValues;
 		recipeVals.SetIngredientOne(0, -1, -2, false, false);
 		recipeVals.SetIngredientTwo(0, -1, -5, false, false);
         recipeVals.SetMinMaxIngredientOne(-1, -1, 2,	-1);
@@ -24,20 +24,20 @@ class MD_GraveCross_One : MD_CraftedItemBase
     } 
 };
 
-class MD_GraveCross_Two : MD_CraftedItemBase
+class MD_GraveCross_Two : MD_Item_Kit
 {	
-	override string Get_MDCraftedItemName()
+	override string Get_MDItemName()
 	{
 		return "MD_GraveCross_Two";
 	}
-    override vector Get_MDCraftedItemPos()
+    override vector Get_MDItemPos()
 	{
 		return "0 0.6 0";
 	}
 
-    static MD_CraftedItemBaseRecipeValues GetRecipeValues()
+    static MD_ItemRecipeValues GetRecipeValues()
     {   
-        MD_CraftedItemBaseRecipeValues recipeVals = new MD_CraftedItemBaseRecipeValues;
+        MD_ItemRecipeValues recipeVals = new MD_ItemRecipeValues;
 		recipeVals.SetIngredientOne(0, -1, -2, false, false);
 		recipeVals.SetIngredientTwo(0, -1, -5, false, false);
         recipeVals.SetMinMaxIngredientOne(-1, -1, 2,	-1);
@@ -50,20 +50,20 @@ class MD_GraveCross_Two : MD_CraftedItemBase
     } 
 };
 
-class MD_GraveCross_Three : MD_CraftedItemBase
+class MD_GraveCross_Three : MD_Item_Kit
 {	
-	override string Get_MDCraftedItemName()
+	override string Get_MDItemName()
 	{
 		return "MD_GraveCross_Three";
 	}
-    override vector Get_MDCraftedItemPos()
+    override vector Get_MDItemPos()
 	{
 		return "0 0.6 0";
 	}
 
-    static MD_CraftedItemBaseRecipeValues GetRecipeValues()
+    static MD_ItemRecipeValues GetRecipeValues()
     {   
-        MD_CraftedItemBaseRecipeValues recipeVals = new MD_CraftedItemBaseRecipeValues;
+        MD_ItemRecipeValues recipeVals = new MD_ItemRecipeValues;
 		recipeVals.SetIngredientOne(0, -1, -2, false, false);
 		recipeVals.SetIngredientTwo(0, -1, -5, false, false);
         recipeVals.SetMinMaxIngredientOne(-1, -1, 2,	-1);
@@ -76,20 +76,20 @@ class MD_GraveCross_Three : MD_CraftedItemBase
     } 
 };
 
-class MD_GraveCross_Four : MD_CraftedItemBase
+class MD_GraveCross_Four : MD_Item_Kit
 {	
-	override string Get_MDCraftedItemName()
+	override string Get_MDItemName()
 	{
 		return "MD_GraveCross_Four";
 	}
-    override vector Get_MDCraftedItemPos()
+    override vector Get_MDItemPos()
 	{
 		return "0 0.6 0";
 	}
 
-    static MD_CraftedItemBaseRecipeValues GetRecipeValues()
+    static MD_ItemRecipeValues GetRecipeValues()
     {   
-        MD_CraftedItemBaseRecipeValues recipeVals = new MD_CraftedItemBaseRecipeValues;
+        MD_ItemRecipeValues recipeVals = new MD_ItemRecipeValues;
 		recipeVals.SetIngredientOne(0, -1, -2, false, false);
 		recipeVals.SetIngredientTwo(0, -1, -5, false, false);
         recipeVals.SetMinMaxIngredientOne(-1, -1, 2,	-1);
@@ -102,20 +102,20 @@ class MD_GraveCross_Four : MD_CraftedItemBase
     } 
 };
 
-class MD_GraveCross_Five : MD_CraftedItemBase
+class MD_GraveCross_Five : MD_Item_Kit
 {	
-	override string Get_MDCraftedItemName()
+	override string Get_MDItemName()
 	{
 		return "MD_GraveCross_Five";
 	}
-    override vector Get_MDCraftedItemPos()
+    override vector Get_MDItemPos()
 	{
 		return "0 0.5 0";
 	}
 
-    static MD_CraftedItemBaseRecipeValues GetRecipeValues()
+    static MD_ItemRecipeValues GetRecipeValues()
     {   
-        MD_CraftedItemBaseRecipeValues recipeVals = new MD_CraftedItemBaseRecipeValues;
+        MD_ItemRecipeValues recipeVals = new MD_ItemRecipeValues;
 		recipeVals.SetIngredientOne(0, -1, -2, false, false);
 		recipeVals.SetIngredientTwo(0, -1, -5, false, false);
         recipeVals.SetMinMaxIngredientOne(-1, -1, 2,	-1);

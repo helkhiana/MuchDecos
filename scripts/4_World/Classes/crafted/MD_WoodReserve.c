@@ -10,9 +10,9 @@ class MD_WoodReserve_Kit : MD_Item_Kit
 		return "0 0.90 0";
 	}
 
-    static MD_CraftedItemBaseRecipeValues GetRecipeValues()
+    static MD_ItemRecipeValues GetRecipeValues()
     {  
-        MD_CraftedItemBaseRecipeValues recipeVals = new MD_CraftedItemBaseRecipeValues;
+        MD_ItemRecipeValues recipeVals = new MD_ItemRecipeValues;
 		recipeVals.SetIngredientOne(0, -1, -1, false, false);
 		recipeVals.SetIngredientTwo(0, -1, -4, false, false);
         recipeVals.SetMinMaxIngredientOne(-1, -1, 1,	-1);
