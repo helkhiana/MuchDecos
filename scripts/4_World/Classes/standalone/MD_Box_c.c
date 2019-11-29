@@ -12,15 +12,11 @@ class MD_Box_C : MD_Item_Kit
 
 	override bool CanPutInCargo( EntityAI parent )
     {
-        return false;
+        return IsInvEmpty();
     }
     
      override bool CanPutIntoHands(EntityAI parent)
 	{
-		if( !super.CanPutIntoHands( parent ) )
-		{
-			return false;
-		}
 		return IsInvEmpty();
 		
     }

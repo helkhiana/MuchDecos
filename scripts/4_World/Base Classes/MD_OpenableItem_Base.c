@@ -44,7 +44,6 @@ class MD_OpenableItem_Base : Container_Base
 		m_Openable.Open();
 		SoundSynchRemote();
 		UpdateVisualState();
-        SoundPlay();
 		GetInventory().UnlockInventory(HIDE_INV_FROM_SCRIPT);
 	}
 
@@ -53,7 +52,6 @@ class MD_OpenableItem_Base : Container_Base
 		m_Openable.Close();
 		SoundSynchRemote();
 		UpdateVisualState();
-       	SoundPlay();
 		GetInventory().LockInventory(HIDE_INV_FROM_SCRIPT);
 	}
 
@@ -77,18 +75,31 @@ class MD_OpenableItem_Base : Container_Base
 	override void OnVariablesSynchronized()
 	{
 		super.OnVariablesSynchronized();
+				
+		if ( IsPlaceSound() )
+		{
+			PlayPlaceSound();
+		}
+		else
+		{
+			if ( IsOpen() && IsSoundSynchRemote() && !IsBeingPlaced() )
+			{
+				SoundPlay();
+			}
+			
+			if ( !IsOpen() && IsSoundSynchRemote() && !IsBeingPlaced() )
+			{
+				SoundPlay();
+			}
+		}
+		
 		UpdateVisualState();
 	}
 	
 	void SoundPlay()
 	{		
-        EffectSound sound = SEffectManager.PlaySoundOnObject( "DoorWoodTowerOpen_SoundSet", this, 0.1, 0.1, false );
+        EffectSound sound = SEffectManager.PlaySound( "DoorWoodTowerOpen_SoundSet", GetPosition() );
 		sound.SetSoundAutodestroy( true );
-	}
-	
-    string Get_KitName()
-	{
-		return "MD_Item_Kit";
 	}
 
     override bool CanPutInCargo( EntityAI parent )

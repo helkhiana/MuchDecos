@@ -71,6 +71,8 @@ class CfgVehicles
 		displayName="Trash can";
 		descriptionShort="Place items inside then throw away the trash to dispose of items.";
 		model="\DZ\structures\residential\Misc\Garbage_Bin.p3d";
+		itemBehaviour=2;
+		physLayer="item_large";
 		class Cargo
 		{
 			itemsCargoSize[]={10,10};
@@ -100,7 +102,7 @@ class CfgVehicles
 		displayName="Small Wooden Box";
 		descriptionShort="Small box used to transport goods.";
 		model="\MuchDecos\data\kitbox\kitbox_small.p3d";
-		itemSize[]={8,6};
+		itemSize[]={7,5};
 		physLayer="item_large";	
 		hiddenSelectionsTextures[]=
 		{
@@ -108,7 +110,7 @@ class CfgVehicles
 		};
 		class Cargo
 		{
-			itemsCargoSize[]={10,30};
+			itemsCargoSize[]={10,20};
 			openable=0;
 			allowOwnedCargoManipulation=1;
 		};
@@ -120,7 +122,7 @@ class CfgVehicles
 		displayName="Large Wooden Box";
 		descriptionShort="Large box used to transport goods.";
 		model="\MuchDecos\data\kitbox\kitbox_large.p3d";	
-		itemSize[]={8,6};
+		itemSize[]={5,9};
 		physLayer="item_large";		
 		hiddenSelectionsTextures[]=
 		{
@@ -140,7 +142,7 @@ class CfgVehicles
 		displayName="Flat Wooden Box";
 		descriptionShort="Flat box used to transport goods.";
 		model="\MuchDecos\data\kitbox\kitbox_flat.p3d";	
-		itemSize[]={4,6};
+		itemSize[]={5,3};
 		physLayer="item_large";		
 		hiddenSelectionsTextures[]=
 		{
@@ -148,7 +150,7 @@ class CfgVehicles
 		};
 		class Cargo
 		{
-			itemsCargoSize[]={10,30};
+			itemsCargoSize[]={10,10};
 			openable=0;
 			allowOwnedCargoManipulation=1;
 		};

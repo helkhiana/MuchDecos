@@ -41,10 +41,8 @@ class ActionDigGrave: ActionDeployObject
 			{
 				Hologram hologram = player.GetHologramLocal();
 				MD_Grave item_grave;
-				Class.CastTo(item_grave,  hologram.GetProjectionEntity() );	
-				CheckSurfaceBelowGrave(player, item_grave, hologram);
-	
-				if ( !hologram.IsColliding() )
+				Class.CastTo(item_grave,  hologram.GetProjectionEntity() );		
+				if (!hologram.IsColliding() )
 				{
 					return true;
 				}
@@ -60,33 +58,6 @@ class ActionDigGrave: ActionDeployObject
 		if ( item )
 		{
 			m_CommandUID = DayZPlayerConstants.CMD_ACTIONFB_DIG;
-		}
-	}
-	
-	void CheckSurfaceBelowGrave(PlayerBase player, MD_Grave item_grave, Hologram hologram)
-	{
-		if (item_grave) // TO DO: When MD_Grave is renamed back to MD_Grave then remove this check.
-		{
-			if ( item_grave.CanBePlaced(player, item_grave.GetPosition() )  )
-			{
-				if( item_grave.CanBePlaced(NULL, item_grave.CoordToParent(hologram.GetLeftCloseProjectionVector())) )
-				{
-					if( item_grave.CanBePlaced(NULL, item_grave.CoordToParent(hologram.GetRightCloseProjectionVector())) )
-					{
-						if( item_grave.CanBePlaced(NULL, item_grave.CoordToParent(hologram.GetLeftFarProjectionVector())) )
-						{
-							if( item_grave.CanBePlaced(NULL, item_grave.CoordToParent(hologram.GetRightFarProjectionVector())) )
-							{
-								hologram.SetIsCollidingGPlot( false );
-	
-								return;
-							}
-						}
-					}
-				}
-			}
-			
-			hologram.SetIsCollidingGPlot( true );
 		}
 	}
 	
@@ -127,6 +98,7 @@ class ActionDigGrave: ActionDeployObject
 		action_data.m_MainItem.SetIsBeingPlaced( false );
 		action_data.m_Player.GetSoftSkillsManager().AddSpecialty( m_SpecialtyWeight );
 		poActionData.m_AlreadyPlaced = true;	
-		action_data.m_MainItem.SoundSynchRemoteReset();
+		action_data.m_MainItem.SoundSynchRemoteReset();		
+		action_data.m_MainItem.DecreaseHealth( UADamageApplied.BUILD, false );
 	}
 };

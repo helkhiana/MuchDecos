@@ -1,4 +1,4 @@
-class CraftMD_CraftedItemBase extends RecipeBase
+class CraftMD_Item extends RecipeBase
 {	
 	string name = "Craft";
 
@@ -34,7 +34,7 @@ class CraftMD_CraftedItemBase extends RecipeBase
 	bool    useSoftSkillResult	    	= false;
 	float   replaceIngredientResult 	= -1;
 
-	void CraftMD_CraftedItemBase(MD_CraftedItemBaseRecipeValues recipeValues)
+	void CraftMD_Item(MD_ItemRecipeValues recipeValues)
 	{		
 		for(int i = 0; i < MAX_NUMBER_OF_INGREDIENTS; i++)
 		{
@@ -106,7 +106,7 @@ class CraftMD_CraftedItemBase extends RecipeBase
 		Debug.Log("Recipe Do method called","recipes");
 	}
 
-	void Setup(MD_CraftedItemBaseRecipeValues recipeValues)
+	void Setup(MD_ItemRecipeValues recipeValues)
 	{
 		name = recipeValues.g_name;
 		ingredientOne = recipeValues.g_ingredientOne;

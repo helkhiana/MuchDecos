@@ -3,7 +3,7 @@ class ActionCraftScarecrowCB : ActionContinuousBaseCB
 	PlayerBase player = PlayerBase.Cast( GetGame().GetPlayer() );
 	override void CreateActionComponent()
 	{
-		m_ActionData.m_ActionComponent = new CAContinuousTime( UATimeSpent.DEFAULT_CONSTRUCT ); // use +,-,*,/ to adjust the time.  //BBP_BASE_TIME
+		m_ActionData.m_ActionComponent = new CAContinuousTime( UATimeSpent.DEFAULT_CONSTRUCT );
 	}
 };
 

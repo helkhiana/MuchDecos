@@ -34,7 +34,7 @@ class CfgVehicles
 		model="\MuchDecos\data\kitbox\kitbox_flat.p3d";
 	};
 
-	class MD_CraftedItemBase: Inventory_Base
+	class MD_Item_Kit: Inventory_Base
 	{
 		scope=2;
 		destroyOnEmpty=0;
@@ -76,7 +76,7 @@ class CfgVehicles
 		displayName="Workbench";
 	};
 
-	class MD_Workbench: MD_CraftedItemBase
+	class MD_Workbench: MD_Item_Kit
 	{		
 		scope=2;
 		displayName="Workbench";
@@ -158,7 +158,7 @@ class CfgVehicles
 		};
 	};
     
-	class MD_Scarecrow: MD_CraftedItemBase
+	class MD_Scarecrow: MD_Item_Kit
 	{		
 		scope=2;
 		displayName="Scarecrow";
@@ -172,7 +172,7 @@ class CfgVehicles
 		};
 	};
     
-	class MD_Haybale: MD_CraftedItemBase
+	class MD_Haybale: MD_Item_Kit
 	{
 		scope=2;
 		displayName="Haybale";
@@ -193,7 +193,7 @@ class CfgVehicles
 		displayName="Wood Table Indoor";
 	};
 
-	class MD_WoodTable_Indoor: MD_CraftedItemBase
+	class MD_WoodTable_Indoor: MD_Item_Kit
 	{
 		scope=2;
 		displayName="Wood Table Indoor";
@@ -203,7 +203,7 @@ class CfgVehicles
 		itemSize[]={10,7};		
 	};
 	
-	class MD_GraveCross_One: MD_CraftedItemBase
+	class MD_GraveCross_One: MD_Item_Kit
 	{
 		scope=2;
 		displayName="Wood Cross";
@@ -213,7 +213,7 @@ class CfgVehicles
 		itemSize[]={5,9};	
 	};
 	
-	class MD_GraveCross_Two: MD_CraftedItemBase
+	class MD_GraveCross_Two: MD_Item_Kit
 	{
 		scope=2;
 		displayName="Wood Cross";
@@ -223,7 +223,7 @@ class CfgVehicles
 		itemSize[]={5,9};	
 	};
 	
-	class MD_GraveCross_Three: MD_CraftedItemBase
+	class MD_GraveCross_Three: MD_Item_Kit
 	{
 		scope=2;
 		displayName="Wood Cross";
@@ -233,7 +233,7 @@ class CfgVehicles
 		itemSize[]={5,9};	
 	};
 	
-	class MD_GraveCross_Four: MD_CraftedItemBase
+	class MD_GraveCross_Four: MD_Item_Kit
 	{
 		scope=2;
 		displayName="Wood Cross";
@@ -243,7 +243,7 @@ class CfgVehicles
 		itemSize[]={5,9};	
 	};
 
-	class MD_GraveCross_Five: MD_CraftedItemBase
+	class MD_GraveCross_Five: MD_Item_Kit
 	{
 		scope=2;
 		displayName="Wood Cross";
@@ -258,7 +258,7 @@ class CfgVehicles
 		displayName="Wood Pile Large";
 	};
 
-	class MD_WoodPileLarge: MD_CraftedItemBase
+	class MD_WoodPileLarge: MD_Item_Kit
 	{		
 		scope=2;
 		displayName="Wood Pile Large";
@@ -343,7 +343,7 @@ class CfgVehicles
 		displayName="Wood Pile Small";
 	};
 
-	class MD_WoodPileSmall: MD_CraftedItemBase
+	class MD_WoodPileSmall: MD_Item_Kit
 	{		
 		scope=2;
 		displayName="Wood Pile Small";
@@ -402,7 +402,7 @@ class CfgVehicles
 		displayName="Wood Pile Mossy";
 	};
 
-	class MD_WoodPileMossy: MD_CraftedItemBase
+	class MD_WoodPileMossy: MD_Item_Kit
 	{		
 		scope=2;
 		displayName="Wood Pile Mossy";
@@ -461,7 +461,7 @@ class CfgVehicles
 		displayName="Wood Reserve";
 	};
 
-	class MD_WoodReserve: MD_CraftedItemBase
+	class MD_WoodReserve: MD_Item_Kit
 	{		
 		scope=2;
 		displayName="Wood Reserve";
@@ -546,14 +546,14 @@ class CfgVehicles
 		};
 	};
 
-	class MD_WoodBlock: MD_CraftedItemBase
+	class MD_WoodBlock: MD_Item_Kit
 	{		
 		scope=2;
 		displayName="Wood Block";
 		descriptionShort="A wood block to hold your firewood";
 		model="\DZ\structures\residential\misc\misc_woodblock.p3d";		
 		itemSize[]={5,5};		
-		itemBehaviour=0;
+		itemBehaviour=2;
 		class Cargo
 		{
 			itemsCargoSize[]={5,5};
@@ -562,7 +562,10 @@ class CfgVehicles
 		};
 		attachments[]=
 		{
-			"Firewood"
+			"Firewood",
+			"M1_Firewood",
+			"M2_Firewood",
+			"M3_Firewood"
 		};
 		class GUIInventoryAttachmentsProps
 		{
@@ -572,7 +575,10 @@ class CfgVehicles
 				description="";
 				attachmentSlots[]=
 				{
-					"Firewood"
+					"Firewood",
+					"M1_Firewood",
+					"M2_Firewood",
+					"M3_Firewood"
 				};
 				icon="cat_common_cargo";
 				view_index=1;
@@ -585,7 +591,7 @@ class CfgVehicles
 		displayName="Dog House";
 	};
 
-	class MD_DogHouse: MD_CraftedItemBase
+	class MD_DogHouse: MD_Item_Kit
 	{
 		scope=2;
 		displayName="Dog House";
@@ -600,7 +606,7 @@ class CfgVehicles
 		displayName="Animal feed rack";
 	};
 
-	class MD_FeedRack: MD_CraftedItemBase
+	class MD_FeedRack: MD_Item_Kit
 	{
 		scope=2;
 		displayName="Animal feed rack";
@@ -610,7 +616,7 @@ class CfgVehicles
 		itemSize[]={5,9};	
 	};
 
-	class MD_HayStack: MD_CraftedItemBase
+	class MD_HayStack: MD_Item_Kit
 	{
 		scope=2;
 		displayName="Haystack";
@@ -626,7 +632,7 @@ class CfgVehicles
 		displayName="Barbed wire barrier kit";
 	};
 
-	class MD_BarbedWireFence: MD_CraftedItemBase
+	class MD_BarbedWireFence: MD_Item_Kit
 	{
 		scope=2;
 		displayName="Barbed wire barrier";
@@ -637,27 +643,27 @@ class CfgVehicles
 	};
 
 	
-	class MD_CampBench: MD_CraftedItemBase
+	class MD_CampBench: MD_Item_Kit
 	{
 		scope=2;
 		displayName="Camping bench";
 		descriptionShort="";
 		model="\DZ\structures\residential\misc\misc_bench3.p3d";
 		weight=5000;
-		itemSize[]={5,9};	
+		itemSize[]={9,2};	
 	};
 
-	class MD_LogBench: MD_CraftedItemBase
+	class MD_LogBench: MD_Item_Kit
 	{
 		scope=2;
 		displayName="Log bench";
 		descriptionShort="";
 		model="\DZ\structures\residential\misc\misc_bench5.p3d";
 		weight=5000;
-		itemSize[]={5,9};	
+		itemSize[]={9,2};	
 	};
 
-	class MD_EvergreenFlowerPot: MD_CraftedItemBase
+	class MD_EvergreenFlowerPot: MD_Item_Kit
 	{
 		scope=2;
 		displayName="Evergreen Flower Pot";
@@ -667,7 +673,7 @@ class CfgVehicles
 		itemSize[]={2,9};	
 	};
 	
-	class MD_SnakePlantFlowerPot: MD_CraftedItemBase
+	class MD_SnakePlantFlowerPot: MD_Item_Kit
 	{
 		scope=2;
 		displayName="Snake Plant Flower Pot";
@@ -682,7 +688,7 @@ class CfgVehicles
 		displayName="Beige couch kit";
 	};
 
-	class MD_BeigeCouch: MD_CraftedItemBase
+	class MD_BeigeCouch: MD_Item_Kit
 	{
 		scope=2;
 		displayName="Beige couch";
@@ -697,7 +703,7 @@ class CfgVehicles
 		displayName="White couch kit";
 	};
 
-	class MD_WhiteCouch: MD_CraftedItemBase
+	class MD_WhiteCouch: MD_Item_Kit
 	{
 		scope=2;
 		displayName="White couch";
@@ -711,7 +717,7 @@ class CfgVehicles
 		displayName="Leather sofa old kit";
 	};
 
-	class MD_LeatherSofaOld: MD_CraftedItemBase
+	class MD_LeatherSofaOld: MD_Item_Kit
 	{
 		scope=2;
 		displayName="Leather sofa old";
@@ -726,7 +732,7 @@ class CfgVehicles
 		displayName="Leather sofa new kit";
 	};
 
-	class MD_LeatherSofaNew: MD_CraftedItemBase
+	class MD_LeatherSofaNew: MD_Item_Kit
 	{
 		scope=2;
 		displayName="Leather sofa new";
@@ -740,7 +746,7 @@ class CfgVehicles
 	{
 		displayName="Lobby table kit";
 	};
-	class MD_LobbyTable: MD_CraftedItemBase
+	class MD_LobbyTable: MD_Item_Kit
 	{
 		scope=2;
 		displayName="Lobby table";
@@ -754,7 +760,7 @@ class CfgVehicles
 	{
 		displayName="Square table kit";
 	};
-	class MD_SquareTable: MD_CraftedItemBase
+	class MD_SquareTable: MD_Item_Kit
 	{
 		scope=2;
 		displayName="Square table";
@@ -762,27 +768,5 @@ class CfgVehicles
 		model="\DZ\structures\furniture\various\table_dz.p3d";
 		weight=5000;
 		itemSize[]={5,9};	
-	};
-};
-
-class CfgNonAIVehicles
-{
-	class ProxyAttachment;
-	class ProxyMelee;
-	class ProxyMelee1: ProxyMelee
-	{
-		model="\MuchDecos\data\experiment.p3d";
-		ghostIcon="shoulderleft";
-	};
-};
-class CfgSlots
-{
-	class Slot_Shoulder;
-	class Slot_Melee1 : Slot_Shoulder
-	{
-		name="melee1";
-		displayName="melee1";
-		ghostIcon="shoulderleft";
-		selection="melee_dz";
 	};
 };

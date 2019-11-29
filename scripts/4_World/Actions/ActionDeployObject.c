@@ -2,7 +2,7 @@ modded class ActionDeployObject
 {
     override void OnEndServer(ActionData action_data)
     {
-        if (action_data.m_MainItem.IsInherited(MD_Item_Kit) || action_data.m_MainItem.IsInherited(MD_CraftedItemBase))
+        if (action_data.m_MainItem.IsInherited(MD_Item_Kit))
         {
             PlaceObjectActionData poActionData;
             poActionData = PlaceObjectActionData.Cast(action_data);
