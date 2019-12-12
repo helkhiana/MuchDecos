@@ -91,6 +91,16 @@ class CfgVehicles
 		class Cargo
 		{
 		};
+		class DamageSystem
+		{
+			class GlobalHealth
+			{
+				class Health
+				{
+					hitpoints = 100000000000;
+				};
+			};
+		};
 	};	
 	
 	class MD_Sink: Inventory_Base
@@ -190,6 +200,16 @@ class CfgVehicles
 				animPeriod=1;
 			};
 		};
+		class DamageSystem
+		{
+			class GlobalHealth
+			{
+				class Health
+				{
+					hitpoints = 100000000000;
+				};
+			};
+		};
 	};
 	
 	class MD_Large_Kit: MD_Kit
@@ -275,7 +295,7 @@ class CfgVehicles
 			hasIcon=1;
 			autoSwitchOff=1;
 			energyStorageMax=200000;
-			energyUsagePerSecond=0.28;
+			energyUsagePerSecond=0.05;
 			reduceMaxEnergyByDamageCoef=0;
 			energyAtSpawn=200000;
 			powerSocketsCount=4;

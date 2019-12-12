@@ -29,4 +29,17 @@ class MD_Box_C : MD_Item_Kit
 		}
 		return false;
 	}
+    
+    override void OnInventoryEnter(Man player)
+    {
+        super.OnInventoryEnter(player);
+        GetInventory().LockInventory(HIDE_INV_FROM_SCRIPT);        
+    }
+    
+    override void OnInventoryExit(Man player)
+    {
+        super.OnInventoryExit(player);
+        GetInventory().UnlockInventory(HIDE_INV_FROM_SCRIPT);
+        
+    }
 };

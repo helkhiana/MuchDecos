@@ -46,6 +46,16 @@ class CfgVehicles
 		hiddenSelections[]=
 		{
 			"camoGround"
+		};
+		class DamageSystem
+		{
+			class GlobalHealth
+			{
+				class Health
+				{
+					hitpoints = 100000000000;
+				};
+			};
 		};	
 	};
 
@@ -55,7 +65,7 @@ class CfgVehicles
 		displayName="Box";
 		descriptionShort="A box that's pretty sturdy";
 		model="\DZ\structures\furniture\decoration\box_c\box_c.p3d";		
-		itemSize[]={11,30};
+		itemSize[]={10,7};
 		physLayer="item_large";
 		class Cargo
 		{
@@ -80,6 +90,7 @@ class CfgVehicles
 			allowOwnedCargoManipulation=1;
 		};
 	};
+	class MD_StaticTrashCan : MD_TrashCan {};
 
 	class HouseNoDestruct;
 	class MD_Grave: HouseNoDestruct
@@ -161,7 +172,7 @@ class CfgVehicles
 		displayName="Bucket";
 		descriptionShort="Bucket used to store water or other small items. Can be used to craft flower pots.";
 		model="\DZ\structures\furniture\decoration\bucket\bucket.p3d";
-	}
+	};
 
 	class CombinationLock;
 	class MD_Padlock: CombinationLock
@@ -178,6 +189,52 @@ class CfgVehicles
 		{
 			"zbytek"
 		};
-	}
+		class DamageSystem
+		{
+			class GlobalHealth
+			{
+				class Health
+				{
+					hitpoints = 100000000000;
+				};
+			};
+		};
+	};
+
+	class MD_WhiteFridge: MD_Item
+	{		
+		scope=2;
+		displayName="White Fridge";
+		descriptionShort="A fridge to store your food";
+		model="\DZ\structures\furniture\kitchen\fridge\fridge.p3d";
+		itemSize[]={10,15};
+		itemBehaviour=0;
+		physLayer="item_large";
+		class Cargo
+		{
+			itemsCargoSize[]={10,15};
+			openable=0;
+			allowOwnedCargoManipulation=1;
+		};
+	};
+
+	
+	class MD_DoubleFridge: MD_Item
+	{		
+		scope=2;
+		displayName="Fridge";
+		descriptionShort="A fridge to store your food";
+		model="\DZ\gear\containers\fridge.p3d";
+		itemSize[]={10,10};
+		itemBehaviour=0;
+		physLayer="item_large";
+		class Cargo
+		{
+			itemsCargoSize[]={10,10};
+			openable=0;
+			allowOwnedCargoManipulation=1;
+		};
+	};
+
 	
 };

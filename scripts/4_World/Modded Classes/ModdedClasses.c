@@ -12,7 +12,7 @@ modded class ItemBase
 	void Base_Destroy()
 	{
 		GetGame().ObjectDelete( this );
-	}    
+	}
 	
     string Get_KitName()
 	{

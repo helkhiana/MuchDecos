@@ -73,10 +73,10 @@ class ActionDigGrave: ActionDeployObject
 		EntityAI entity_for_placing = action_data.m_MainItem;
 		vector position = action_data.m_Player.GetLocalProjectionPosition();
 		vector orientation = action_data.m_Player.GetLocalProjectionOrientation();
-				
-		if ( GetGame().IsMultiplayer() )
-		{		
-			m_MD_Grave = MD_Grave.Cast( action_data.m_Player.GetHologramServer().PlaceEntity( entity_for_placing ));
+		
+		if ( GetGame().IsMultiplayer() && action_data.m_Player.GetHologramServer())
+		{	
+			m_MD_Grave = MD_Grave.Cast( action_data.m_Player.GetHologramServer().PlaceEntity( entity_for_placing ));	
 			m_MD_Grave.SetOrientation( orientation );
 			action_data.m_Player.GetHologramServer().CheckPowerSource();
 			action_data.m_Player.PlacingCompleteServer();	
@@ -84,10 +84,10 @@ class ActionDigGrave: ActionDeployObject
 			m_MD_Grave.OnPlacementComplete( action_data.m_Player );
 		}
 			
-		//local singleplayer
-		if ( !GetGame().IsMultiplayer())
-		{						
-			m_MD_Grave = MD_Grave.Cast( action_data.m_Player.GetHologramLocal().PlaceEntity( entity_for_placing ));
+		
+		if ( !GetGame().IsMultiplayer() && action_data.m_Player.GetHologramLocal())
+		{
+			m_MD_Grave = MD_Grave.Cast( action_data.m_Player.GetHologramLocal().PlaceEntity( entity_for_placing ));								
 			m_MD_Grave.SetOrientation( orientation );
 			action_data.m_Player.PlacingCompleteLocal();
 			
