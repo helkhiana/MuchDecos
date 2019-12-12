@@ -42,7 +42,8 @@ class CraftMD_Item extends RecipeBase
 			m_IngredientsSorted[i] = NULL;
 		}
 
-		m_NumberOfResults = 0;		
+		m_NumberOfResults = 0;
+		m_AnywhereInInventory = true;		
 		Setup(recipeValues);
 		Init();
 	}

@@ -29,7 +29,17 @@ class CfgVehicles
 	class MD_GraveShovel : FieldShovel
 	{
 		displayName="Grave Shovel";
-		descriptionShort="Shovel to dig graves";
+		descriptionShort="Shovel to dig graves";		
+		class DamageSystem
+		{
+			class GlobalHealth
+			{
+				class Health
+				{
+					hitpoints = 400;
+				};
+			};
+		};
 	}
 	
 };

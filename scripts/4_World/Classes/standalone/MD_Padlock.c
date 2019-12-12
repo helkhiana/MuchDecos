@@ -281,14 +281,7 @@ class MD_Padlock extends ItemBase
 		GetInventory().GetCurrentInventoryLocation( inventory_location )
 		
 		entity.ServerDropEntity( this );
-		PlayerBase player = PlayerBase.Cast( GetGame().GetPlayer() );
-		if ( GetGame().IsMultiplayer() )
-        {
-            player.ServerTakeEntityToHands(this);
-        }else{
-            player.LocalTakeEntityToHands(this);
-        }
-
+		PlaceOnSurface();
 		SetLockAttachedState( false );
 	}
 		

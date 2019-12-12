@@ -17,12 +17,7 @@ class MD_TrashCan : MD_Item_Kit
     
       override bool CanPutIntoHands(EntityAI parent)
 	{
-		if( !super.CanPutIntoHands( parent ) )
-		{
-			return false;
-		}
-		return IsInvEmpty();
-		
+		return IsInvEmpty();		
     }
 
     bool IsInvEmpty()
