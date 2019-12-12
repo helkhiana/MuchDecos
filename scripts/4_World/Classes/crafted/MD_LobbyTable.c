@@ -13,12 +13,16 @@ class MD_LobbyTable_Kit : MD_Item_Kit
     static MD_ItemRecipeValues GetRecipeValues()
     {   
         MD_ItemRecipeValues recipeVals = new MD_ItemRecipeValues;
-		recipeVals.SetIngredientOne(0, -1, -5, false, false);
-		recipeVals.SetIngredientTwo(0, -1, -10, false, false);
-        recipeVals.SetMinMaxIngredientOne(-1, -1, 5,	-1);
-        recipeVals.SetMinMaxIngredientTwo(-1, -1, 10,	-1);
-        recipeVals.SetIngredientItemOne("WoodenPlanks");
-        recipeVals.SetIngredientItemTwo("Nail");
+		recipeVals.Set_minQuantityIngredientOne(5);
+		recipeVals.Set_minQuantityIngredientTwo(10);
+        recipeVals.Set_addQuantOne(-5);
+        recipeVals.Set_addQuantTwo(-10);
+		array<string> ingredientsOne =
+        {"WoodenPlank"};
+        recipeVals.SetIngredientItemOne(ingredientsOne);
+        array<string> ingredientsTwo =
+        {"Nail"};
+        recipeVals.SetIngredientItemTwo(ingredientsTwo);
 		recipeVals.SetName("Craft Lobby Table");
 		recipeVals.SetResult("MD_LobbyTable_Kit");  
         return recipeVals;

@@ -13,12 +13,16 @@ class MD_FeedRack_Kit : MD_Item_Kit
     static MD_ItemRecipeValues GetRecipeValues()
     {   
         MD_ItemRecipeValues recipeVals = new MD_ItemRecipeValues;
-		recipeVals.SetIngredientOne(0, -1, -1, false, false);
-		recipeVals.SetIngredientTwo(0, -1, -4, false, false);
-        recipeVals.SetMinMaxIngredientOne(-1, -1, 1,	-1);
-        recipeVals.SetMinMaxIngredientTwo(-1, -1, 6,	-1);
-        recipeVals.SetIngredientItemOne("MetalPlate");
-        recipeVals.SetIngredientItemTwo("Firewood");
+		recipeVals.Set_minQuantityIngredientOne(1);
+		recipeVals.Set_minQuantityIngredientTwo(6);
+        recipeVals.Set_addQuantOne(-1);
+        recipeVals.Set_addQuantTwo(-6);
+		array<string> ingredientsOne =
+        {"MetalPlate"};
+        recipeVals.SetIngredientItemOne(ingredientsOne);
+        array<string> ingredientsTwo =
+        {"Firewood"};
+        recipeVals.SetIngredientItemTwo(ingredientsTwo);
 		recipeVals.SetName("Craft Animal Feed Rack");
 		recipeVals.SetResult("MD_FeedRack_Kit");  
         return recipeVals;

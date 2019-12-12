@@ -556,16 +556,13 @@ class CfgVehicles
 		itemBehaviour=2;
 		class Cargo
 		{
-			itemsCargoSize[]={5,5};
+			itemsCargoSize[]={10,5};
 			openable=0;
 			allowOwnedCargoManipulation=1;
 		};
 		attachments[]=
 		{
-			"Firewood",
-			"M1_Firewood",
-			"M2_Firewood",
-			"M3_Firewood"
+			"Firewood"
 		};
 		class GUIInventoryAttachmentsProps
 		{
@@ -575,10 +572,7 @@ class CfgVehicles
 				description="";
 				attachmentSlots[]=
 				{
-					"Firewood",
-					"M1_Firewood",
-					"M2_Firewood",
-					"M3_Firewood"
+					"Firewood"
 				};
 				icon="cat_common_cargo";
 				view_index=1;
