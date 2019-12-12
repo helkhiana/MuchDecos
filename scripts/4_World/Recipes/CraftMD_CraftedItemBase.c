@@ -2,7 +2,7 @@ class CraftMD_Item extends RecipeBase
 {	
 	string name = "Craft";
 
-	string 	ingredientOne 				= "Item";
+    ref static array<string> ingredientOne = new array<string>;
 	float 	addHealthOne 				= 0;
 	float 	setHealthOne				= -1;
 	float 	addQuantOne 				= 0;
@@ -13,7 +13,7 @@ class CraftMD_Item extends RecipeBase
 	float	minQuantityIngredientOne 	= -1;
 	float	maxQuantityIngredientOne 	= -1;	
 
-	string 	ingredientTwo 				= "Item";
+    ref static array<string> ingredientTwo = new array<string>;
 	float 	addHealthTwo 				= 0;
 	float 	setHealthTwo 				= -1;
 	float 	addQuantTwo 				= 0;
@@ -69,7 +69,10 @@ class CraftMD_Item extends RecipeBase
 		
 		//INGREDIENTS
 		//ingredient 1
-		InsertIngredient(0,ingredientOne);
+		foreach( string ingredientOneItem : ingredientOne )
+		{
+			InsertIngredient(0,ingredientOneItem);
+		}
 		m_IngredientAddHealth[0] = addHealthOne;
 		m_IngredientSetHealth[0] = setHealthOne;
 		m_IngredientAddQuantity[0] = addQuantOne;
@@ -77,7 +80,10 @@ class CraftMD_Item extends RecipeBase
 		m_IngredientUseSoftSkills[0] = useSoftSkillOne;
 		
 		//ingredient 2
-		InsertIngredient(1,ingredientTwo);
+		foreach( string ingredientTwoItem : ingredientTwo )
+		{
+			InsertIngredient(1,ingredientTwoItem);
+		}
 		
 		m_IngredientAddHealth[1] = addHealthTwo;
 		m_IngredientSetHealth[1] = setHealthTwo;

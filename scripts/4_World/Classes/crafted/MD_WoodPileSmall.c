@@ -13,12 +13,15 @@ class MD_WoodPileSmall_Kit : MD_Item_Kit
     static MD_ItemRecipeValues GetRecipeValues()
     {  
         MD_ItemRecipeValues recipeVals = new MD_ItemRecipeValues;
-		recipeVals.SetIngredientOne(0, -1, 0, false, false);
-		recipeVals.SetIngredientTwo(0, -1, -3, false, false);
-        recipeVals.SetMinMaxIngredientOne(-1, -1, -1,	-1);
-        recipeVals.SetMinMaxIngredientTwo(-1, -1,  3,	-1);
-        recipeVals.SetIngredientItemOne("WoodAxe");
-        recipeVals.SetIngredientItemTwo("WoodenLog");
+		recipeVals.Set_minQuantityIngredientTwo(3);
+        recipeVals.Set_addHealthOne(-5);
+        recipeVals.Set_addQuantTwo(-3);
+		array<string> ingredientsOne =
+        {"WoodAxe", "FirefighterAxe"};
+        recipeVals.SetIngredientItemOne(ingredientsOne);
+        array<string> ingredientsTwo =
+        {"WoodenLog"};
+        recipeVals.SetIngredientItemTwo(ingredientsTwo);
 		recipeVals.SetName("Craft Wood Pile Small");
 		recipeVals.SetResult("MD_WoodPileSmall_Kit");  
         return recipeVals;

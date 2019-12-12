@@ -13,12 +13,16 @@ class MD_WoodTable_Indoor_Kit : MD_Item_Kit
     static MD_ItemRecipeValues GetRecipeValues()
     {  
         MD_ItemRecipeValues recipeVals = new MD_ItemRecipeValues;
-		recipeVals.SetIngredientOne(0, -1, -20, false, false);
-		recipeVals.SetIngredientTwo(0, -1, -50, false, false);
-        recipeVals.SetMinMaxIngredientOne(-1, -1, 20,	-1);
-        recipeVals.SetMinMaxIngredientTwo(-1, -1, 50,	-1);
-        recipeVals.SetIngredientItemOne("WoodenPlank");
-        recipeVals.SetIngredientItemTwo("Nail");
+		recipeVals.Set_minQuantityIngredientOne(20);
+		recipeVals.Set_minQuantityIngredientTwo(50);
+        recipeVals.Set_addQuantOne(-20);
+        recipeVals.Set_addQuantTwo(-50);
+		array<string> ingredientsOne =
+        {"WoodenPlank"};
+        recipeVals.SetIngredientItemOne(ingredientsOne);
+        array<string> ingredientsTwo =
+        {"Nail"};
+        recipeVals.SetIngredientItemTwo(ingredientsTwo);
 		recipeVals.SetName("Craft Wood Table Indoor");
 		recipeVals.SetResult("MD_WoodTable_Indoor_Kit");  
         return recipeVals;

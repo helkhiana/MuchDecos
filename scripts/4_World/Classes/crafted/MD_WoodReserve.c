@@ -13,12 +13,16 @@ class MD_WoodReserve_Kit : MD_Item_Kit
     static MD_ItemRecipeValues GetRecipeValues()
     {  
         MD_ItemRecipeValues recipeVals = new MD_ItemRecipeValues;
-		recipeVals.SetIngredientOne(0, -1, -1, false, false);
-		recipeVals.SetIngredientTwo(0, -1, -4, false, false);
-        recipeVals.SetMinMaxIngredientOne(-1, -1, 1,	-1);
-        recipeVals.SetMinMaxIngredientTwo(-1, -1,  4,	-1);
-        recipeVals.SetIngredientItemOne("MetalPlate");
-        recipeVals.SetIngredientItemTwo("WoodenLog");
+		recipeVals.Set_minQuantityIngredientOne(1);
+		recipeVals.Set_minQuantityIngredientTwo(4);
+        recipeVals.Set_addQuantOne(-1);
+        recipeVals.Set_addQuantTwo(-4);
+		array<string> ingredientsOne =
+        {"MetalPlate"};
+        recipeVals.SetIngredientItemOne(ingredientsOne);
+        array<string> ingredientsTwo =
+        {"WoodenLog"};
+        recipeVals.SetIngredientItemTwo(ingredientsTwo);
 		recipeVals.SetName("Craft Wood Reserve");
 		recipeVals.SetResult("MD_WoodReserve_Kit");  
         return recipeVals;

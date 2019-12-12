@@ -2,14 +2,14 @@ class MD_ItemRecipeValues
 {
     string g_name = "Craft";
 
-    string g_ingredientOne = "Item";
+    ref array<string> g_ingredientOne = {"Item",};
 	float g_addHealthOne 		= 0;
 	float g_setHealthOne		= -1;
 	float g_addQuantOne 		= 0;
 	bool g_destroyOne 		= false;
 	bool g_useSoftSkillOne 	= false;	
 
-    string g_ingredientTwo = "Item";
+    ref array<string> g_ingredientTwo = {"Item",};
 	float g_addHealthTwo 		= 0;
 	float g_setHealthTwo 		= -1;
 	float g_addQuantTwo 		= 0;
@@ -48,6 +48,28 @@ class MD_ItemRecipeValues
 		g_useSoftSkillOne   = useSoftSkill;
 	}
 
+    void Set_addHealthOne(float addHealth)
+	{		
+		g_addHealthOne = addHealth;
+	}
+    void Set_setHealthOne(float setHealth)
+	{		
+		g_setHealthOne = setHealth;
+	}
+
+    void Set_addQuantOne(float addQuant)
+	{		
+		g_addQuantOne = addQuant;
+	}
+    void Set_destroyOne(bool destroy)
+	{		
+		g_destroyOne = destroy;
+	}
+    void Set_useSoftSkillOne(bool useSoftSkill)
+	{		
+		g_useSoftSkillOne = useSoftSkill;
+	}
+
     void SetMinMaxIngredientOne(float minDamageIngredientOne, float	maxDamageIngredientOne,	float minQuantityIngredientOne,	float maxQuantityIngredientOne)
     {
         g_minDamageIngredientOne = minDamageIngredientOne;
@@ -57,6 +79,24 @@ class MD_ItemRecipeValues
         g_maxQuantityIngredientOne = maxQuantityIngredientOne;
     }
 
+    void Set_minDamageIngredientOne(float minDamageIngredientOne)
+	{		
+		g_minDamageIngredientOne = minDamageIngredientOne;
+	}
+    void Set_maxDamageIngredientOne(float maxDamageIngredientOne)
+	{		
+		g_maxDamageIngredientOne = maxDamageIngredientOne;
+	}
+
+    void Set_minQuantityIngredientOne(float minQuantityIngredientOne)
+	{		
+		g_minQuantityIngredientOne = minQuantityIngredientOne;
+	}
+    void Set_maxQuantityIngredientOne(float maxQuantityIngredientOne)
+	{		
+		g_maxQuantityIngredientOne = maxQuantityIngredientOne;
+	}
+
 	void SetIngredientTwo(float addHealth, float setHealth, float addQuant, bool destroy, bool useSoftSkill){
 		
 		g_addHealthTwo      = addHealth;
@@ -64,6 +104,28 @@ class MD_ItemRecipeValues
 		g_addQuantTwo       = addQuant;
 		g_destroyTwo        = destroy;
 		g_useSoftSkillTwo   = useSoftSkill;
+	}
+
+    void Set_addHealthTwo(float addHealth)
+	{		
+		g_addHealthTwo = addHealth;
+	}
+    void Set_setHealthTwo(float setHealth)
+	{		
+		g_setHealthTwo = setHealth;
+	}
+
+    void Set_addQuantTwo(float addQuant)
+	{		
+		g_addQuantTwo = addQuant;
+	}
+    void Set_destroyTwo(bool destroy)
+	{		
+		g_destroyTwo = destroy;
+	}
+    void Set_useSoftSkillTwo(bool useSoftSkill)
+	{		
+		g_useSoftSkillTwo = useSoftSkill;
 	}
 
     void SetMinMaxIngredientTwo(float minDamageIngredientTwo, float	maxDamageIngredientTwo,	float minQuantityIngredientTwo,	float maxQuantityIngredientTwo)
@@ -75,7 +137,26 @@ class MD_ItemRecipeValues
         g_maxQuantityIngredientTwo = maxQuantityIngredientTwo;
     }
 
-    void SetResult(bool setFullQuantResult, float setQuantResult, float setHealthResult, float inheritsHealthResult, float inheritsColorResult,	float resultToInvResult, bool useSoftSkillResult, float replaceIngredientResult)
+    void Set_minDamageIngredientTwo(float minDamageIngredientTwo)
+	{		
+		g_minDamageIngredientTwo = minDamageIngredientTwo;
+	}
+    void Set_maxDamageIngredientTwo(float maxDamageIngredientTwo)
+	{		
+		g_maxDamageIngredientTwo = maxDamageIngredientTwo;
+	}
+
+    void Set_minQuantityIngredientTwo(float minQuantityIngredientTwo)
+	{		
+		g_minQuantityIngredientTwo = minQuantityIngredientTwo;
+	}
+    void Set_maxQuantityIngredientTwo(float maxQuantityIngredientTwo)
+	{		
+		g_maxQuantityIngredientTwo = maxQuantityIngredientTwo;
+	}
+
+
+    void SetResultDetails(bool setFullQuantResult, float setQuantResult, float setHealthResult, float inheritsHealthResult, float inheritsColorResult,	float resultToInvResult, bool useSoftSkillResult, float replaceIngredientResult)
     {
         g_setFullQuantResult 	    = setFullQuantResult;
         g_setQuantResult		    = setQuantResult;
@@ -95,11 +176,18 @@ class MD_ItemRecipeValues
         g_result = result;
     }
     
-    void SetIngredientItemOne(string item){
-        g_ingredientOne = item;
+    void SetIngredientItemOne(array<string> items){       
+        g_ingredientOne = items;
     }
 
-    void SetIngredientItemTwo(string item){
-        g_ingredientTwo = item;
+    void SetIngredientItemTwo(array<string> items){
+        g_ingredientTwo = items;
+    }
+
+    void SetQuantResult(float setQuantResult){
+         g_setQuantResult		    = setQuantResult;
+    }
+    void Set_useSoftSkillResult(bool useSoftSkillResult){
+        g_useSoftSkillResult	    = useSoftSkillResult;
     }
 }
