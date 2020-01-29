@@ -31,6 +31,7 @@ class CfgVehicles
 
 	class MD_Item: Inventory_Base
 	{
+		scope=0;
 		destroyOnEmpty=0;
 		varQuantityDestroyOnMin=0;
 		descriptionShort="This can be dismantled with a screwdriver.";
@@ -71,7 +72,7 @@ class CfgVehicles
 
 	class MD_Kit: WoodenCrate
 	{
-		scope=2;
+		scope=0;
 		displayName="Wooden Box Kit";
 		descriptionShort="Wooden box used to transport small items. Place to deploy item inside. The items can be dismantled with a screwdriver after deployment.";
 		model="\MuchDecos\data\kitbox\kitbox_small.p3d";		
@@ -138,14 +139,16 @@ class CfgVehicles
 
 	class MD_Sink_Kit: MD_Kit
 	{
+		scope=2;
 		displayName="Sink Kit";
 	};
 	
 	class MD_OpenableBase: Container_Base
 	{
-		scope=2;
+		scope=0;
 		overrideDrawArea="8.0";
 		forceFarBubble="true";
+		descriptionShort="This can be dismantled with a screwdriver if unlocked.";
 		destroyOnEmpty=0;
 		quantityBar=0;
 		varQuantityMax=0;
@@ -214,6 +217,7 @@ class CfgVehicles
 	
 	class MD_Large_Kit: MD_Kit
 	{
+		scope=0;
 		displayName="Large Kit";
 		model="\MuchDecos\data\kitbox\kitbox_large.p3d";
 		descriptionShort="Large wooden box used to transport enormous items. Place to deploy item inside. The items can be dismantled with a  screwdriver after deployment.";		
@@ -222,6 +226,7 @@ class CfgVehicles
 	
 	class MD_Tent_Kit: MD_Kit
 	{
+		scope=0;
 		displayName="Tent Kit";
 		model="\MuchDecos\data\kitbox\kitbox_tents.p3d";
 		descriptionShort="Place to deploy item inside. The items can be dismantled by screwdriver after deployment.";		
@@ -230,6 +235,7 @@ class CfgVehicles
 	
 	class MD_Power_Transformer_Kit: MD_Large_Kit
 	{
+		scope=2;
 		displayName="Power Transformer";
 	};
 
@@ -248,7 +254,7 @@ class CfgVehicles
 		{
 			"SparkPlug"
 		};
-		fuelTankCapacity=200000;
+		fuelTankCapacity=7000;
 		carveNavmesh=1;
 		heavyItem=1;
 		hiddenSelections[]=
@@ -294,10 +300,10 @@ class CfgVehicles
 		{
 			hasIcon=1;
 			autoSwitchOff=1;
-			energyStorageMax=200000;
-			energyUsagePerSecond=0.05;
-			reduceMaxEnergyByDamageCoef=0;
-			energyAtSpawn=200000;
+			energyStorageMax=10000;
+			energyUsagePerSecond=0.01;
+			reduceMaxEnergyByDamageCoef=0.5;
+			energyAtSpawn=10000;	
 			powerSocketsCount=4;
 			compatiblePlugTypes[]={2,6};
 		};
@@ -388,6 +394,7 @@ class CfgVehicles
 
 	class MD_PostBox_Kit: MD_Kit
 	{
+		scope=2;
 		displayName="Postbox kit";
 	};
 	class MD_PostBox: MD_Item
@@ -406,6 +413,7 @@ class CfgVehicles
 
 	class MD_PostBoxWall_Kit: MD_Kit
 	{
+		scope=2;
 		displayName="Wall Postbox kit";
 	};
 	class MD_PostBoxWall: MD_Item
@@ -424,6 +432,7 @@ class CfgVehicles
 	
 	class MD_BlueBench_Kit: MD_Kit
 	{
+		scope=2;
 		displayName="Blue Bench kit";
 	};
 	class MD_BlueBench: MD_Item
@@ -436,6 +445,7 @@ class CfgVehicles
 	
 	class MD_Sunshade_Kit: MD_Kit
 	{
+		scope=2;
 		displayName="Sunshade kit";
 	};
 	class MD_Sunshade: MD_Item
@@ -450,6 +460,7 @@ class CfgVehicles
 	
 	class MD_CamonetShelter_Kit: MD_Lumber_Kit
 	{
+		scope=2;
 		displayName="Camonet Shelter kit";
 		descriptionShort="Deploys into a camonet shelter";
 	};
@@ -461,6 +472,7 @@ class CfgVehicles
 	};
 	class MD_CamonetShelter_BE_Kit: MD_Lumber_Kit
 	{
+		scope=2;
 		displayName="Camonet Shelter BE kit";
 		descriptionShort="Deploys into a camonet shelter, big east variant";
 	};
@@ -472,6 +484,7 @@ class CfgVehicles
 	};
 	class MD_CamonetShelter_BN_Kit: MD_Lumber_Kit
 	{
+		scope=2;
 		displayName="Camonet Shelter BN kit";
 		descriptionShort="Deploys into a camonet shelter, big nato variant";
 	};
@@ -483,6 +496,7 @@ class CfgVehicles
 	};
 	class MD_CamonetShelter_RE_Kit: MD_Lumber_Kit
 	{
+		scope=2;
 		displayName="Camonet Shelter RE kit";
 		descriptionShort="Deploys into a camonet shelter, roof east variant";
 	};
@@ -494,6 +508,7 @@ class CfgVehicles
 	};
 	class MD_CamonetShelter_RN_Kit: MD_Lumber_Kit
 	{
+		scope=2;
 		displayName="Camonet Shelter RN kit";
 		descriptionShort="Deploys into a camonet shelter, roof nato variant";
 	};
@@ -505,6 +520,7 @@ class CfgVehicles
 	};
 	class MD_CamonetShelter_SE_Kit: MD_Lumber_Kit
 	{
+		scope=2;
 		displayName="Camonet Shelter SE kit";
 		descriptionShort="Deploys into a camonet shelter, side east variant";
 	};
@@ -516,6 +532,7 @@ class CfgVehicles
 	};
 	class MD_CamonetShelter_SN_Kit: MD_Lumber_Kit
 	{
+		scope=2;
 		displayName="Camonet Shelter SN kit";
 		descriptionShort="Deploys into a camonet shelter, side nato variant";
 	};

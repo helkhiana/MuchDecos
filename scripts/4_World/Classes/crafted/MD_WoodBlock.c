@@ -6,7 +6,7 @@ class MD_WoodBlock : MD_Item_Kit
 	}
     override vector Get_MDItemPos()
 	{
-		return "0 0.40 0";
+		return "0 0.36 0";
 	}
 
     static MD_ItemRecipeValues GetRecipeValues()

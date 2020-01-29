@@ -16,13 +16,13 @@ modded class Hologram
 
 	override string ProjectionBasedOnParent()
 	{
-		ItemBase fieldShovel_in_hands = ItemBase.Cast( m_Player.GetHumanInventory().GetEntityInHands() );
+		ItemBase fieldShovel_in_hands = m_Parent;
         if ( fieldShovel_in_hands && fieldShovel_in_hands.CanMakeMD_Grave() )
         {
             return "MD_Grave";
 		}
-
-		MD_Item_Kit item_in_hands = MD_Item_Kit.Cast( m_Player.GetHumanInventory().GetEntityInHands() );
+		
+		MD_Item_Kit item_in_hands = MD_Item_Kit.Cast( m_Parent );
 		if ( item_in_hands )
 		{
 			return item_in_hands.Get_MDItemName();
@@ -33,7 +33,7 @@ modded class Hologram
 
 	override EntityAI PlaceEntity( EntityAI entity_for_placing )
 	{	
-		ItemBase item_in_hands = ItemBase.Cast( m_Player.GetHumanInventory().GetEntityInHands() );
+		ItemBase item_in_hands = m_Parent;
 	
 		if ( item_in_hands && item_in_hands.CanMakeGardenplot())
 		{	
@@ -52,7 +52,7 @@ modded class Hologram
 
 	override void EvaluateCollision()
 	{	
-		ItemBase item_in_hands = ItemBase.Cast( m_Player.GetHumanInventory().GetEntityInHands() );
+		ItemBase item_in_hands = m_Parent;
 
 		if ( item_in_hands.IsInherited( MD_Item_Kit ))
 		{
@@ -70,7 +70,7 @@ modded class Hologram
 
 	override bool IsFloating() 
 	{
-		ItemBase item_in_hands = ItemBase.Cast(m_Player.GetHumanInventory().GetEntityInHands());
+		ItemBase item_in_hands = m_Parent;
 		if (item_in_hands.IsInherited(MD_Item_Kit) )
 		{
 			return true;
@@ -83,7 +83,7 @@ modded class Hologram
 
 	override void SetProjectionPosition( vector position )
 	{	
-		MD_Item_Kit mdItemKit = MD_Item_Kit.Cast(m_Player.GetHumanInventory().GetEntityInHands());
+		MD_Item_Kit mdItemKit = MD_Item_Kit.Cast(m_Parent);
 		if (mdItemKit && IsFloating())
 		{ 
 			vector mdItemKitPos = SetOnGround( position ) + mdItemKit.Get_MDItemPos();

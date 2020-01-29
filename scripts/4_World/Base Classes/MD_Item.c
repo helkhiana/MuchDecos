@@ -8,44 +8,23 @@ class MD_Item: ItemBase
     override bool CanPutIntoHands(EntityAI parent)
     {
         return false;
-    }
+    }	
 };
 
-class MD_Item_Kit extends ItemBase
+class MD_Item_Kit: ItemBase
 {	
-	ref protected EffectSound m_DeployLoopSound;
-	
 	void MD_Item_Kit()
 	{
 		RegisterNetSyncVariableBool("m_IsSoundSynchRemote");
-		//RegisterNetSyncVariableBool("m_IsDeploySound");
-	}
-
-	void ~MD_Item_Kit()
-	{
-		if ( m_DeployLoopSound )
-		{
-			SEffectManager.DestroySound( m_DeployLoopSound );
-		}
 	}
 	
 	override void OnVariablesSynchronized()
 	{
 		super.OnVariablesSynchronized();
 		
-		if ( IsDeploySound() )
+		if ( IsPlaceSound() )
 		{
-			//PlayDeploySound();
-		}
-				
-		if ( CanPlayDeployLoopSound() )
-		{
-			//PlayDeployLoopSound();
-		}
-					
-		if ( m_DeployLoopSound && !CanPlayDeployLoopSound() )
-		{
-			//StopDeployLoopSound();
+			PlayPlaceSound();
 		}
 	}
 		
@@ -58,12 +37,13 @@ class MD_Item_Kit extends ItemBase
 			vector position = player_base.GetLocalProjectionPosition();
 			vector orientation = player_base.GetLocalProjectionOrientation();
 				
-			Object kitItem = GetGame().CreateObject(Get_MDItemName(), position, false );
+			EntityAI kitItem = EntityAI.Cast(GetGame().CreateObject(Get_MDItemName(), position, false ));
 			kitItem.SetPosition(position);
 			kitItem.SetOrientation(orientation);
+			kitItem.SetLifetime(3888000);
 		}
 		
-		SetIsDeploySound( true );
+		SetIsPlaceSound( true );
 	}
 	
 	override bool IsDeployable()
@@ -71,34 +51,11 @@ class MD_Item_Kit extends ItemBase
 		return true;
 	}	
 	
-	override string GetDeploySoundset()
+	override string GetPlaceSoundset()
 	{
 		return "putDown_FenceKit_SoundSet";
 	}
-	
-	override string GetLoopDeploySoundset()
-	{
-		return "";
-	}
-	
-	void PlayDeployLoopSound()
-	{		
-		if ( GetGame().IsMultiplayer() && GetGame().IsClient() || !GetGame().IsMultiplayer() )
-		{	
-			if ( !m_DeployLoopSound.IsSoundPlaying() )
-				m_DeployLoopSound = SEffectManager.PlaySound( GetLoopDeploySoundset(), GetPosition() );			
-		}
-	}
-	
-	void StopDeployLoopSound()
-	{
-		if ( GetGame().IsMultiplayer() && GetGame().IsClient() || !GetGame().IsMultiplayer() )
-		{	
-			m_DeployLoopSound.SetSoundFadeOut(0.5);
-			m_DeployLoopSound.SoundStop();
-		}
-	}   
-	
+
 	string Get_MDItemName()
 	{
 		return "MD_Item";

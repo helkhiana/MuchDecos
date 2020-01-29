@@ -18,7 +18,7 @@ class MD_CampHouse_White_Kit : MD_CampHouse_Kit
 		return "Land_MD_CampHouse_White";
 	}
 };
-class Land_MD_CampHouse_White : MD_OpenableItem_Base
+class Land_MD_CampHouse_White : MD_OpenableDoorWoodSmall
 {
 	override string Get_KitName()
 	{
@@ -33,7 +33,7 @@ class MD_CampHouse_Brown_Kit : MD_CampHouse_Kit
 		return "Land_MD_CampHouse_Brown";
 	}
 };
-class Land_MD_CampHouse_Brown : MD_OpenableItem_Base
+class Land_MD_CampHouse_Brown : MD_OpenableDoorWoodSmall
 {
 	override string Get_KitName()
 	{
@@ -48,7 +48,7 @@ class MD_CampHouse_Red_Kit : MD_CampHouse_Kit
 		return "Land_MD_CampHouse_Red";
 	}
 };
-class Land_MD_CampHouse_Red : MD_OpenableItem_Base
+class Land_MD_CampHouse_Red : MD_OpenableDoorWoodSmall
 {
 	override string Get_KitName()
 	{

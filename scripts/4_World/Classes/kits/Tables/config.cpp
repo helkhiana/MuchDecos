@@ -29,6 +29,7 @@ class CfgVehicles
 	
 	class MD_StudentDesk_Kit: MD_Kit
 	{
+		scope=2;
 		displayName="Student Desk kit";
 	};
 	class MD_StudentDesk: MD_Item
@@ -39,6 +40,7 @@ class CfgVehicles
 	};
 	class MD_TeacherDesk_Kit: MD_Kit
 	{
+		scope=2;
 		displayName="Teacher Desk kit";
 	};
 	class MD_TeacherDesk: MD_Item
@@ -49,6 +51,7 @@ class CfgVehicles
 	};
 	class MD_LabDesk_Kit: MD_Kit
 	{
+		scope=2;
 		displayName="Lab Desk kit";
 	};
 	class MD_LabDesk: MD_Item
@@ -59,6 +62,7 @@ class CfgVehicles
 	};
 	class MD_CampTable_Small_Kit: MD_Kit
 	{
+		scope=2;
 		displayName="Small Camp Table kit";
 	};
 	class MD_CampTable_Small: MD_Item
@@ -69,6 +73,7 @@ class CfgVehicles
 	};
 	class MD_CampTable_Long_Kit: MD_Kit
 	{
+		scope=2;
 		displayName="Long Camp Table kit";
 	};
 	class MD_CampTable_Long: MD_Item
@@ -79,6 +84,7 @@ class CfgVehicles
 	};
 	class MD_TableDrawer_Kit: MD_Kit
 	{
+		scope=2;
 		displayName="Table with drawer kit";
 	};
 	class MD_TableDrawer: MD_Item
@@ -95,6 +101,7 @@ class CfgVehicles
 	};
 	class MD_OfficeTable_Kit: MD_Kit
 	{
+		scope=2;
 		displayName="Office Table kit";
 	};
 	class MD_OfficeTable: MD_Item
@@ -105,6 +112,7 @@ class CfgVehicles
 	};
 	class MD_ConferenceTable_Kit: MD_Kit
 	{
+		scope=2;
 		displayName="Conference Table kit";
 	};
 	class MD_ConferenceTable: MD_Item
@@ -115,6 +123,7 @@ class CfgVehicles
 	};
 	class MD_OfficeDesk_Kit: MD_Kit
 	{
+		scope=2;
 		displayName="Office Desk kit";
 	};
 	class MD_OfficeDesk: MD_Item
@@ -125,6 +134,7 @@ class CfgVehicles
 	};
 	class MD_KitchenCheckeredTable_Kit: MD_Kit
 	{
+		scope=2;
 		displayName="Kitchen Checkered Table kit";
 	};
 	class MD_KitchenCheckeredTable: MD_Item
@@ -135,13 +145,24 @@ class CfgVehicles
 	};
 	class MD_KitchenTable_Kit: MD_Kit
 	{
+		scope=2;
 		displayName="Kitchen Table kit";
 	};
 	class MD_KitchenTable: MD_Item
 	{		
 		scope=2;
 		displayName="Kitchen Table";
-		descriptionShort="";
 		model="\DZ\structures\furniture\tables\kitchen_table_a\kitchen_table_a.p3d";
+	};
+	class MD_MarketTable_Kit: MD_Kit
+	{
+		scope=2;
+		displayName="Market Table kit";
+	};
+	class MD_MarketTable: MD_Item
+	{		
+		scope=2;
+		displayName="Market Table";
+		model="\DZ\structures_bliss\residential\Misc\Misc_Table_Market.p3d";
 	};
 };

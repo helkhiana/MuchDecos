@@ -28,5 +28,8 @@ modded class PluginRecipesManager
 		RegisterRecipe(new CraftMD_Item(MD_EvergreenFlowerPot.GetRecipeValues()));
 		RegisterRecipe(new CraftMD_Item(MD_SnakePlantFlowerPot.GetRecipeValues()));
 		RegisterRecipe(new CraftMD_Item(MD_LobbyTable_Kit.GetRecipeValues()));
+		RegisterRecipe(new CraftMD_Item(MD_WornTable_Kit.GetRecipeValues()));
+		RegisterRecipe(new CraftMD_Item(MD_SquareTable_Kit.GetRecipeValues()));
+		RegisterRecipe(new CraftMD_Item(MD_WornBench.GetRecipeValues()));
 	}			
 }

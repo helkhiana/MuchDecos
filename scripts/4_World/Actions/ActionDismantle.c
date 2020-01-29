@@ -39,14 +39,18 @@ class ActionDismantle: ActionContinuousBase
 	{	
 		Object targetObject = target.GetObject();
 		if ( targetObject )
-		{
+		{				
 			ItemBase md_item = ItemBase.Cast( targetObject );
-			if ( md_item.IsInherited(MD_Item) || md_item.IsInherited(MD_OpenableItem_Base))
-			{
-				MD_OpenableItem_Base openableItem = MD_OpenableItem_Base.Cast(targetObject);
-				if(openableItem && openableItem.IsLocked()) return false;
-				
-                return true;            
+			if(md_item){
+				if(!md_item.IsInvEmpty()) return false;
+				if(md_item.IsWallOrGate() && !md_item.IsFacingPlayer(player)) return false;
+				if (md_item.IsInherited(MD_Item) || md_item.IsInherited(MD_OpenableItem_Base) || md_item.IsKindOf("MD_Power_Transformer"))
+				{
+					MD_OpenableItem_Base openableItem = MD_OpenableItem_Base.Cast(targetObject);
+					if(openableItem && openableItem.IsLocked()) return false;
+					
+					return true;            
+				}
 			}
 		}
 		return false;
@@ -60,11 +64,10 @@ class ActionDismantle: ActionContinuousBase
 		if(myItem)
 		{
 			name = myItem.Get_KitName();
-			myItem.Base_Destroy();
+			myItem.Delete();
 		}
-		
 		//add damage to tool
-		action_data.m_MainItem.DecreaseHealth( UADamageApplied.DISMANTLE, false );
+		action_data.m_MainItem.DecreaseHealth( 5, false );
 		
 		//return materials			
 		ItemBase.Cast( GetGame().CreateObject(name, pos) );

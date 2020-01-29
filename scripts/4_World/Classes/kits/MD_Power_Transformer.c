@@ -47,9 +47,4 @@ class MD_Power_Transformer : PowerGenerator
 			UpdateFuelMeter();
 		}
 	}
-	
-	override void SetActions()
-	{
-		super.SetActions();
-	}
 };

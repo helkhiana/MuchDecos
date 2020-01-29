@@ -192,3 +192,23 @@ class MD_KitchenTable : MD_Item
 		return "MD_KitchenTable_Kit";
 	}
 };
+//MD_MarketTable_Kit
+class MD_MarketTable_Kit : MD_Item_Kit
+{	
+	override string Get_MDItemName()
+	{
+		return "MD_MarketTable";
+	} 
+
+	override vector Get_MDItemPos()
+	{
+		return "0 0.5 0";
+	}  
+};
+class MD_MarketTable : MD_Item
+{
+	override string Get_KitName()
+	{
+		return "MD_MarketTable_Kit";
+	}
+};

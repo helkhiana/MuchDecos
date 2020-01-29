@@ -31,6 +31,7 @@ class CfgVehicles
 	//Stores
 	class MD_NewsStand1_Kit: MD_Large_Kit
 	{
+		scope=2;
 		displayName="Red News Stand kit";
 	};
 	class Land_MD_NewsStand1: MD_OpenableBase
@@ -48,6 +49,7 @@ class CfgVehicles
 	};
 	class MD_NewsStand2_Kit: MD_Large_Kit
 	{
+		scope=2;
 		displayName="Green News Stand kit";
 	};
 	class Land_MD_NewsStand2: MD_OpenableBase
@@ -65,6 +67,7 @@ class CfgVehicles
 	};
 	class MD_FastFoodStand_Kit: MD_Large_Kit
 	{
+		scope=2;
 		displayName="Fast Food Stand kit";
 	};
 	class Land_MD_FastFoodStand: MD_OpenableBase
@@ -82,6 +85,7 @@ class CfgVehicles
 	};	
 	class MD_GroceryStand_Kit: MD_Large_Kit
 	{
+		scope=2;
 		displayName="Grocery Stand kit";
 	};
 	class Land_MD_GroceryStand: MD_OpenableBase
@@ -100,6 +104,7 @@ class CfgVehicles
 	//Camp houses
 	class MD_CampHouse_White_Kit: MD_Large_Kit
 	{
+		scope=2;
 		displayName="White Camp House kit";
 	};
 	class Land_MD_CampHouse_White: MD_OpenableBase
@@ -116,6 +121,7 @@ class CfgVehicles
 	};
 	class MD_CampHouse_Brown_Kit: MD_Large_Kit
 	{
+		scope=2;
 		displayName="Brown Camp House kit";
 	};
 	class Land_MD_CampHouse_Brown: MD_OpenableBase
@@ -132,6 +138,7 @@ class CfgVehicles
 	};
 	class MD_CampHouse_Red_Kit: MD_Large_Kit
 	{
+		scope=2;
 		displayName="Red Camp House kit";
 	};
 	class Land_MD_CampHouse_Red: MD_OpenableBase
@@ -150,6 +157,7 @@ class CfgVehicles
 	//Caravans
 	class MD_Caravan_WGreen_Kit: MD_Large_Kit
 	{
+		scope=2;
 		displayName="Green Wood Caravan kit";
 	};
 	class Land_MD_Caravan_WGreen: MD_OpenableBase
@@ -166,6 +174,7 @@ class CfgVehicles
 	};
 	class MD_Caravan_WBrown_Kit: MD_Large_Kit
 	{
+		scope=2;
 		displayName="Brown Wood Caravan kit";
 	};
 	class Land_MD_Caravan_WBrown: MD_OpenableBase
@@ -182,6 +191,7 @@ class CfgVehicles
 	};
 	class MD_Caravan_MGreen_Kit: MD_Large_Kit
 	{
+		scope=2;
 		displayName="Green Metal Caravan kit";
 	};
 	class Land_MD_Caravan_MGreen: MD_OpenableBase
@@ -198,6 +208,7 @@ class CfgVehicles
 	};
 	class MD_Caravan_MRust_Kit: MD_Large_Kit
 	{
+		scope=2;
 		displayName="Rust Metal Caravan kit";
 	};
 	class Land_MD_Caravan_MRust: MD_OpenableBase
@@ -217,6 +228,7 @@ class CfgVehicles
 
 	class MD_Polytunnel_Kit: MD_Large_Kit
 	{
+		scope=2;
 		displayName="Polytunnel kit";
 	};
 
@@ -232,45 +244,11 @@ class CfgVehicles
 			openable=0;
 			allowOwnedCargoManipulation=1;
 		};
-		class Doors
-		{
-			class Doors1
-			{
-				displayName="door 1";
-				component="Doors1";
-				soundPos="doors1_action";
-				animPeriod=1;
-				initPhase=0;
-				initOpened=0.5;
-				soundOpen="doorWoodGreenhouseOpen";
-				soundClose="doorWoodGreenhouseClose";
-				soundLocked="doorWoodGreenhouseRattle";
-				soundOpenABit="doorWoodGreenhouseOpenABit";
-			};
-		};
-		class DamageSystem
-		{
-			class GlobalHealth
-			{
-				class Health
-				{
-					hitpoints=100000000;
-				};
-			};
-		};
-		class AnimationSources
-		{
-			class Doors1
-			{
-				source="user";
-				initPhase=0;
-				animPeriod=1;
-			};
-		};
 	};
 
 	class MD_Greenhouse_Kit: MD_Large_Kit
 	{
+		scope=2;
 		displayName="Greenhouse kit";
 	};
 
@@ -285,187 +263,6 @@ class CfgVehicles
 			itemsCargoSize[]={10,25};
 			openable=0;
 			allowOwnedCargoManipulation=1;
-		};
-		class Doors
-		{
-			class Doors1
-			{
-				displayName="door 1";
-				component="Doors1";
-				soundPos="doors1_action";
-				animPeriod=1;
-				initPhase=0;
-				initOpened=0.5;
-				soundOpen="doorWoodGreenhouseOpen";
-				soundClose="doorWoodGreenhouseClose";
-				soundLocked="doorWoodGreenhouseRattle";
-				soundOpenABit="doorWoodGreenhouseOpenABit";
-			};
-		};
-		class DamageSystem
-		{
-			class GlobalHealth
-			{
-				class Health
-				{
-					hitpoints=1000;
-				};
-			};
-			class GlobalArmor
-			{
-				class Projectile
-				{
-					class Health
-					{
-						damage=0;
-					};
-					class Blood
-					{
-						damage=0;
-					};
-					class Shock
-					{
-						damage=0;
-					};
-				};
-				class Melee
-				{
-					class Health
-					{
-						damage=0;
-					};
-					class Blood
-					{
-						damage=0;
-					};
-					class Shock
-					{
-						damage=0;
-					};
-				};
-			};
-			class DamageZones
-			{
-				class door1
-				{
-					class Health
-					{
-						hitpoints=1000;
-						transferToGlobalCoef=0;
-					};
-					componentNames[]=
-					{
-						"doors1"
-					};
-					fatalInjuryCoef=-1;
-					class ArmorType
-					{
-						class Projectile
-						{
-							class Health
-							{
-								damage=3;
-							};
-							class Blood
-							{
-								damage=0;
-							};
-							class Shock
-							{
-								damage=0;
-							};
-						};
-						class Melee
-						{
-							class Health
-							{
-								damage=5;
-							};
-							class Blood
-							{
-								damage=0;
-							};
-							class Shock
-							{
-								damage=0;
-							};
-						};
-					};
-				};
-			};
-		};
-		class AnimationSources
-		{
-			class Doors1
-			{
-				source="user";
-				initPhase=0;
-				animPeriod=1;
-			};
-			class slotVisible
-			{
-				source="user";
-				animPeriod=0.0099999998;
-				initPhase=0;
-			};
-			class slotHidden: slotVisible
-			{
-				initPhase=1;
-			};
-			class SeedBase_01: slotVisible
-			{
-			};
-			class SeedBase_02: slotVisible
-			{
-			};
-			class SeedBase_03: slotVisible
-			{
-			};
-			class SeedBase_04: slotVisible
-			{
-			};
-			class SeedBase_05: slotVisible
-			{
-			};
-			class SeedBase_06: slotVisible
-			{
-			};
-			class SeedBase_07: slotVisible
-			{
-			};
-			class SeedBase_08: slotVisible
-			{
-			};
-			class SeedBase_09: slotVisible
-			{
-			};
-			class slotCovered_01: slotHidden
-			{
-			};
-			class slotCovered_02: slotHidden
-			{
-			};
-			class slotCovered_03: slotHidden
-			{
-			};
-			class slotCovered_04: slotHidden
-			{
-			};
-			class slotCovered_05: slotHidden
-			{
-			};
-			class slotCovered_06: slotHidden
-			{
-			};
-			class slotCovered_07: slotHidden
-			{
-			};
-			class slotCovered_08: slotHidden
-			{
-			};
-			class slotCovered_09: slotHidden
-			{
-			};
 		};
 	};
 };

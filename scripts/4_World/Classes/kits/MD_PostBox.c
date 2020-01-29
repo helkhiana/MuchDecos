@@ -7,7 +7,7 @@ class MD_PostBox_Kit : MD_Item_Kit
 
 	override vector Get_MDItemPos()
 	{
-		return "0 0.4 0";
+		return "0 0 0";
 	}  
 };
 
