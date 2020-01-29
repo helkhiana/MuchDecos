@@ -20,15 +20,6 @@ class MD_Box_C : MD_Item_Kit
 		return IsInvEmpty();
 		
     }
-
-    bool IsInvEmpty()
-	{   
-		if (GetNumberOfItems() < 1 )
-		{
-			return true;
-		}
-		return false;
-	}
     
     override void OnInventoryEnter(Man player)
     {

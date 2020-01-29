@@ -29,6 +29,7 @@ class CfgVehicles
 
 	class MD_Lumber_Kit: MD_Kit
 	{
+		scope=0;
 		displayName="Lumber Kit";
 		descriptionShort="Place this.";
 		model="\MuchDecos\data\kitbox\kitbox_flat.p3d";
@@ -36,9 +37,10 @@ class CfgVehicles
 
 	class MD_Item_Kit: Inventory_Base
 	{
-		scope=2;
+		scope=0;
 		destroyOnEmpty=0;
 		varQuantityDestroyOnMin=0;
+		descriptionShort="This can be dismantled with a screwdriver.";
 		quantityBar=1;
 		carveNavmesh=1;
 		bounding="BSphere";
@@ -73,14 +75,15 @@ class CfgVehicles
 
 	class MD_Workbench_Kit: MD_Lumber_Kit
 	{
-		displayName="Workbench";
+		scope=2;
+		displayName="Craftbench Kit";
 	};
 
 	class MD_Workbench: MD_Item_Kit
 	{		
 		scope=2;
-		displayName="Workbench";
-		descriptionShort="Workbench used to craft various items.";
+		displayName="Craftbench";
+		descriptionShort="Craftbench used to craft various items for Much Decos.";
 		model="\DZ\structures\furniture\various\workbench_dz.p3d";
 		itemSize[]={11,5};		
 		itemBehaviour=0;
@@ -190,6 +193,7 @@ class CfgVehicles
 
 	class MD_WoodTable_Indoor_Kit: MD_Lumber_Kit
 	{
+		scope=2;
 		displayName="Wood Table Indoor";
 	};
 
@@ -255,6 +259,7 @@ class CfgVehicles
 	
 	class MD_WoodPileLarge_Kit: MD_Lumber_Kit
 	{
+		scope=2;
 		displayName="Wood Pile Large";
 	};
 
@@ -340,6 +345,7 @@ class CfgVehicles
 	
 	class MD_WoodPileSmall_Kit: MD_Lumber_Kit
 	{
+		scope=2;
 		displayName="Wood Pile Small";
 	};
 
@@ -399,6 +405,7 @@ class CfgVehicles
 
 	class MD_WoodPileMossy_Kit: MD_Lumber_Kit
 	{
+		scope=2;
 		displayName="Wood Pile Mossy";
 	};
 
@@ -458,6 +465,7 @@ class CfgVehicles
 
 	class MD_WoodReserve_Kit: MD_Lumber_Kit
 	{
+		scope=2;
 		displayName="Wood Reserve";
 	};
 
@@ -487,6 +495,10 @@ class CfgVehicles
 			"Material_L2W1_WoodenPlanks",
 			"Material_L2W2_WoodenPlanks",
 			"Material_L2W3_WoodenPlanks",
+			"Material_L3_WoodenPlanks",
+			"Material_L3W1_WoodenPlanks",
+			"Material_L3W2_WoodenPlanks",
+			"Material_L3W3_WoodenPlanks",
 			"Material_WoodenLogs",
 			"Material_L1_WoodenLogs",
 			"Material_L2_WoodenLogs",
@@ -582,6 +594,7 @@ class CfgVehicles
 
 	class MD_DogHouse_Kit: MD_Lumber_Kit
 	{
+		scope=2;
 		displayName="Dog House";
 	};
 
@@ -597,6 +610,7 @@ class CfgVehicles
 
 	class MD_FeedRack_Kit: MD_Lumber_Kit
 	{
+		scope=2;
 		displayName="Animal feed rack";
 	};
 
@@ -623,6 +637,7 @@ class CfgVehicles
 
 	class MD_BarbedWireFence_Kit: MD_Lumber_Kit
 	{
+		scope=2;
 		displayName="Barbed wire barrier kit";
 	};
 
@@ -657,6 +672,16 @@ class CfgVehicles
 		itemSize[]={9,2};	
 	};
 
+	class MD_WornBench: MD_Item_Kit
+	{
+		scope=2;
+		displayName="Worn bench";
+		descriptionShort="";
+		model="\DZ\structures_bliss\residential\Misc\Misc_Bench9.p3d";
+		weight=5000;
+		itemSize[]={9,2};	
+	};
+
 	class MD_EvergreenFlowerPot: MD_Item_Kit
 	{
 		scope=2;
@@ -679,6 +704,7 @@ class CfgVehicles
 
 	class MD_BeigeCouch_Kit: MD_Lumber_Kit
 	{
+		scope=2;
 		displayName="Beige couch kit";
 	};
 
@@ -688,12 +714,11 @@ class CfgVehicles
 		displayName="Beige couch";
 		descriptionShort="";
 		model="\DZ\structures\furniture\various\couch_beige84x213x75_dz.p3d";
-		weight=5000;
-		itemSize[]={5,9};	
 	};
 
 	class MD_WhiteCouch_Kit: MD_Lumber_Kit
 	{
+		scope=2;
 		displayName="White couch kit";
 	};
 
@@ -703,11 +728,10 @@ class CfgVehicles
 		displayName="White couch";
 		descriptionShort="";
 		model="\DZ\structures\furniture\various\couch_dz.p3d";
-		weight=5000;
-		itemSize[]={5,9};	
 	};
 	class MD_LeatherSofaOld_Kit: MD_Lumber_Kit
 	{
+		scope=2;
 		displayName="Leather sofa old kit";
 	};
 
@@ -717,12 +741,11 @@ class CfgVehicles
 		displayName="Leather sofa old";
 		descriptionShort="";
 		model="\DZ\structures\furniture\chairs\sofa_leather\sofa_leather_old.p3d";
-		weight=5000;
-		itemSize[]={5,9};	
 	};
 	
 	class MD_LeatherSofaNew_Kit: MD_Lumber_Kit
 	{
+		scope=2;
 		displayName="Leather sofa new kit";
 	};
 
@@ -732,12 +755,11 @@ class CfgVehicles
 		displayName="Leather sofa new";
 		descriptionShort="";
 		model="\DZ\structures\furniture\chairs\sofa_leather\sofa_leather_new.p3d";
-		weight=5000;
-		itemSize[]={5,9};	
 	};
 		
 	class MD_LobbyTable_Kit: MD_Lumber_Kit
 	{
+		scope=2;
 		displayName="Lobby table kit";
 	};
 	class MD_LobbyTable: MD_Item_Kit
@@ -746,21 +768,29 @@ class CfgVehicles
 		displayName="Lobby table";
 		descriptionShort="";
 		model="\DZ\structures\furniture\tables\lobby_table\lobby_table.p3d";
-		weight=5000;
-		itemSize[]={5,9};	
 	};
 	
 	class MD_SquareTable_Kit: MD_Lumber_Kit
 	{
+		scope=2;
 		displayName="Square table kit";
 	};
 	class MD_SquareTable: MD_Item_Kit
 	{
 		scope=2;
 		displayName="Square table";
-		descriptionShort="";
-		model="\DZ\structures\furniture\various\table_dz.p3d";
-		weight=5000;
-		itemSize[]={5,9};	
+		model="\DZ\structures\furniture\various\table_dz.p3d";	
+	};
+	
+	class MD_WornTable_Kit: MD_Lumber_Kit
+	{
+		scope=2;
+		displayName="Worn Table kit";
+	};
+	class MD_WornTable: MD_Item_Kit
+	{		
+		scope=2;
+		displayName="Worn Table";
+		model="\DZ\structures_bliss\residential\Misc\Misc_Table_Large.p3d";
 	};
 };

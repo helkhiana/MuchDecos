@@ -23,7 +23,7 @@ class MD_Workbench_Kit : MD_Item_Kit
         array<string> ingredientsTwo =
         {"Nail"};
         recipeVals.SetIngredientItemTwo(ingredientsTwo);
-		recipeVals.SetName("Craft Workbench");
+		recipeVals.SetName("Craft Craftbench");
 		recipeVals.SetResult("MD_Workbench_Kit");  
         return recipeVals;
     }

@@ -29,6 +29,7 @@ class CfgVehicles
     
 	class MD_BrownWardrobe_Kit: MD_Kit
 	{
+		scope=2;
 		displayName="Brown Wardrobe kit";
 	};
 	class MD_BrownWardrobe: MD_Item
@@ -97,6 +98,7 @@ class CfgVehicles
 	};
 	class MD_GreenWardrobe_Kit: MD_Kit
 	{
+		scope=2;
 		displayName="Green Wardrobe kit";
 	};
 	class MD_GreenWardrobe: MD_BrownWardrobe

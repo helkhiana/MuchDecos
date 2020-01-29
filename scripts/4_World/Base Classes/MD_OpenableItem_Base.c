@@ -3,6 +3,9 @@ class MD_OpenableItem_Base : Container_Base
 	private bool m_IsLocked = false;
 	protected ref OpenableBehaviour m_Openable;
 
+	string GetOpenSoundSet(){ return "DoorWoodTowerOpen_SoundSet"; }
+	string GetCloseSoundSet(){ return "DoorWoodTowerOpen_SoundSet"; }
+
 	override bool IsBuilding()
 	{
 		return true;
@@ -84,23 +87,29 @@ class MD_OpenableItem_Base : Container_Base
 		{
 			if ( IsOpen() && IsSoundSynchRemote() && !IsBeingPlaced() )
 			{
-				SoundPlay();
+				OpenSoundPlay();
 			}
 			
 			if ( !IsOpen() && IsSoundSynchRemote() && !IsBeingPlaced() )
 			{
-				SoundPlay();
+				CloseSoundPlay();
 			}
 		}
 		
 		UpdateVisualState();
 	}
 	
-	void SoundPlay()
+	void OpenSoundPlay()
 	{		
-        EffectSound sound = SEffectManager.PlaySound( "DoorWoodTowerOpen_SoundSet", GetPosition() );
+        EffectSound sound = SEffectManager.PlaySound( GetOpenSoundSet() , GetPosition() );
 		sound.SetSoundAutodestroy( true );
 	}
+
+	void CloseSoundPlay()
+	{		
+        EffectSound sound = SEffectManager.PlaySound( GetCloseSoundSet() , GetPosition() );
+		sound.SetSoundAutodestroy( true );
+	}	
 
     override bool CanPutInCargo( EntityAI parent )
     {
@@ -164,4 +173,11 @@ class MD_OpenableItem_Base : Container_Base
         AddAction(ActionDialMD_PadlockOnMD_OpenableItem_Base);
         AddAction(ActionNextMD_PadlockDialOnMD_OpenableItem_Base);
 	}
+};
+
+
+class MD_OpenableDoorWoodSmall : MD_OpenableItem_Base
+{
+	override string GetOpenSoundSet(){ return "MD_doorWoodSmallOpen_SoundSet"; }
+	override string GetCloseSoundSet(){ return "MD_doorWoodSmallClose_SoundSet"; }
 };

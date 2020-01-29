@@ -7,7 +7,7 @@ class MD_BlueBench_Kit : MD_Item_Kit
 
 	override vector Get_MDItemPos()
 	{
-		return "0 1.5 0";
+		return "0 0.45 0";
 	}  
 };
 

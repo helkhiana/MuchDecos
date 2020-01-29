@@ -7,7 +7,7 @@ class MD_WoodPileMossy_Kit : MD_Item_Kit
 	
 	override vector Get_MDItemPos()
 	{
-		return "0 0.40 0";
+		return "0 0.30 0";
 	}
 
     static MD_ItemRecipeValues GetRecipeValues()

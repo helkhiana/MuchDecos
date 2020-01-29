@@ -18,7 +18,7 @@ class MD_Caravan_WGreen_Kit : MD_Caravan_Kit
 		return "Land_MD_Caravan_WGreen";
 	}
 };
-class Land_MD_Caravan_WGreen : MD_OpenableItem_Base
+class Land_MD_Caravan_WGreen : MD_OpenableDoorWoodSmall
 {
 	override string Get_KitName()
 	{
@@ -33,7 +33,7 @@ class MD_Caravan_WBrown_Kit : MD_Caravan_Kit
 		return "Land_MD_Caravan_WBrown";
 	}
 };
-class Land_MD_Caravan_WBrown : MD_OpenableItem_Base
+class Land_MD_Caravan_WBrown : MD_OpenableDoorWoodSmall
 {
 	override string Get_KitName()
 	{
@@ -48,7 +48,7 @@ class MD_Caravan_MGreen_Kit : MD_Caravan_Kit
 		return "Land_MD_Caravan_MGreen";
 	}
 };
-class Land_MD_Caravan_MGreen : MD_OpenableItem_Base
+class Land_MD_Caravan_MGreen : MD_OpenableDoorWoodSmall
 {
 	override string Get_KitName()
 	{
@@ -63,7 +63,7 @@ class MD_Caravan_MRust_Kit : MD_Caravan_Kit
 		return "Land_MD_Caravan_MRust";
 	}
 };
-class Land_MD_Caravan_MRust : MD_OpenableItem_Base
+class Land_MD_Caravan_MRust : MD_OpenableDoorWoodSmall
 {
 	override string Get_KitName()
 	{

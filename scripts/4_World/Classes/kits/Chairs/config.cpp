@@ -29,6 +29,7 @@ class CfgVehicles
     
 	class MD_OfficeChair_Kit: MD_Kit
 	{
+		scope=2;
 		displayName="Office chair kit";
 	};
 	class MD_OfficeChair: MD_Item
@@ -41,6 +42,7 @@ class CfgVehicles
 	
 	class MD_StudentChair_Kit: MD_Kit
 	{
+		scope=2;
 		displayName="Student chair kit";
 	};
 	class MD_StudentChair: MD_Item
@@ -52,6 +54,7 @@ class CfgVehicles
 	};	
 	class MD_RedChair_Kit: MD_Kit
 	{
+		scope=2;
 		displayName="Red chair kit";
 	};
 	class MD_RedChair: MD_Item
@@ -62,6 +65,7 @@ class CfgVehicles
 	};	
 	class MD_LobbyChair_Kit: MD_Kit
 	{
+		scope=2;
 		displayName="Lobby chair kit";
 	};
 	class MD_LobbyChair: MD_Item
@@ -71,6 +75,7 @@ class CfgVehicles
 		model="\DZ\structures\furniture\chairs\lobby_chair\lobby_chair.p3d";
 	};class MD_TentChair_Kit: MD_Kit
 	{
+		scope=2;
 		displayName="Tent Chair Kit";
 	};	
 	class MD_TentChair: MD_Item
@@ -81,6 +86,7 @@ class CfgVehicles
 	};
 	class MD_WoodenChair_Kit: MD_Kit
 	{
+		scope=2;
 		displayName="Wooden Chair";
 	};
 	class MD_WoodenChair: MD_Item
@@ -91,6 +97,7 @@ class CfgVehicles
 	};
 	class MD_PaddedWoodenChair_Kit: MD_Kit
 	{
+		scope=2;
 		displayName="Padded Wooden Chair";
 	};
 	class MD_PaddedWoodenChair: MD_Item
@@ -101,6 +108,7 @@ class CfgVehicles
 	};
 	class MD_KitchenChair_Kit: MD_Kit
 	{
+		scope=2;
 		displayName="Kitchen Chair";
 	};
 	class MD_KitchenChair: MD_Item
