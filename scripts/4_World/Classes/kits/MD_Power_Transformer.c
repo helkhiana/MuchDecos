@@ -16,9 +16,8 @@ class MD_Power_Transformer : PowerGenerator
 	string Get_KitName()
 	{
 		return "MD_Power_Transformer_Kit";
-	} 
-
-
+	}
+	
     override bool CanPutInCargo( EntityAI parent )
     {
         return false;
@@ -28,23 +27,4 @@ class MD_Power_Transformer : PowerGenerator
     {
         return false;
     }
-	
-	// Generator is working
-	override void OnWorkStart()
-	{
-	}
-
-	// Turn off when this runs out of fuel
-	override void OnWorkStop()
-	{
-		if ( GetGame().IsClient()  ||  !GetGame().IsMultiplayer() )
-		{			
-			// particle
-			if (m_Smoke)
-				delete m_Smoke;
-			
-			// Fuel meter
-			UpdateFuelMeter();
-		}
-	}
 };
