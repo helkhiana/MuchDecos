@@ -11,6 +11,15 @@ modded class Hologram
 			m_Projection.OnHologramBeingPlaced( m_Player );
 			return;
 		}
+
+		MD_PItem pitem = MD_PItem.Cast( m_Player.GetHumanInventory().GetEntityInHands() );
+		if(mdItemKit){
+			vector pitemPos = GetProjectionEntityPosition( m_Player ) + pitem.Get_MDItemPos();
+			SetProjectionPosition( pitemPos );
+			SetProjectionOrientation( AlignProjectionOnTerrain( timeslice ) );		
+			m_Projection.OnHologramBeingPlaced( m_Player );
+			return;
+		}
 	}
 
 
@@ -60,6 +69,12 @@ modded class Hologram
 			return;
 		}
 		
+		if ( item_in_hands.IsInherited( MD_PItem ))
+		{
+			SetIsColliding(false);
+			return;
+		}
+		
 		if ( item_in_hands.IsInherited( FieldShovel ))
 		{
 			SetIsColliding(false);
@@ -71,7 +86,7 @@ modded class Hologram
 	override bool IsFloating() 
 	{
 		ItemBase item_in_hands = m_Parent;
-		if (item_in_hands.IsInherited(MD_Item_Kit) )
+		if (item_in_hands.IsInherited(MD_Item_Kit) || item_in_hands.IsInherited(MD_PItem))
 		{
 			return true;
 		} 
@@ -88,6 +103,13 @@ modded class Hologram
 		{ 
 			vector mdItemKitPos = SetOnGround( position ) + mdItemKit.Get_MDItemPos();
 			m_Projection.SetPosition( mdItemKitPos );
+			return;
+		}
+		MD_PItem pItem = MD_PItem.Cast(m_Parent);
+		if (pItem && IsFloating())
+		{ 
+			vector pItemPos = SetOnGround( position ) + pItem.Get_MDItemPos();
+			m_Projection.SetPosition( pItemPos );
 			return;
 		}
 		super.SetProjectionPosition(position);

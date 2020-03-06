@@ -26,20 +26,14 @@ class ActionDismantle: ActionContinuousBase
 
 	override string GetText()
 	{
-		PlayerBase player = PlayerBase.Cast( GetGame().GetPlayer() );
-		if ( player )
-		{
-			return "Dismantle";
-		}
-		
-		return "";
+		return "Dismantle";
 	}
 
 	override bool ActionCondition( PlayerBase player, ActionTarget target, ItemBase item )
 	{	
 		Object targetObject = target.GetObject();
 		if ( targetObject )
-		{				
+		{	
 			ItemBase md_item = ItemBase.Cast( targetObject );
 			if(md_item){
 				if(!md_item.IsInvEmpty()) return false;

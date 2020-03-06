@@ -1,13 +1,8 @@
-class MD_Box_C : MD_Item_Kit
+class MD_PItem : ItemBase
 {
-	override string Get_MDItemName()
+	vector Get_MDItemPos()
 	{
-		return "MD_Box_C";
-	} 
-
-	override vector Get_MDItemPos()
-	{
-		return "0 0.3 0";
+		return "0 0 0";
 	}  
 
 	override bool CanPutInCargo( EntityAI parent )
@@ -15,10 +10,9 @@ class MD_Box_C : MD_Item_Kit
         return IsInvEmpty();
     }
     
-     override bool CanPutIntoHands(EntityAI parent)
+    override bool CanPutIntoHands(EntityAI parent)
 	{
-		return IsInvEmpty();
-		
+		return IsInvEmpty();		
     }
     
     override void OnInventoryEnter(Man player)
@@ -30,7 +24,14 @@ class MD_Box_C : MD_Item_Kit
     override void OnInventoryExit(Man player)
     {
         super.OnInventoryExit(player);
-        GetInventory().UnlockInventory(HIDE_INV_FROM_SCRIPT);
+        GetInventory().UnlockInventory(HIDE_INV_FROM_SCRIPT);        
+    }
+
+    override void SetActions()
+    {
+        super.SetActions();
         
+        AddAction(ActionTogglePlaceObject);
+		AddAction(ActionPlaceObject);
     }
 };

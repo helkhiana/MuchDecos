@@ -5,10 +5,6 @@ class MD_Stand_Kit : MD_Item_Kit
 	{
 		return "0 1.7 0";
 	}
-	override bool CanPutInCargo( EntityAI parent )
-    {
-        return false;
-    }
 };
 //NewStand1
 class MD_NewsStand1_Kit : MD_Stand_Kit

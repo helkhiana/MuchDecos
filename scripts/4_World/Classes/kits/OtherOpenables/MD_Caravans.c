@@ -5,10 +5,6 @@ class MD_Caravan_Kit : MD_Item_Kit
 	{
 		return "0 1.89 0";
 	}
-	override bool CanPutInCargo( EntityAI parent )
-    {
-        return false;
-    }
 };
 //MD_Caravan_WGreen_Kit
 class MD_Caravan_WGreen_Kit : MD_Caravan_Kit

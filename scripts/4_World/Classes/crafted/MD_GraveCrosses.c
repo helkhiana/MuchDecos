@@ -1,9 +1,5 @@
-class MD_GraveCross_One : MD_Item_Kit
-{	
-	override string Get_MDItemName()
-	{
-		return "MD_GraveCross_One";
-	}
+class MD_GraveCross_One : MD_PItem
+{
     override vector Get_MDItemPos()
 	{
 		return "0 0.5 0";
@@ -28,12 +24,8 @@ class MD_GraveCross_One : MD_Item_Kit
     } 
 };
 
-class MD_GraveCross_Two : MD_Item_Kit
+class MD_GraveCross_Two : MD_PItem
 {	
-	override string Get_MDItemName()
-	{
-		return "MD_GraveCross_Two";
-	}
     override vector Get_MDItemPos()
 	{
 		return "0 0.6 0";
@@ -58,12 +50,8 @@ class MD_GraveCross_Two : MD_Item_Kit
     } 
 };
 
-class MD_GraveCross_Three : MD_Item_Kit
+class MD_GraveCross_Three : MD_PItem
 {	
-	override string Get_MDItemName()
-	{
-		return "MD_GraveCross_Three";
-	}
     override vector Get_MDItemPos()
 	{
 		return "0 0.6 0";
@@ -88,12 +76,8 @@ class MD_GraveCross_Three : MD_Item_Kit
     } 
 };
 
-class MD_GraveCross_Four : MD_Item_Kit
+class MD_GraveCross_Four : MD_PItem
 {	
-	override string Get_MDItemName()
-	{
-		return "MD_GraveCross_Four";
-	}
     override vector Get_MDItemPos()
 	{
 		return "0 0.6 0";
@@ -118,12 +102,8 @@ class MD_GraveCross_Four : MD_Item_Kit
     } 
 };
 
-class MD_GraveCross_Five : MD_Item_Kit
+class MD_GraveCross_Five : MD_PItem
 {	
-	override string Get_MDItemName()
-	{
-		return "MD_GraveCross_Five";
-	}
     override vector Get_MDItemPos()
 	{
 		return "0 0.5 0";

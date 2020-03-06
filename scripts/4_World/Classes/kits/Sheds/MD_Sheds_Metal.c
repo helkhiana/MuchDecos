@@ -1,11 +1,5 @@
 //Parent Shed
-class MD_Shed_Kit : MD_Item_Kit
-{
-	override bool CanPutInCargo( EntityAI parent )
-    {
-        return false;
-    }
-};
+class MD_Shed_Kit : MD_Item_Kit {};
 class MD_OpenableDoorMetalSmall : MD_OpenableItem_Base
 {
 	override string GetOpenSoundSet(){ return "MD_doorMetalSmallOpen_SoundSet"; }

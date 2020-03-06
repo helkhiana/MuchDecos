@@ -1,14 +1,5 @@
-class MD_SnakePlantFlowerPot : MD_Item_Kit
-{	
-	override string Get_MDItemName()
-	{
-		return "MD_SnakePlantFlowerPot";
-	}
-    override vector Get_MDItemPos()
-	{
-		return "0 0 0";
-	}
-
+class MD_SnakePlantFlowerPot : MD_PItem
+{
     static MD_ItemRecipeValues GetRecipeValues()
     {   
         MD_ItemRecipeValues recipeVals = new MD_ItemRecipeValues;

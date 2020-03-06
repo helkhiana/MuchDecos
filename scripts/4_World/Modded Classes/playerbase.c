@@ -2,7 +2,7 @@ modded class PlayerBase extends ManBase
 {
     override void Init()
     {
-        if ( !GetGame().IsServer() || !GetGame().IsMultiplayer() ) 
+        if ( GetGame().IsServer() || GetGame().IsMultiplayer() ) 
 		{
             DayzPlayerItemBehaviorCfg     toolsOneHanded = new DayzPlayerItemBehaviorCfg;
             toolsOneHanded.SetToolsOneHanded();

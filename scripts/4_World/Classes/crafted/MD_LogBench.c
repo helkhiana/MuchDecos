@@ -1,9 +1,5 @@
-class MD_LogBench : MD_Item_Kit
+class MD_LogBench : MD_PItem
 {	
-	override string Get_MDItemName()
-	{
-		return "MD_LogBench";
-	}
     override vector Get_MDItemPos()
 	{
 		return "0 0.2 0";

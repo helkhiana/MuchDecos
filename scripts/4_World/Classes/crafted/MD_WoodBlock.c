@@ -1,9 +1,5 @@
-class MD_WoodBlock : MD_Item_Kit
+class MD_WoodBlock : MD_PItem
 {	
-	override string Get_MDItemName()
-	{
-		return "MD_WoodBlock";
-	}
     override vector Get_MDItemPos()
 	{
 		return "0 0.36 0";

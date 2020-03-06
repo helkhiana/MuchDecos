@@ -1,12 +1,3 @@
-modded class Screwdriver
-{
-    override void SetActions()
-    {
-        super.SetActions();
-        AddAction(ActionDismantle);
-    }
-};
-
 modded class ItemBase
 {  	
 	bool IsFacingPlayer( PlayerBase player)

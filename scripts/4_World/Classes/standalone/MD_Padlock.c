@@ -277,6 +277,9 @@ class MD_Padlock extends ItemBase
 	
 	void ServerUnlock( notnull EntityAI entity, EntityAI parent )
 	{
+		MD_OpenableItem_Base baseItem = MD_OpenableItem_Base.Cast( parent );
+        if ( baseItem )
+            baseItem.Open();
 		InventoryLocation inventory_location = new InventoryLocation;
 		GetInventory().GetCurrentInventoryLocation( inventory_location )
 		
@@ -344,6 +347,7 @@ class MD_Padlock extends ItemBase
 	{
 		super.SetActions();
 
+		AddAction(ActionAttach);
 		AddAction(ActionNextMD_PadlockDial);
 		AddAction(ActionDialMD_Padlock);
 	}

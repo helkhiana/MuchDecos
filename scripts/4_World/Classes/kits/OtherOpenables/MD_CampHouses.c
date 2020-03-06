@@ -5,10 +5,6 @@ class MD_CampHouse_Kit : MD_Item_Kit
 	{
 		return "0 2 0";
 	}
-	override bool CanPutInCargo( EntityAI parent )
-    {
-        return false;
-    }
 };
 //MD_CampHouse_White_Kit
 class MD_CampHouse_White_Kit : MD_CampHouse_Kit

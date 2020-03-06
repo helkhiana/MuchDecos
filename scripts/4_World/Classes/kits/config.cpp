@@ -80,7 +80,7 @@ class CfgVehicles
 		{
 			"\MuchDecos\data\kitbox\woodbox_o.paa"
 		};
-		itemSize[]={6,6};
+		itemSize[]={5,5};
 		carveNavmesh=1;
 		canBeDigged=0;
 		simulation="inventoryItem";

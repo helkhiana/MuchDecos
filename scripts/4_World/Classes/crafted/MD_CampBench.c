@@ -1,9 +1,5 @@
-class MD_CampBench : MD_Item_Kit
-{	
-	override string Get_MDItemName()
-	{
-		return "MD_CampBench";
-	}
+class MD_CampBench : MD_PItem
+{
     override vector Get_MDItemPos()
 	{
 		return "0 0.2 0";
@@ -28,12 +24,8 @@ class MD_CampBench : MD_Item_Kit
     } 
 };
 
-class MD_WornBench : MD_Item_Kit
+class MD_WornBench : MD_PItem
 {	
-	override string Get_MDItemName()
-	{
-		return "MD_WornBench";
-	}
     override vector Get_MDItemPos()
 	{
 		return "0 0.2 0";

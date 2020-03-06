@@ -33,6 +33,7 @@ class CfgVehicles
 		displayName="Lumber Kit";
 		descriptionShort="Place this.";
 		model="\MuchDecos\data\kitbox\kitbox_flat.p3d";
+		itemSize[]={5,3};
 	};
 
 	class MD_Item_Kit: Inventory_Base
@@ -49,7 +50,7 @@ class CfgVehicles
 		weight=10;
 		itemSize[]={5,3};
 		itemBehaviour=1;
-		physLayer="item_large";
+		physLayer="item_small";
 		lootTag[]=
 		{
 			"Work"
@@ -564,7 +565,7 @@ class CfgVehicles
 		displayName="Wood Block";
 		descriptionShort="A wood block to hold your firewood";
 		model="\DZ\structures\residential\misc\misc_woodblock.p3d";		
-		itemSize[]={5,5};		
+		itemSize[]={4,4};		
 		itemBehaviour=2;
 		class Cargo
 		{

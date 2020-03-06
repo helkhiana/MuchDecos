@@ -1,10 +1,5 @@
-class MD_TrashCan : MD_Item_Kit
+class MD_TrashCan : MD_PItem
 {
-	override string Get_MDItemName()
-	{
-		return "MD_TrashCan";
-	} 
-
 	override vector Get_MDItemPos()
 	{
 		return "0 0.5 0";
@@ -13,11 +8,6 @@ class MD_TrashCan : MD_Item_Kit
 	override bool CanPutInCargo( EntityAI parent )
     {
         return false;
-    }
-    
-      override bool CanPutIntoHands(EntityAI parent)
-	{
-		return IsInvEmpty();		
     }
     
     override bool IsTwoHandedBehaviour() 
@@ -47,11 +37,6 @@ class MD_StaticTrashCan : MD_TrashCan
 
 class MD_GreenTrashCan : MD_TrashCan
 {
-	override string Get_MDItemName()
-	{
-		return "MD_GreenTrashCan";
-	} 
-
 	override vector Get_MDItemPos()
 	{
 		return "0 0.5 0";
