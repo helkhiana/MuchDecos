@@ -21,7 +21,6 @@ class ActionOpenBuildingDoors: ActionInteractBase
 	override bool ActionCondition( PlayerBase player, ActionTarget target, ItemBase item )
 	{
 		if( !target ) return false;
-		if( !IsBuilding(target) ) return false;
 
 		MD_OpenableItem_Base building;
 		if(Class.CastTo(building, target.GetObject()))

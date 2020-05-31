@@ -16,7 +16,7 @@ class MD_NewsStand1_Kit : MD_Stand_Kit
 };
 class Land_MD_NewsStand1 : MD_OpenableDoorWoodSmall
 {
-	override string Get_KitName()
+	override string Get_MDKitName()
 	{
 		return "MD_NewsStand1_Kit";
 	}
@@ -35,7 +35,7 @@ class MD_NewsStand2_Kit : MD_Stand_Kit
 };
 class Land_MD_NewsStand2 : MD_OpenableDoorWoodSmall
 {
-	override string Get_KitName()
+	override string Get_MDKitName()
 	{
 		return "MD_NewsStand2_Kit";
 	}
@@ -50,7 +50,7 @@ class MD_FastFoodStand_Kit : MD_Stand_Kit
 };
 class Land_MD_FastFoodStand : MD_OpenableDoorWoodSmall
 {
-	override string Get_KitName()
+	override string Get_MDKitName()
 	{
 		return "MD_FastFoodStand_Kit";
 	}
@@ -65,7 +65,7 @@ class MD_GroceryStand_Kit : MD_Stand_Kit
 };
 class Land_MD_GroceryStand : MD_OpenableDoorWoodSmall
 {
-	override string Get_KitName()
+	override string Get_MDKitName()
 	{
 		return "MD_GroceryStand_Kit";
 	}

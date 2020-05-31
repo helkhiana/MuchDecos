@@ -30,7 +30,7 @@ class MD_WoodPileMossy_Kit : MD_Item_Kit
 
 class MD_WoodPileMossy : MD_Item
 {
-    override string Get_KitName()
+    override string Get_MDKitName()
 	{
 		return "MD_WoodPileMossy_Kit";
 	}   

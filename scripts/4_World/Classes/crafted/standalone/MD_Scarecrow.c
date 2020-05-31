@@ -1,4 +1,4 @@
-class MD_Scarecrow : MD_PItem
+class MD_Scarecrow : MD_StorageItem
 {
     override vector Get_MDItemPos()
 	{

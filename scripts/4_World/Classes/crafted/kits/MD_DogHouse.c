@@ -1,37 +1,38 @@
-class MD_WoodPileSmall_Kit : MD_Item_Kit
+class MD_DogHouse_Kit : MD_Item_Kit
 {
     override string Get_MDItemName()
 	{
-		return "MD_WoodPileSmall";
+		return "MD_DogHouse";
 	} 
 	
 	override vector Get_MDItemPos()
 	{
-		return "0 0.20 0";
+		return "0 0.90 0";
 	}
 
     static MD_ItemRecipeValues GetRecipeValues()
-    {  
+    {   
         MD_ItemRecipeValues recipeVals = new MD_ItemRecipeValues;
+		recipeVals.Set_minQuantityIngredientOne(1);
 		recipeVals.Set_minQuantityIngredientTwo(3);
-        recipeVals.Set_addHealthOne(-5);
+        recipeVals.Set_addQuantOne(-1);
         recipeVals.Set_addQuantTwo(-3);
 		array<string> ingredientsOne =
-        {"WoodAxe", "FirefighterAxe"};
+        {"MetalPlate"};
         recipeVals.SetIngredientItemOne(ingredientsOne);
         array<string> ingredientsTwo =
-        {"WoodenLog"};
+        {"WoodenPlank"};
         recipeVals.SetIngredientItemTwo(ingredientsTwo);
-		recipeVals.SetName("Craft Wood Pile Small");
-		recipeVals.SetResult("MD_WoodPileSmall_Kit");  
+		recipeVals.SetName("Craft Dog House kit");
+		recipeVals.SetResult("MD_DogHouse_Kit");  
         return recipeVals;
     }
 };
 
-class MD_WoodPileSmall : MD_Item
+class MD_DogHouse : MD_Item
 {
-    override string Get_KitName()
+    override string Get_MDKitName()
 	{
-		return "MD_WoodPileSmall_Kit";
+		return "MD_DogHouse_Kit";
 	}   
 };

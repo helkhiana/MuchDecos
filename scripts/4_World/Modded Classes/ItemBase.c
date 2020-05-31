@@ -27,10 +27,20 @@ modded class ItemBase
 		return false;
 	}
 	
-    string Get_KitName()
+    string Get_MDKitName()
 	{
 		return "MD_Item_Kit";
-	} 
+	}
+	
+	string Get_MDItemName()
+	{
+		return "MD_Item";
+	}
+
+	vector Get_MDItemPos()
+	{
+		return "0 0 0";
+	}
 
     bool CanMakeMD_Grave()
     {

@@ -20,7 +20,7 @@ class MD_Shed_M1_Kit : MD_Shed_Kit
 };
 class Land_MD_Shed_M1 : MD_OpenableDoorMetalSmall
 {
-	override string Get_KitName()
+	override string Get_MDKitName()
 	{
 		return "MD_Shed_M1_Kit";
 	}
@@ -40,7 +40,7 @@ class MD_Shed_M3_Kit : MD_Shed_Kit
 };
 class Land_MD_Shed_M3 : MD_OpenableDoorMetalSmall
 {
-	override string Get_KitName()
+	override string Get_MDKitName()
 	{
 		return "MD_Shed_M3_Kit";
 	}
@@ -60,7 +60,7 @@ class MD_Shed_M4_Kit : MD_Shed_Kit
 };
 class Land_MD_Shed_M4 : MD_OpenableDoorMetalSmall
 {
-	override string Get_KitName()
+	override string Get_MDKitName()
 	{
 		return "MD_Shed_M4_Kit";
 	}

@@ -19,7 +19,7 @@ class MD_Greenhouse_Kit : MD_Item_Kit
 
 class Land_MD_Greenhouse : MD_OpenableDoorWoodGreenhouse
 {  
-	override string Get_KitName()
+	override string Get_MDKitName()
 	{
 		return "MD_Greenhouse_Kit";
 	}
@@ -40,7 +40,7 @@ class MD_Polytunnel_Kit : MD_Item_Kit
 
 class Land_MD_Polytunnel : MD_OpenableDoorWoodGreenhouse
 {
-	override string Get_KitName()
+	override string Get_MDKitName()
 	{
 		return "MD_Polytunnel_Kit";
 	}

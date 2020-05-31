@@ -13,7 +13,7 @@ class MD_Power_Transformer_Kit : MD_Item_Kit
 
 class MD_Power_Transformer : PowerGenerator
 {
-	string Get_KitName()
+	string Get_MDKitName()
 	{
 		return "MD_Power_Transformer_Kit";
 	}

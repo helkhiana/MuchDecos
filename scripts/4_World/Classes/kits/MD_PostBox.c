@@ -13,7 +13,7 @@ class MD_PostBox_Kit : MD_Item_Kit
 
 class MD_PostBox : MD_Item
 {
-	override string Get_KitName()
+	override string Get_MDKitName()
 	{
 		return "MD_PostBox_Kit";
 	}

@@ -7,7 +7,7 @@ class MD_BrownWardrobe_Kit : MD_Item_Kit
 };
 class MD_BrownWardrobe : MD_Item
 {
-    override string Get_KitName()
+    override string Get_MDKitName()
 	{
 		return "MD_BrownWardrobe_Kit";
 	}
@@ -21,7 +21,7 @@ class MD_GreenWardrobe_Kit : MD_Item_Kit
 };
 class MD_GreenWardrobe : MD_Item
 {
-    override string Get_KitName()
+    override string Get_MDKitName()
 	{
 		return "MD_GreenWardrobe_Kit";
 	}

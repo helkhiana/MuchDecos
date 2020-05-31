@@ -31,7 +31,7 @@ class MD_WoodTable_Indoor_Kit : MD_Item_Kit
 
 class MD_WoodTable_Indoor : MD_Item
 {
-    override string Get_KitName()
+    override string Get_MDKitName()
 	{
 		return "MD_WoodTable_Indoor_Kit";
 	}   

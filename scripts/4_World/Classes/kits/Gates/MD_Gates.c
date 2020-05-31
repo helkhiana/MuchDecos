@@ -34,7 +34,7 @@ class MD_Fence_Gate_Forest : MD_OpenableItem_Base
 {
 	override string GetOpenSoundSet(){ return "MD_doorWoodGateSmallOpen_SoundSet"; }
 	override string GetCloseSoundSet(){ return "MD_doorWoodGateSmallClose_SoundSet"; }
-	override string Get_KitName(){ return "MD_Fence_Gate_Forest_Kit";}
+	override string Get_MDKitName(){ return "MD_Fence_Gate_Forest_Kit";}
 	override bool IsWallOrGate()
 	{
 		return true;
@@ -57,7 +57,7 @@ class MD_Gate_TallSliding : MD_OpenableItem_Base
 {
 	override string GetOpenSoundSet(){ return "MD_doorMetalSlideLargeOpen_SoundSet"; }
 	override string GetCloseSoundSet(){ return "MD_doorMetalSlideLargeClose_SoundSet"; }
-	override string Get_KitName(){ return "MD_Gate_TallSliding_Kit"; }
+	override string Get_MDKitName(){ return "MD_Gate_TallSliding_Kit"; }
 	override bool IsWallOrGate()
 	{
 		return true;
@@ -80,7 +80,7 @@ class MD_Gate_ShortSliding : MD_OpenableItem_Base
 {
 	override string GetOpenSoundSet(){ return "MD_doorMetalSlideLargeOpen_SoundSet"; }
 	override string GetCloseSoundSet(){ return "MD_doorMetalSlideLargeClose_SoundSet"; }
-	override string Get_KitName(){ return "MD_Gate_ShortSliding_Kit"; }
+	override string Get_MDKitName(){ return "MD_Gate_ShortSliding_Kit"; }
 	override bool IsWallOrGate()
 	{
 		return true;
@@ -102,7 +102,7 @@ class MD_Double_Gate_MetalFence1 : MD_Double_Gate
 {
 	override string GetOpenSoundSet(){ return "MD_doorMetalGateMeshOpen_SoundSet"; }
 	override string GetCloseSoundSet(){ return "MD_doorMetalGateMeshClose_SoundSet"; }
-	override string Get_KitName(){ return "MD_Double_Gate_MetalFence1_Kit"; }
+	override string Get_MDKitName(){ return "MD_Double_Gate_MetalFence1_Kit"; }
 };
 
 //MD_Double_Gate_MetalFence2_Kit
@@ -121,7 +121,7 @@ class MD_Double_Gate_MetalFence2 : MD_Double_Gate
 {
 	override string GetOpenSoundSet(){ return "MD_doorMetalGateMeshOpen_SoundSet"; }
 	override string GetCloseSoundSet(){ return "MD_doorMetalGateMeshClose_SoundSet"; }
-	override string Get_KitName(){ return "MD_Double_Gate_MetalFence2_Kit"; }
+	override string Get_MDKitName(){ return "MD_Double_Gate_MetalFence2_Kit"; }
 };
 
 //MD_Double_Gate_TinFence1_Kit
@@ -140,7 +140,7 @@ class MD_Double_Gate_TinFence1 : MD_Double_Gate
 {
 	override string GetOpenSoundSet(){ return "MD_doorMetalGateOpen_SoundSet"; }
 	override string GetCloseSoundSet(){ return "MD_doorMetalGateClose_SoundSet"; }
-	override string Get_KitName(){ return "MD_Double_Gate_TinFence1_Kit"; }
+	override string Get_MDKitName(){ return "MD_Double_Gate_TinFence1_Kit"; }
 };
 
 //MD_Double_Gate_TinFence2_Kit
@@ -159,5 +159,5 @@ class MD_Double_Gate_TinFence2 : MD_Double_Gate
 {
 	override string GetOpenSoundSet(){ return "MD_doorMetalGateOpen_SoundSet"; }
 	override string GetCloseSoundSet(){ return "MD_doorMetalGateClose_SoundSet"; }
-	override string Get_KitName(){ return "MD_Double_Gate_TinFence2_Kit"; }
+	override string Get_MDKitName(){ return "MD_Double_Gate_TinFence2_Kit"; }
 };

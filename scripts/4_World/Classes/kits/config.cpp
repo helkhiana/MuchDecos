@@ -7,15 +7,7 @@ class CfgPatches
         requiredVersion=0.1;
         requiredAddons[]=
         {
-            "DZ_Data",
-			"DZ_Scripts",
-			"DZ_Gear_Consumables",
-			"DZ_Gear_Camping",
-			"DZ_Gear_Crafting",
-			"DZ_Gear_Tools",
-			"DZ_Gear_Cooking",
-			"DZ_Vehicles_Parts",
-			"DZ_Structures"
+            "DZ_Data"
         };
     };
 };
@@ -23,109 +15,23 @@ class CfgPatches
 
 class CfgVehicles
 {
-	class Inventory_Base;
-	class Container_Base;
-	class WoodenCrate;
-	class HouseNoDestruct;
-	class MD_Lumber_Kit;
+	class MD_Kit;
+	class MD_Item;
+	class MD_Flat_Kit;
+	class MD_Large_Kit;
 
-	class MD_Item: Inventory_Base
+
+	class MD_Sink_Kit: MD_Kit
 	{
-		scope=0;
-		destroyOnEmpty=0;
-		varQuantityDestroyOnMin=0;
-		descriptionShort="This can be dismantled with a screwdriver.";
-		quantityBar=1;
-		carveNavmesh=1;
-		bounding="BSphere";
-		overrideDrawArea="3.0";
-		visibilityModifier=0.94999999;
-		canBeDigged=0;
-		alignHologramToTerain=1;
-		heavyItem=1;
-		weight=10;
-		itemSize[]={10,10};
-		itemBehaviour=1;
-		physLayer="item_large";
-		lootTag[]=
-		{
-			"Work"
-		};
-		hiddenSelections[]=
-		{
-			"camoGround"
-		};
-		class Cargo
-		{
-		};
-		class DamageSystem
-		{
-			class GlobalHealth
-			{
-				class Health
-				{
-					hitpoints = 100000000000;
-				};
-			};
-		};
+		scope=2;
+		displayName="Sink Kit";
 	};
-
-	class MD_Kit: WoodenCrate
-	{
-		scope=0;
-		displayName="Wooden Box Kit";
-		descriptionShort="Wooden box used to transport small items. Place to deploy item inside. The items can be dismantled with a screwdriver after deployment.";
-		model="\MuchDecos\data\kitbox\kitbox_small.p3d";		
-		hiddenSelectionsTextures[]=
-		{
-			"\MuchDecos\data\kitbox\woodbox_o.paa"
-		};
-		itemSize[]={5,5};
-		carveNavmesh=1;
-		canBeDigged=0;
-		simulation="inventoryItem";
-		physLayer="item_large";
-		rotationFlags=2;
-		InteractActions[]={};
-		weight=300;
-		itemBehaviour=2;		
-		class Cargo
-		{
-		};
-		class DamageSystem
-		{
-			class GlobalHealth
-			{
-				class Health
-				{
-					hitpoints = 100000000000;
-				};
-			};
-		};
-	};	
-	
-	class MD_Sink: Inventory_Base
+	class MD_Sink: MD_Item
 	{		
 		scope=2;
 		displayName="Sink";
 		descriptionShort="A working sink";
 		model="\DZ\structures\furniture\Bathroom\SINK\sink.p3d";
-		hiddenSelectionsTextures[]=
-		{
-			"\DZ\structures\furniture\Bathroom\SINK\Data\sink_co.paa"
-		};
-		itemSize[]={6,6};
-		canBeDigged=0;
-		bounding="BSphere";
-		overrideDrawArea="3.0";
-		physLayer="item_small";
-		handheld="true";
-		carveNavmesh=1;
-		rotationFlags=2;
-		visibilityModifier=0.94999999;
-		InteractActions[]={};
-		weight=50;
-		itemBehaviour=2;
 		class AnimationSources
 		{
 			class Arm
@@ -135,102 +41,6 @@ class CfgVehicles
 				animPeriod=0.80000001;
 			};
 		};
-	};
-
-	class MD_Sink_Kit: MD_Kit
-	{
-		scope=2;
-		displayName="Sink Kit";
-	};
-	
-	class MD_OpenableBase: Container_Base
-	{
-		scope=0;
-		overrideDrawArea="8.0";
-		forceFarBubble="true";
-		descriptionShort="This can be dismantled with a screwdriver if unlocked.";
-		destroyOnEmpty=0;
-		quantityBar=0;
-		varQuantityMax=0;
-		carveNavmesh=1;
-		canBeDigged=0;
-		heavyItem=1;
-		weight=10000;
-		itemSize[]={10,15};
-		itemBehaviour=0;
-		physLayer="item_large";
-		allowOwnedCargoManipulation=1;
-		attachments[]=
-		{
-			"Att_CombinationLock"
-		};
-		class GUIInventoryAttachmentsProps
-		{	
-			class Lock
-			{
-				name="Lock";
-				description="";
-				attachmentSlots[]=
-				{
-					"Att_CombinationLock"
-				};
-				icon="cat_common_cargo";
-				view_index=3;
-			};
-		};
-		class Doors
-		{
-			class Doors1
-			{
-				displayName="door 1";
-				component="Doors1";
-				soundPos="doors1_action";
-				animPeriod=1;
-				initPhase=0;
-				initOpened=0;
-				soundOpen="doorWoodNolatchOpen";
-				soundClose="doorWoodNolatchClose";
-				soundLocked="doorWoodNolatchRattle";
-				soundOpenABit="doorWoodNolatchOpenABit";
-			};			
-		};		
-		class AnimationSources
-		{
-			class Doors1
-			{
-				source="user";
-				initPhase=0;
-				animPeriod=1;
-			};
-		};
-		class DamageSystem
-		{
-			class GlobalHealth
-			{
-				class Health
-				{
-					hitpoints = 100000000000;
-				};
-			};
-		};
-	};
-	
-	class MD_Large_Kit: MD_Kit
-	{
-		scope=0;
-		displayName="Large Kit";
-		model="\MuchDecos\data\kitbox\kitbox_large.p3d";
-		descriptionShort="Large wooden box used to transport enormous items. Place to deploy item inside. The items can be dismantled with a  screwdriver after deployment.";		
-		itemSize[]={4,8};
-	};
-	
-	class MD_Tent_Kit: MD_Kit
-	{
-		scope=0;
-		displayName="Tent Kit";
-		model="\MuchDecos\data\kitbox\kitbox_tents.p3d";
-		descriptionShort="Place to deploy item inside. The items can be dismantled by screwdriver after deployment.";		
-		itemSize[]={8,2};
 	};
 	
 	class MD_Power_Transformer_Kit: MD_Large_Kit
@@ -458,7 +268,7 @@ class CfgVehicles
 
 	//camonets - needs fabric/camonet kit
 	
-	class MD_CamonetShelter_Kit: MD_Lumber_Kit
+	class MD_CamonetShelter_Kit: MD_Flat_Kit
 	{
 		scope=2;
 		displayName="Camonet Shelter kit";
@@ -470,7 +280,7 @@ class CfgVehicles
 		displayName="Camonet Shelter";
 		model="\DZ\gear\camping\camo_net_shelter.p3d";
 	};
-	class MD_CamonetShelter_BE_Kit: MD_Lumber_Kit
+	class MD_CamonetShelter_BE_Kit: MD_Flat_Kit
 	{
 		scope=2;
 		displayName="Camonet Shelter BE kit";
@@ -482,7 +292,7 @@ class CfgVehicles
 		displayName="Camonet Shelter BE";
 		model="\DZ\structures\military\improvised\mil_camonet_big_east.p3d";
 	};
-	class MD_CamonetShelter_BN_Kit: MD_Lumber_Kit
+	class MD_CamonetShelter_BN_Kit: MD_Flat_Kit
 	{
 		scope=2;
 		displayName="Camonet Shelter BN kit";
@@ -494,7 +304,7 @@ class CfgVehicles
 		displayName="Camonet Shelter BN";
 		model="\DZ\structures\military\improvised\mil_camonet_big_nato.p3d";
 	};
-	class MD_CamonetShelter_RE_Kit: MD_Lumber_Kit
+	class MD_CamonetShelter_RE_Kit: MD_Flat_Kit
 	{
 		scope=2;
 		displayName="Camonet Shelter RE kit";
@@ -506,7 +316,7 @@ class CfgVehicles
 		displayName="Camonet Shelter RE";
 		model="\DZ\structures\military\improvised\mil_camonet_roof_east.p3d";
 	};
-	class MD_CamonetShelter_RN_Kit: MD_Lumber_Kit
+	class MD_CamonetShelter_RN_Kit: MD_Flat_Kit
 	{
 		scope=2;
 		displayName="Camonet Shelter RN kit";
@@ -518,7 +328,7 @@ class CfgVehicles
 		displayName="Camonet Shelter RN";
 		model="\DZ\structures\military\improvised\mil_camonet_roof_nato.p3d";
 	};
-	class MD_CamonetShelter_SE_Kit: MD_Lumber_Kit
+	class MD_CamonetShelter_SE_Kit: MD_Flat_Kit
 	{
 		scope=2;
 		displayName="Camonet Shelter SE kit";
@@ -530,7 +340,7 @@ class CfgVehicles
 		displayName="Camonet Shelter SE";
 		model="\DZ\structures\military\improvised\mil_camonet_side_east.p3d";
 	};
-	class MD_CamonetShelter_SN_Kit: MD_Lumber_Kit
+	class MD_CamonetShelter_SN_Kit: MD_Flat_Kit
 	{
 		scope=2;
 		displayName="Camonet Shelter SN kit";

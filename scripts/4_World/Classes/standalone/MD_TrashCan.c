@@ -1,4 +1,4 @@
-class MD_TrashCan : MD_PItem
+class MD_TrashCan : MD_StorageItem
 {
 	override vector Get_MDItemPos()
 	{

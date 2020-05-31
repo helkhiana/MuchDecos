@@ -1,4 +1,4 @@
-class MD_WoodBlock : MD_PItem
+class MD_WoodBlock : MD_StorageItem
 {	
     override vector Get_MDItemPos()
 	{

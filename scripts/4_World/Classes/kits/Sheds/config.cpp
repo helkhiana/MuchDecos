@@ -7,15 +7,7 @@ class CfgPatches
         requiredVersion=0.1;
         requiredAddons[]=
         {
-            "DZ_Data",
-			"DZ_Scripts",
-			"DZ_Gear_Consumables",
-			"DZ_Gear_Camping",
-			"DZ_Gear_Crafting",
-			"DZ_Gear_Tools",
-			"DZ_Gear_Cooking",
-			"DZ_Vehicles_Parts",
-			"DZ_Structures"
+            "DZ_Data"
         };
     };
 };
@@ -23,8 +15,6 @@ class CfgPatches
 
 class CfgVehicles
 {
-	class MD_Item;
-	class MD_Kit;
 	class MD_Large_Kit;
 	class MD_OpenableBase;
 

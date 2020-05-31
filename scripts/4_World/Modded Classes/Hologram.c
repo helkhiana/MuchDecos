@@ -3,19 +3,10 @@ modded class Hologram
 	override void UpdateHologram( float timeslice )
 	{
 		super.UpdateHologram(timeslice);
-		MD_Item_Kit mdItemKit = MD_Item_Kit.Cast( m_Player.GetHumanInventory().GetEntityInHands() );
-		if(mdItemKit){
-			vector mdItemKitPos = GetProjectionEntityPosition( m_Player ) + mdItemKit.Get_MDItemPos();
-			SetProjectionPosition( mdItemKitPos );
-			SetProjectionOrientation( AlignProjectionOnTerrain( timeslice ) );		
-			m_Projection.OnHologramBeingPlaced( m_Player );
-			return;
-		}
-
-		MD_PItem pitem = MD_PItem.Cast( m_Player.GetHumanInventory().GetEntityInHands() );
-		if(mdItemKit){
-			vector pitemPos = GetProjectionEntityPosition( m_Player ) + pitem.Get_MDItemPos();
-			SetProjectionPosition( pitemPos );
+		ItemBase mdItem = ItemBase.Cast( m_Player.GetHumanInventory().GetEntityInHands() );
+		if(mdItem.IsKindOf("MD_Item_Kit" ) || mdItem.IsKindOf("MD_StorageItem")){
+			vector mdItemPos = GetProjectionEntityPosition( m_Player ) + mdItem.Get_MDItemPos();
+			SetProjectionPosition( mdItemPos );
 			SetProjectionOrientation( AlignProjectionOnTerrain( timeslice ) );		
 			m_Projection.OnHologramBeingPlaced( m_Player );
 			return;
@@ -25,16 +16,14 @@ modded class Hologram
 
 	override string ProjectionBasedOnParent()
 	{
-		ItemBase fieldShovel_in_hands = m_Parent;
-        if ( fieldShovel_in_hands && fieldShovel_in_hands.CanMakeMD_Grave() )
+        if (m_Parent.CanMakeMD_Grave() )
         {
             return "MD_Grave";
 		}
 		
-		MD_Item_Kit item_in_hands = MD_Item_Kit.Cast( m_Parent );
-		if ( item_in_hands )
+		if ( m_Parent.IsInherited(MD_Item_Kit) )
 		{
-			return item_in_hands.Get_MDItemName();
+			return m_Parent.Get_MDItemName();
 		}
 		
 		return super.ProjectionBasedOnParent();
@@ -42,9 +31,7 @@ modded class Hologram
 
 	override EntityAI PlaceEntity( EntityAI entity_for_placing )
 	{	
-		ItemBase item_in_hands = m_Parent;
-	
-		if ( item_in_hands && item_in_hands.CanMakeGardenplot())
+		if ( m_Parent && m_Parent.CanMakeGardenplot())
 		{	
 			Class.CastTo(entity_for_placing, GetGame().CreateObject( m_Projection.GetType(), m_Projection.GetPosition()));
 		}
@@ -61,57 +48,34 @@ modded class Hologram
 
 	override void EvaluateCollision()
 	{	
-		ItemBase item_in_hands = m_Parent;
+		if ( m_Parent.IsInherited(MD_Item_Kit) || m_Parent.IsInherited(MD_StorageItem) || m_Parent.IsInherited(FieldShovel))
+		{
+			SetIsColliding(false);
+			return;
+		}
 
-		if ( item_in_hands.IsInherited( MD_Item_Kit ))
-		{
-			SetIsColliding(false);
-			return;
-		}
-		
-		if ( item_in_hands.IsInherited( MD_PItem ))
-		{
-			SetIsColliding(false);
-			return;
-		}
-		
-		if ( item_in_hands.IsInherited( FieldShovel ))
-		{
-			SetIsColliding(false);
-			return;
-		}
 		super.EvaluateCollision();
 	}
 
 	override bool IsFloating() 
 	{
-		ItemBase item_in_hands = m_Parent;
-		if (item_in_hands.IsInherited(MD_Item_Kit) || item_in_hands.IsInherited(MD_PItem))
+		if (m_Parent.IsInherited(MD_Item_Kit) || m_Parent.IsInherited(MD_StorageItem))
 		{
 			return true;
-		} 
-		else 
-		{
-			return m_IsFloating;
 		}
+		
+		return super.IsFloating();
 	}
 
 	override void SetProjectionPosition( vector position )
 	{	
-		MD_Item_Kit mdItemKit = MD_Item_Kit.Cast(m_Parent);
-		if (mdItemKit && IsFloating())
+		if (m_Parent.IsInherited(MD_Item_Kit) || m_Parent.IsInherited(MD_StorageItem) && IsFloating())
 		{ 
-			vector mdItemKitPos = SetOnGround( position ) + mdItemKit.Get_MDItemPos();
-			m_Projection.SetPosition( mdItemKitPos );
+			vector mdItemPos = SetOnGround( position ) + m_Parent.Get_MDItemPos();
+			m_Projection.SetPosition( mdItemPos );
 			return;
 		}
-		MD_PItem pItem = MD_PItem.Cast(m_Parent);
-		if (pItem && IsFloating())
-		{ 
-			vector pItemPos = SetOnGround( position ) + pItem.Get_MDItemPos();
-			m_Projection.SetPosition( pItemPos );
-			return;
-		}
+
 		super.SetProjectionPosition(position);
 	}
 };

@@ -18,7 +18,7 @@ class MD_Sink : MD_Item
 		return true;
 	}
 	
-	override string Get_KitName()
+	override string Get_MDKitName()
 	{
 		return "MD_Sink_Kit";
 	}

@@ -12,22 +12,7 @@ class MD_Item: ItemBase
 };
 
 class MD_Item_Kit: ItemBase
-{	
-	void MD_Item_Kit()
-	{
-		RegisterNetSyncVariableBool("m_IsSoundSynchRemote");
-	}
-	
-	override void OnVariablesSynchronized()
-	{
-		super.OnVariablesSynchronized();
-		
-		if ( IsPlaceSound() )
-		{
-			PlayPlaceSound();
-		}
-	}
-		
+{		
 	override void OnPlacementComplete( Man player )
 	{
 		super.OnPlacementComplete( player );		
@@ -40,7 +25,6 @@ class MD_Item_Kit: ItemBase
 			EntityAI kitItem = EntityAI.Cast(GetGame().CreateObject(Get_MDItemName(), position, false ));
 			kitItem.SetPosition(position);
 			kitItem.SetOrientation(orientation);
-			kitItem.SetLifetime(3888000);
 		}
 		
 		SetIsPlaceSound( true );
@@ -49,27 +33,11 @@ class MD_Item_Kit: ItemBase
 	override bool IsDeployable()
 	{
 		return true;
-	}	
-	
-	override string GetPlaceSoundset()
-	{
-		return "putDown_FenceKit_SoundSet";
 	}
 
-	string Get_MDItemName()
-	{
-		return "MD_Item";
-	}
-
-	vector Get_MDItemPos()
-	{
-		return "0 0 0";
-	}
-	
     override void SetActions()
     {
-        super.SetActions();
-        
+        super.SetActions();        
         AddAction(ActionTogglePlaceObject);
 		AddAction(ActionPlaceObject);
     }

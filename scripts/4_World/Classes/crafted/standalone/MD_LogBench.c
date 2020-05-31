@@ -1,4 +1,4 @@
-class MD_LogBench : MD_PItem
+class MD_LogBench : MD_StorageItem
 {	
     override vector Get_MDItemPos()
 	{

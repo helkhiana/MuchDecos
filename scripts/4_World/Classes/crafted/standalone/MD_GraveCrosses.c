@@ -1,4 +1,4 @@
-class MD_GraveCross_One : MD_PItem
+class MD_GraveCross_One : MD_StorageItem
 {
     override vector Get_MDItemPos()
 	{
@@ -24,7 +24,7 @@ class MD_GraveCross_One : MD_PItem
     } 
 };
 
-class MD_GraveCross_Two : MD_PItem
+class MD_GraveCross_Two : MD_StorageItem
 {	
     override vector Get_MDItemPos()
 	{
@@ -50,7 +50,7 @@ class MD_GraveCross_Two : MD_PItem
     } 
 };
 
-class MD_GraveCross_Three : MD_PItem
+class MD_GraveCross_Three : MD_StorageItem
 {	
     override vector Get_MDItemPos()
 	{
@@ -76,7 +76,7 @@ class MD_GraveCross_Three : MD_PItem
     } 
 };
 
-class MD_GraveCross_Four : MD_PItem
+class MD_GraveCross_Four : MD_StorageItem
 {	
     override vector Get_MDItemPos()
 	{
@@ -102,7 +102,7 @@ class MD_GraveCross_Four : MD_PItem
     } 
 };
 
-class MD_GraveCross_Five : MD_PItem
+class MD_GraveCross_Five : MD_StorageItem
 {	
     override vector Get_MDItemPos()
 	{

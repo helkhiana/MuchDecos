@@ -82,7 +82,7 @@ class MD_Workbench : MD_Item
 		MD_Stones_Slot = ItemBase.Cast( GetInventory().FindAttachment(slot_id) ); 
     } 
 
-    override string Get_KitName()
+    override string Get_MDKitName()
 	{
 		return "MD_Workbench_Kit";
 	} 

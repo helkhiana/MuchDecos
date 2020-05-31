@@ -1,4 +1,4 @@
-class MD_SnakePlantFlowerPot : MD_PItem
+class MD_EvergreenFlowerPot : MD_StorageItem
 {
     static MD_ItemRecipeValues GetRecipeValues()
     {   
@@ -11,8 +11,8 @@ class MD_SnakePlantFlowerPot : MD_PItem
         array<string> ingredientsTwo =
         {"PlantMaterial"};
         recipeVals.SetIngredientItemTwo(ingredientsTwo);
-		recipeVals.SetName("Craft Snake Plant Flower Pot");
-		recipeVals.SetResult("MD_SnakePlantFlowerPot");  
+		recipeVals.SetName("Craft Evergreen Flower Pot");
+		recipeVals.SetResult("MD_EvergreenFlowerPot");  
         return recipeVals;
     } 
 };

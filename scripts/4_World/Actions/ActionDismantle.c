@@ -57,7 +57,7 @@ class ActionDismantle: ActionContinuousBase
 		ItemBase myItem = ItemBase.Cast( action_data.m_Target.GetObject() );
 		if(myItem)
 		{
-			name = myItem.Get_KitName();
+			name = myItem.Get_MDKitName();
 			myItem.Delete();
 		}
 		//add damage to tool

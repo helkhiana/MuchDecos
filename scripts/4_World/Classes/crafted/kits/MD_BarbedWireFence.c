@@ -14,7 +14,7 @@ class MD_BarbedWireFence_Kit : MD_Item_Kit
 
 class MD_BarbedWireFence : MD_Item
 {
-    override string Get_KitName()
+    override string Get_MDKitName()
 	{
 		return "MD_BarbedWireFence_Kit";
 	}   

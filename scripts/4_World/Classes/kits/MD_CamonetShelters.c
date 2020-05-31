@@ -20,7 +20,7 @@ class MD_CamonetShelter_Kit : MD_Camonet_Kit
 };
 class Land_MD_CamonetShelter : MD_Item
 {
-	override string Get_KitName()
+	override string Get_MDKitName()
 	{
 		return "MD_CamonetShelter_Kit";
 	}
@@ -35,7 +35,7 @@ class MD_CamonetShelter_BE_Kit : MD_Camonet_Kit
 };
 class Land_MD_CamonetShelter_BE : MD_Item
 {
-	override string Get_KitName()
+	override string Get_MDKitName()
 	{
 		return "MD_CamonetShelter_BE_Kit";
 	}
@@ -50,7 +50,7 @@ class MD_CamonetShelter_BN_Kit : MD_Camonet_Kit
 };
 class Land_MD_CamonetShelter_BN : MD_Item
 {
-	override string Get_KitName()
+	override string Get_MDKitName()
 	{
 		return "MD_CamonetShelter_BN_Kit";
 	}
@@ -65,7 +65,7 @@ class MD_CamonetShelter_RE_Kit : MD_Camonet_Kit
 };
 class Land_MD_CamonetShelter_RE : MD_Item
 {
-	override string Get_KitName()
+	override string Get_MDKitName()
 	{
 		return "MD_CamonetShelter_RE_Kit";
 	}
@@ -80,7 +80,7 @@ class MD_CamonetShelter_RN_Kit : MD_Camonet_Kit
 };
 class Land_MD_CamonetShelter_RN : MD_Item
 {
-	override string Get_KitName()
+	override string Get_MDKitName()
 	{
 		return "MD_CamonetShelter_RN_Kit";
 	}
@@ -99,7 +99,7 @@ class MD_CamonetShelter_SE_Kit : MD_Camonet_Kit
 };
 class Land_MD_CamonetShelter_SE : MD_Item
 {
-	override string Get_KitName()
+	override string Get_MDKitName()
 	{
 		return "MD_CamonetShelter_SE_Kit";
 	}
@@ -118,7 +118,7 @@ class MD_CamonetShelter_SN_Kit : MD_Camonet_Kit
 };
 class Land_MD_CamonetShelter_SN : MD_Item
 {
-	override string Get_KitName()
+	override string Get_MDKitName()
 	{
 		return "MD_CamonetShelter_SN_Kit";
 	}

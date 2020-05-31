@@ -1,4 +1,4 @@
-class MD_OpenableItem_Base : Container_Base
+class MD_OpenableItem_Base : ItemBase
 {
 	private bool m_IsLocked = false;
 	protected ref OpenableBehaviour m_Openable;
@@ -10,24 +10,10 @@ class MD_OpenableItem_Base : Container_Base
 	{
 		return true;
 	}
-
-	override bool IsInventoryVisible()
-	{
-		return true;
-	}
 	
 	void MD_OpenableItem_Base()
 	{
 		m_Openable = new OpenableBehaviour(false);
-		RegisterNetSyncVariableBool("m_Openable.m_IsOpened");
-		RegisterNetSyncVariableBool("m_IsSoundSynchRemote");
-		RegisterNetSyncVariableBool("m_IsPlaceSound");
-	}
-	
-	override void EEInit()
-	{
-		super.EEInit();		
-        GetInventory().LockInventory(HIDE_INV_FROM_SCRIPT);     
 	}
 
 	override void EEItemAttached( EntityAI item, string slot_name )
@@ -47,15 +33,13 @@ class MD_OpenableItem_Base : Container_Base
 		m_Openable.Open();
 		SoundSynchRemote();
 		UpdateVisualState();
-		GetInventory().UnlockInventory(HIDE_INV_FROM_SCRIPT);
 	}
 
 	override void Close()
 	{
 		m_Openable.Close();
 		SoundSynchRemote();
-		UpdateVisualState();
-		GetInventory().LockInventory(HIDE_INV_FROM_SCRIPT);
+		UpdateVisualState();		
 	}
 
 	override bool IsOpen()
@@ -78,22 +62,14 @@ class MD_OpenableItem_Base : Container_Base
 	override void OnVariablesSynchronized()
 	{
 		super.OnVariablesSynchronized();
-				
-		if ( IsPlaceSound() )
+		if ( IsOpen() && IsSoundSynchRemote() && !IsBeingPlaced() )
 		{
-			PlayPlaceSound();
+			OpenSoundPlay();
 		}
-		else
+		
+		if ( !IsOpen() && IsSoundSynchRemote() && !IsBeingPlaced() )
 		{
-			if ( IsOpen() && IsSoundSynchRemote() && !IsBeingPlaced() )
-			{
-				OpenSoundPlay();
-			}
-			
-			if ( !IsOpen() && IsSoundSynchRemote() && !IsBeingPlaced() )
-			{
-				CloseSoundPlay();
-			}
+			CloseSoundPlay();
 		}
 		
 		UpdateVisualState();
@@ -134,20 +110,11 @@ class MD_OpenableItem_Base : Container_Base
 		return true;
 	}
 
-	override void OnPlacementStarted( Man player ) 
-	{
-		super.OnPlacementStarted( player );
-		
-		SetTakeable(true);
-	}
-
 	bool IsLocked()
     {
         MD_Padlock padlock = GetMD_Padlock();
         if ( padlock && padlock.IsLockedOnMD_OpenableItem_Base() )
-        {
-            GetInventory().LockInventory(HIDE_INV_FROM_SCRIPT);
-            
+        {            
             return true;
         }
         
@@ -164,6 +131,19 @@ class MD_OpenableItem_Base : Container_Base
     {
         return true;
     }
+	
+	override bool DisableVicinityIcon()
+	{
+		return true;
+	}
+	
+	override bool IsInventoryVisible()
+	{
+		PlayerBase player = PlayerBase.Cast( GetGame().GetPlayer() );
+		vector playerPos = player.GetPosition();
+		float distanceToLocation = vector.Distance(playerPos, this.GetPosition());
+		return distanceToLocation < 3.0 && !IsLocked();
+	}
 
 	override void SetActions()
 	{

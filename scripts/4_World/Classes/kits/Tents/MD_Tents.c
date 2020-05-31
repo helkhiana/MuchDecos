@@ -11,7 +11,7 @@ class MD_Medical_Tent_Large_Kit : MD_Item_Kit
 };
 class MD_Medical_Tent_Large : MD_Item
 {
-    override string Get_KitName()
+    override string Get_MDKitName()
 	{
 		return "MD_Medical_Tent_Large_Kit";
 	}

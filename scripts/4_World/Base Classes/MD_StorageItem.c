@@ -1,10 +1,5 @@
-class MD_PItem : ItemBase
+class MD_StorageItem : ItemBase
 {
-	vector Get_MDItemPos()
-	{
-		return "0 0 0";
-	}  
-
 	override bool CanPutInCargo( EntityAI parent )
     {
         return IsInvEmpty();

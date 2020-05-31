@@ -31,7 +31,7 @@ class MD_LobbyTable_Kit : MD_Item_Kit
 
 class MD_LobbyTable : MD_Item
 {
-    override string Get_KitName()
+    override string Get_MDKitName()
 	{
 		return "MD_LobbyTable_Kit";
 	}   
@@ -70,7 +70,7 @@ class MD_WornTable_Kit : MD_Item_Kit
 };
 class MD_WornTable : MD_Item
 {
-	override string Get_KitName()
+	override string Get_MDKitName()
 	{
 		return "MD_WornTable_Kit";
 	}
@@ -107,7 +107,7 @@ class MD_SquareTable_Kit : MD_Item_Kit
 
 class MD_SquareTable : MD_Item
 {	
-    override string Get_KitName()
+    override string Get_MDKitName()
 	{
 		return "MD_SquareTable_Kit";
 	}   

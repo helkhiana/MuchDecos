@@ -30,6 +30,7 @@ class CfgVehicles
 	class MD_Large_Kit;
 	class Pot;
 	class CanisterGasoline;
+	
 	class MD_Crafting_Book: BookDeadSouls
 	{
 		scope=2;

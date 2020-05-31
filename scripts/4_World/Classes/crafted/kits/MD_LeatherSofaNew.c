@@ -1,8 +1,8 @@
-class MD_LeatherSofaOld_Kit : MD_Item_Kit
+class MD_LeatherSofaNew_Kit : MD_Item_Kit
 {
     override string Get_MDItemName()
 	{
-		return "MD_LeatherSofaOld";
+		return "MD_LeatherSofaNew";
 	} 
 	
 	override vector Get_MDItemPos()
@@ -23,16 +23,16 @@ class MD_LeatherSofaOld_Kit : MD_Item_Kit
         array<string> ingredientsTwo =
         {"TannedLeather"};
         recipeVals.SetIngredientItemTwo(ingredientsTwo);
-		recipeVals.SetName("Craft Old Leather Sofa");
-		recipeVals.SetResult("MD_LeatherSofaOld_Kit");  
+		recipeVals.SetName("Craft Leather Sofa");
+		recipeVals.SetResult("MD_LeatherSofaNew_Kit");  
         return recipeVals;
     } 
 };
 
-class MD_LeatherSofaOld : MD_Item
+class MD_LeatherSofaNew : MD_Item
 {
-    override string Get_KitName()
+    override string Get_MDKitName()
 	{
-		return "MD_LeatherSofaOld_Kit";
+		return "MD_LeatherSofaNew_Kit";
 	}   
 };

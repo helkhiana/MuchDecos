@@ -1,4 +1,4 @@
-class MD_CampBench : MD_PItem
+class MD_CampBench : MD_StorageItem
 {
     override vector Get_MDItemPos()
 	{
@@ -24,7 +24,7 @@ class MD_CampBench : MD_PItem
     } 
 };
 
-class MD_WornBench : MD_PItem
+class MD_WornBench : MD_StorageItem
 {	
     override vector Get_MDItemPos()
 	{

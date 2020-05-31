@@ -18,7 +18,7 @@ class MD_Shed_W1_Kit : MD_Shed_Kit
 };
 class Land_MD_Shed_W1 : MD_OpenableDoorWoodNolatch
 {
-	override string Get_KitName()
+	override string Get_MDKitName()
 	{
 		return "MD_Shed_W1_Kit";
 	}
@@ -38,7 +38,7 @@ class MD_Shed_W2_Kit : MD_Shed_Kit
 };
 class Land_MD_Shed_W2 : MD_OpenableDoorWoodNolatch
 {
-	override string Get_KitName()
+	override string Get_MDKitName()
 	{
 		return "MD_Shed_W2_Kit";
 	}
@@ -58,7 +58,7 @@ class MD_Shed_W3_Kit : MD_Shed_Kit
 };
 class Land_MD_Shed_W3 : MD_OpenableDoorWoodNolatch
 {
-	override string Get_KitName()
+	override string Get_MDKitName()
 	{
 		return "MD_Shed_W3_Kit";
 	}
@@ -78,7 +78,7 @@ class MD_Shed_W4_Kit : MD_Shed_Kit
 };
 class Land_MD_Shed_W4 : MD_OpenableDoorWoodNolatch
 {
-	override string Get_KitName()
+	override string Get_MDKitName()
 	{
 		return "MD_Shed_W4_Kit";
 	}
@@ -98,7 +98,7 @@ class MD_Shed_W5_Kit : MD_Shed_Kit
 };
 class Land_MD_Shed_W5 : MD_OpenableDoorWoodNolatch
 {
-	override string Get_KitName()
+	override string Get_MDKitName()
 	{
 		return "MD_Shed_W5_Kit";
 	}

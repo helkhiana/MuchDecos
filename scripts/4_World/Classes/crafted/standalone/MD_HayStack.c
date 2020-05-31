@@ -1,4 +1,4 @@
-class MD_HayStack : MD_PItem
+class MD_HayStack : MD_StorageItem
 {
     override vector Get_MDItemPos()
 	{

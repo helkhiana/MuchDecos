@@ -1,8 +1,8 @@
-class MD_BeigeCouch_Kit : MD_Item_Kit
+class MD_WhiteCouch_Kit : MD_Item_Kit
 {
     override string Get_MDItemName()
 	{
-		return "MD_BeigeCouch";
+		return "MD_WhiteCouch";
 	} 
 	
 	override vector Get_MDItemPos()
@@ -13,9 +13,9 @@ class MD_BeigeCouch_Kit : MD_Item_Kit
     static MD_ItemRecipeValues GetRecipeValues()
     {   
         MD_ItemRecipeValues recipeVals = new MD_ItemRecipeValues;
-		recipeVals.Set_minQuantityIngredientOne(3);
+		recipeVals.Set_minQuantityIngredientOne(2);
 		recipeVals.Set_minQuantityIngredientTwo(8);
-        recipeVals.Set_addQuantOne(-3);
+        recipeVals.Set_addQuantOne(-2);
         recipeVals.Set_addQuantTwo(-8);
 		array<string> ingredientsOne =
         {"WoodenPlank"};
@@ -23,16 +23,16 @@ class MD_BeigeCouch_Kit : MD_Item_Kit
         array<string> ingredientsTwo =
         {"TannedLeather"};
         recipeVals.SetIngredientItemTwo(ingredientsTwo);
-		recipeVals.SetName("Craft Beige Couch");
-		recipeVals.SetResult("MD_BeigeCouch_Kit");  
+		recipeVals.SetName("Craft White Couch");
+		recipeVals.SetResult("MD_WhiteCouch_Kit");  
         return recipeVals;
     } 
 };
 
-class MD_BeigeCouch : MD_Item
+class MD_WhiteCouch : MD_Item
 {
-    override string Get_KitName()
+    override string Get_MDKitName()
 	{
-		return "MD_BeigeCouch_Kit";
+		return "MD_WhiteCouch_Kit";
 	}   
 };

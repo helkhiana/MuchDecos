@@ -1,13 +1,13 @@
-class MD_WhiteCouch_Kit : MD_Item_Kit
+class MD_LeatherSofaOld_Kit : MD_Item_Kit
 {
     override string Get_MDItemName()
 	{
-		return "MD_WhiteCouch";
+		return "MD_LeatherSofaOld";
 	} 
 	
 	override vector Get_MDItemPos()
 	{
-		return "0 0 0";
+		return "0 0.4 0";
 	}
 
     static MD_ItemRecipeValues GetRecipeValues()
@@ -23,16 +23,16 @@ class MD_WhiteCouch_Kit : MD_Item_Kit
         array<string> ingredientsTwo =
         {"TannedLeather"};
         recipeVals.SetIngredientItemTwo(ingredientsTwo);
-		recipeVals.SetName("Craft White Couch");
-		recipeVals.SetResult("MD_WhiteCouch_Kit");  
+		recipeVals.SetName("Craft Old Leather Sofa");
+		recipeVals.SetResult("MD_LeatherSofaOld_Kit");  
         return recipeVals;
     } 
 };
 
-class MD_WhiteCouch : MD_Item
+class MD_LeatherSofaOld : MD_Item
 {
-    override string Get_KitName()
+    override string Get_MDKitName()
 	{
-		return "MD_WhiteCouch_Kit";
+		return "MD_LeatherSofaOld_Kit";
 	}   
 };
