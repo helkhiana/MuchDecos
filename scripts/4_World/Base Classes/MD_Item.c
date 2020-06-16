@@ -24,7 +24,7 @@ class MD_Item_Kit: ItemBase
 				
 			EntityAI kitItem = EntityAI.Cast(GetGame().CreateObject(Get_MDItemName(), position, false ));
 			kitItem.SetPosition(position);
-			kitItem.SetOrientation(orientation);
+			kitItem.SetOrientation(orientation);			
 		}
 		
 		SetIsPlaceSound( true );

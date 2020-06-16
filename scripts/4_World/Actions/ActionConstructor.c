@@ -11,7 +11,6 @@ modded class ActionConstructor
         actions.Insert(ActionCraftHayStack);
         actions.Insert(ActionCraftBarbedWireFence);
 
-        //actions.Insert(ActionSitChair);
         actions.Insert(ActionTrash);
         actions.Insert(ActionDigGrave);
 

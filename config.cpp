@@ -29,7 +29,7 @@ class CfgMods
         extra = 0;
         type = "mod";
         
-        dependencies[] = {"Game", "World", "Mission"};
+        dependencies[] = {"Game", "World"};
         
         class defs
         {
@@ -43,12 +43,6 @@ class CfgMods
             {
                 value = "";
                 files[] = {"MuchDecos/Scripts/4_World"};
-			};
-
-			class missionScriptModule
-            {
-                value = "";
-                files[] = {"MuchDecos/Scripts/5_Mission"};
 			};
 		};
         
