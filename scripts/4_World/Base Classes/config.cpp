@@ -32,7 +32,7 @@ class CfgVehicles
 		weight=10;
 		itemSize[]={10,10};
 		itemBehaviour=2;
-		physLayer="item_small";
+		physLayer="item_large";
 		rotationFlags=2;
 		class Cargo
 		{
@@ -49,6 +49,11 @@ class CfgVehicles
 		};
 	};
 
+	class MD_Item_WithoutCollision: MD_Item
+	{		
+		physLayer="item_small";
+	};
+
 	class MD_Kit: MD_Item
 	{
 		scope=0;
@@ -57,6 +62,7 @@ class CfgVehicles
 		model="\MuchDecos\data\kitbox\kitbox_small.p3d";
 		itemSize[]={5,5};
 		simulation="inventoryItem";
+		physLayer="item_small";
 		weight=300;
 	};
 	

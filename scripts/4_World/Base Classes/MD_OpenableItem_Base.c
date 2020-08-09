@@ -1,7 +1,7 @@
 class MD_OpenableItem_Base : ItemBase
 {
 	private bool m_IsLocked = false;
-	protected ref OpenableBehaviour m_Openable;
+	protected ref OpenableBehaviour m_OpenableMD;
 
 	string GetOpenSoundSet(){ return "DoorWoodTowerOpen_SoundSet"; }
 	string GetCloseSoundSet(){ return "DoorWoodTowerOpen_SoundSet"; }
@@ -13,7 +13,10 @@ class MD_OpenableItem_Base : ItemBase
 	
 	void MD_OpenableItem_Base()
 	{
-		m_Openable = new OpenableBehaviour(false);
+		m_OpenableMD = new OpenableBehaviour(false);
+		RegisterNetSyncVariableBool("m_OpenableMD.m_IsOpened");
+		if (GetAnimationPhase("Doors1") == 1.0 && !m_OpenableMD.IsOpened())
+			Close();
 	}
 
 	override void EEItemAttached( EntityAI item, string slot_name )
@@ -28,23 +31,54 @@ class MD_OpenableItem_Base : ItemBase
         }
     }
 
+	override void OnStoreSave( ParamsWriteContext ctx )
+	{   
+		super.OnStoreSave( ctx );
+		
+		ctx.Write( m_OpenableMD.IsOpened() );
+	}
+	
+	override bool OnStoreLoad( ParamsReadContext ctx, int version )
+	{
+		if ( !super.OnStoreLoad( ctx, version ) )
+			return false;
+		
+		bool opened;
+		if (!ctx.Read( opened ) )
+		{
+			Close();
+			return false;
+		}
+		
+		if ( opened )
+		{
+			Open();
+		}
+		else
+		{
+			Close();
+		}
+		
+		return true;
+	}
+
 	override void Open()
 	{
-		m_Openable.Open();
+		m_OpenableMD.Open();
 		SoundSynchRemote();
 		UpdateVisualState();
 	}
 
 	override void Close()
 	{
-		m_Openable.Close();
+		m_OpenableMD.Close();
 		SoundSynchRemote();
 		UpdateVisualState();		
 	}
 
 	override bool IsOpen()
 	{
-		return m_Openable.IsOpened();
+		return m_OpenableMD.IsOpened();
 	}
 
 	protected void UpdateVisualState()
