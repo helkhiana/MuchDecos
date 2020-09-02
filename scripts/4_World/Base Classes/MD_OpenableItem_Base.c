@@ -129,7 +129,7 @@ class MD_OpenableItem_Base : ItemBase
     {
         return false;
     }
-	override bool CanReceiveItemIntoCargo(EntityAI cargo)
+	override bool CanReceiveItemIntoCargo(EntityAI item)
 	{
 		return IsOpen();
 	}
