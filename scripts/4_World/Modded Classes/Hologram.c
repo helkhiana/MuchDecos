@@ -63,5 +63,24 @@ modded class Hologram
 		}
 
 		super.SetProjectionPosition(position);
+	}	
+
+	vector SetOnGroundOld( vector position )
+	{
+		vector from = position;
+		vector ground;
+		vector player_to_projection_vector;
+		float projection_diameter = GetProjectionDiameter();
+			
+		ground = Vector(0, - Math.Max( projection_diameter, SMALL_PROJECTION_GROUND ), 0);	
+		vector to = from + ground;
+		vector contact_pos;
+		int contact_component;
+		
+		DayZPhysics.RaycastRV( from, to, contact_pos, m_ContactDir, contact_component, NULL, NULL, m_Projection, false, false );
+
+		HideWhenClose( contact_pos );
+
+		return contact_pos;
 	}
 };
