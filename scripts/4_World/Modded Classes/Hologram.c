@@ -57,7 +57,7 @@ modded class Hologram
 	{
 		if (m_Parent.IsInherited(MD_Item_Kit) || m_Parent.IsInherited(MD_StorageItem) && IsFloating())
 		{
-			vector mdItemPos = SetOnGround(position) + m_Parent.Get_MDItemPos();
+			vector mdItemPos = SetOnGroundOld(position) + m_Parent.Get_MDItemPos();
 			m_Projection.SetPosition(mdItemPos);
 			return;
 		}
