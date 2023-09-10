@@ -1,11 +1,11 @@
 class MD_Sink_Kit : MD_Item_Kit
 {
-	override string Get_MDItemName()
+	override string Get_ItemNameMD()
 	{
 		return "MD_Sink";
 	} 
 
-	override vector Get_MDItemPos()
+	override vector Get_ItemPlacingPosMD()
 	{
 		return  "0 0.75 0";
 	}  
@@ -13,12 +13,22 @@ class MD_Sink_Kit : MD_Item_Kit
 
 class MD_Sink : MD_Item
 {
-	bool IsWell()
+	override bool IsWell()
 	{
-		return true;
+		return GetWaterSourceObjectType();
 	}
 	
-	override string Get_MDKitName()
+	override EWaterSourceObjectType GetWaterSourceObjectType()
+	{
+		return EWaterSourceObjectType.WELL;
+	}
+	
+	override float GetLiquidThroughputCoef()
+	{
+		return LIQUID_THROUGHPUT_WELL;
+	}
+
+	override string Get_KitNameMD()
 	{
 		return "MD_Sink_Kit";
 	}

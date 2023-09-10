@@ -1,6 +1,6 @@
 class MD_TrashCan : MD_StorageItem
 {
-	override vector Get_MDItemPos()
+	override vector Get_ItemPlacingPosMD()
 	{
 		return "0 0.5 0";
 	}  
@@ -37,7 +37,7 @@ class MD_StaticTrashCan : MD_TrashCan
 
 class MD_GreenTrashCan : MD_TrashCan
 {
-	override vector Get_MDItemPos()
+	override vector Get_ItemPlacingPosMD()
 	{
 		return "0 0.5 0";
 	}  

@@ -2,12 +2,12 @@ class MD_StorageItem : ItemBase
 {
 	override bool CanPutInCargo( EntityAI parent )
     {
-        return IsInvEmpty();
+        return IsInvEmptyMD();
     }
     
     override bool CanPutIntoHands(EntityAI parent)
 	{
-		return IsInvEmpty();		
+		return IsInvEmptyMD();		
     }
     
     override void OnInventoryEnter(Man player)

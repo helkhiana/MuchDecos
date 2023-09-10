@@ -6,19 +6,19 @@ class MD_OpenableDoorWoodNolatch : MD_OpenableItem_Base
 //W1
 class MD_Shed_W1_Kit : MD_Shed_Kit
 {
-	override string Get_MDItemName()
+	override string Get_ItemNameMD()
 	{
 		return "Land_MD_Shed_W1";
 	}
 
-	override vector Get_MDItemPos()
+	override vector Get_ItemPlacingPosMD()
 	{
 		return "0 1.3 0";
 	}
 };
 class Land_MD_Shed_W1 : MD_OpenableDoorWoodNolatch
 {
-	override string Get_MDKitName()
+	override string Get_KitNameMD()
 	{
 		return "MD_Shed_W1_Kit";
 	}
@@ -26,19 +26,19 @@ class Land_MD_Shed_W1 : MD_OpenableDoorWoodNolatch
 //W2
 class MD_Shed_W2_Kit : MD_Shed_Kit
 {
-	override string Get_MDItemName()
+	override string Get_ItemNameMD()
 	{
 		return "Land_MD_Shed_W2";
 	}
 
-	override vector Get_MDItemPos()
+	override vector Get_ItemPlacingPosMD()
 	{
 		return "0 0 0";
 	}
 };
 class Land_MD_Shed_W2 : MD_OpenableDoorWoodNolatch
 {
-	override string Get_MDKitName()
+	override string Get_KitNameMD()
 	{
 		return "MD_Shed_W2_Kit";
 	}
@@ -46,19 +46,19 @@ class Land_MD_Shed_W2 : MD_OpenableDoorWoodNolatch
 //W3
 class MD_Shed_W3_Kit : MD_Shed_Kit
 {
-	override string Get_MDItemName()
+	override string Get_ItemNameMD()
 	{
 		return "Land_MD_Shed_W3";
 	}
 
-	override vector Get_MDItemPos()
+	override vector Get_ItemPlacingPosMD()
 	{
 		return "0 0.9 0";
 	}
 };
 class Land_MD_Shed_W3 : MD_OpenableDoorWoodNolatch
 {
-	override string Get_MDKitName()
+	override string Get_KitNameMD()
 	{
 		return "MD_Shed_W3_Kit";
 	}
@@ -66,19 +66,19 @@ class Land_MD_Shed_W3 : MD_OpenableDoorWoodNolatch
 //W4
 class MD_Shed_W4_Kit : MD_Shed_Kit
 {
-	override string Get_MDItemName()
+	override string Get_ItemNameMD()
 	{
 		return "Land_MD_Shed_W4";
 	}
 
-	override vector Get_MDItemPos()
+	override vector Get_ItemPlacingPosMD()
 	{
 		return "0 1.5 0";
 	}
 };
 class Land_MD_Shed_W4 : MD_OpenableDoorWoodNolatch
 {
-	override string Get_MDKitName()
+	override string Get_KitNameMD()
 	{
 		return "MD_Shed_W4_Kit";
 	}
@@ -86,19 +86,19 @@ class Land_MD_Shed_W4 : MD_OpenableDoorWoodNolatch
 //W5
 class MD_Shed_W5_Kit : MD_Shed_Kit
 {
-	override string Get_MDItemName()
+	override string Get_ItemNameMD()
 	{
 		return "Land_MD_Shed_W5";
 	}
 
-	override vector Get_MDItemPos()
+	override vector Get_ItemPlacingPosMD()
 	{
 		return "0 1.5 0";
 	}
 };
 class Land_MD_Shed_W5 : MD_OpenableDoorWoodNolatch
 {
-	override string Get_MDKitName()
+	override string Get_KitNameMD()
 	{
 		return "MD_Shed_W5_Kit";
 	}

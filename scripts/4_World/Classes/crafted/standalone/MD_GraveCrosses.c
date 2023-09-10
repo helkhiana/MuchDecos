@@ -1,6 +1,6 @@
 class MD_GraveCross_One : MD_StorageItem
 {
-    override vector Get_MDItemPos()
+    override vector Get_ItemPlacingPosMD()
 	{
 		return "0 0.5 0";
 	}
@@ -26,7 +26,7 @@ class MD_GraveCross_One : MD_StorageItem
 
 class MD_GraveCross_Two : MD_StorageItem
 {	
-    override vector Get_MDItemPos()
+    override vector Get_ItemPlacingPosMD()
 	{
 		return "0 0.6 0";
 	}
@@ -52,7 +52,7 @@ class MD_GraveCross_Two : MD_StorageItem
 
 class MD_GraveCross_Three : MD_StorageItem
 {	
-    override vector Get_MDItemPos()
+    override vector Get_ItemPlacingPosMD()
 	{
 		return "0 0.6 0";
 	}
@@ -78,7 +78,7 @@ class MD_GraveCross_Three : MD_StorageItem
 
 class MD_GraveCross_Four : MD_StorageItem
 {	
-    override vector Get_MDItemPos()
+    override vector Get_ItemPlacingPosMD()
 	{
 		return "0 0.6 0";
 	}
@@ -104,7 +104,7 @@ class MD_GraveCross_Four : MD_StorageItem
 
 class MD_GraveCross_Five : MD_StorageItem
 {	
-    override vector Get_MDItemPos()
+    override vector Get_ItemPlacingPosMD()
 	{
 		return "0 0.5 0";
 	}

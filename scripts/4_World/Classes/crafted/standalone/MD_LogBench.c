@@ -1,6 +1,6 @@
 class MD_LogBench : MD_StorageItem
 {	
-    override vector Get_MDItemPos()
+    override vector Get_ItemPlacingPosMD()
 	{
 		return "0 0.2 0";
 	}

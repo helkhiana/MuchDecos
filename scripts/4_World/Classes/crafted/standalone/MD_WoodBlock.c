@@ -1,6 +1,6 @@
 class MD_WoodBlock : MD_StorageItem
 {	
-    override vector Get_MDItemPos()
+    override vector Get_ItemPlacingPosMD()
 	{
 		return "0 0.36 0";
 	}

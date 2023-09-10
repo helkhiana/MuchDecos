@@ -1,11 +1,11 @@
 class MD_LobbyTable_Kit : MD_Item_Kit
 {
-    override string Get_MDItemName()
+    override string Get_ItemNameMD()
 	{
 		return "MD_LobbyTable";
 	} 
 	
-	override vector Get_MDItemPos()
+	override vector Get_ItemPlacingPosMD()
 	{
 		return "0 0 0";
 	}
@@ -31,7 +31,7 @@ class MD_LobbyTable_Kit : MD_Item_Kit
 
 class MD_LobbyTable : MD_Item
 {
-    override string Get_MDKitName()
+    override string Get_KitNameMD()
 	{
 		return "MD_LobbyTable_Kit";
 	}   
@@ -41,12 +41,12 @@ class MD_LobbyTable : MD_Item
 //MD_WornTable_Kit
 class MD_WornTable_Kit : MD_Item_Kit
 {	
-	override string Get_MDItemName()
+	override string Get_ItemNameMD()
 	{
 		return "MD_WornTable";
 	} 
 
-	override vector Get_MDItemPos()
+	override vector Get_ItemPlacingPosMD()
 	{
 		return "0 0.43 0";
 	} 
@@ -70,7 +70,7 @@ class MD_WornTable_Kit : MD_Item_Kit
 };
 class MD_WornTable : MD_Item
 {
-	override string Get_MDKitName()
+	override string Get_KitNameMD()
 	{
 		return "MD_WornTable_Kit";
 	}
@@ -78,11 +78,11 @@ class MD_WornTable : MD_Item
 
 class MD_SquareTable_Kit : MD_Item_Kit
 {	
-	override string Get_MDItemName()
+	override string Get_ItemNameMD()
 	{
 		return "MD_SquareTable";
 	}
-    override vector Get_MDItemPos()
+    override vector Get_ItemPlacingPosMD()
 	{
 		return "0 0 0";
 	}
@@ -107,7 +107,7 @@ class MD_SquareTable_Kit : MD_Item_Kit
 
 class MD_SquareTable : MD_Item
 {	
-    override string Get_MDKitName()
+    override string Get_KitNameMD()
 	{
 		return "MD_SquareTable_Kit";
 	}   

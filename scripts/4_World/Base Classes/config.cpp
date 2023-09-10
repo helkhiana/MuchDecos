@@ -95,9 +95,9 @@ class CfgVehicles
 		};
 		class GUIInventoryAttachmentsProps
 		{	
-			class Lock
+			class CodeLock
 			{
-				name="Lock";
+				name="CodeLock";
 				description="";
 				attachmentSlots[]=
 				{

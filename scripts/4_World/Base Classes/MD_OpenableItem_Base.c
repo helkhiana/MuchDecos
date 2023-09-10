@@ -19,18 +19,6 @@ class MD_OpenableItem_Base : ItemBase
 			Close();
 	}
 
-	override void EEItemAttached( EntityAI item, string slot_name )
-    {
-        super.EEItemAttached( item, slot_name );
-        
-        if ( item.IsInherited( MD_Padlock ) )
-        {
-            MD_Padlock md_padlock = MD_Padlock.Cast( item );
-            md_padlock.Lock( this );
-            Close();
-        }
-    }
-
 	override void OnStoreSave( ParamsWriteContext ctx )
 	{   
 		super.OnStoreSave( ctx );
@@ -139,26 +127,38 @@ class MD_OpenableItem_Base : ItemBase
 		return IsOpen();
 	}
 
-    override bool CanDisplayAttachmentSlot(string slot_name)
+    override bool CanDisplayAttachmentSlot(int slot_id)
 	{		
 		return true;
 	}
+	
+	override bool CanDisplayAttachmentCategory( string category_name )
+	{	
+		if(category_name == "CodeLock")
+		{			
+			#ifdef CodeLock				
+				return true;
+			#else
+				return false;
+			#endif
+		}
+		return super.CanDisplayAttachmentCategory(category_name);
+	}
+
+    #ifdef CodeLock
+    override bool CanReceiveAttachment(EntityAI attachment, int slotId)
+    {
+        CodeLock c_Lock;
+        if (Class.CastTo(c_Lock, attachment))
+            return true;
+
+        return super.CanReceiveAttachment(attachment, slotId);
+    }
+    #endif
 
 	bool IsLocked()
-    {
-        MD_Padlock padlock = GetMD_Padlock();
-        if ( padlock && padlock.IsLockedOnMD_OpenableItem_Base() )
-        {            
-            return true;
-        }
-        
+    {        
         return false;
-    }
-
-	MD_Padlock GetMD_Padlock()
-    {
-        MD_Padlock padlock = MD_Padlock.Cast( FindAttachmentBySlotName( "Att_CombinationLock" ) );
-        return padlock;
     }
 	
     override bool CanUseConstruction()
@@ -184,8 +184,6 @@ class MD_OpenableItem_Base : ItemBase
 		super.SetActions();
         AddAction(ActionOpenBuildingDoors);
         AddAction(ActionCloseBuildingDoors);
-        AddAction(ActionDialMD_PadlockOnMD_OpenableItem_Base);
-        AddAction(ActionNextMD_PadlockDialOnMD_OpenableItem_Base);
 	}
 };
 

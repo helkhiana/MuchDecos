@@ -1,11 +1,11 @@
 class MD_WoodPileSmall_Kit : MD_Item_Kit
 {
-    override string Get_MDItemName()
+    override string Get_ItemNameMD()
 	{
 		return "MD_WoodPileSmall";
 	} 
 	
-	override vector Get_MDItemPos()
+	override vector Get_ItemPlacingPosMD()
 	{
 		return "0 0.20 0";
 	}
@@ -30,7 +30,7 @@ class MD_WoodPileSmall_Kit : MD_Item_Kit
 
 class MD_WoodPileSmall : MD_Item
 {
-    override string Get_MDKitName()
+    override string Get_KitNameMD()
 	{
 		return "MD_WoodPileSmall_Kit";
 	}   

@@ -7,15 +7,7 @@ class CfgPatches
         requiredVersion=0.1;
         requiredAddons[]=
         {
-            "DZ_Data",
-			"DZ_Scripts",
-			"DZ_Gear_Consumables",
-			"DZ_Gear_Camping",
-			"DZ_Gear_Crafting",
-			"DZ_Gear_Tools",
 			"DZ_Gear_Cooking",
-			"DZ_Vehicles_Parts",
-			"DZ_Structures",
 			"MuchDecos_Kits"
         };
     };
@@ -30,37 +22,6 @@ class CfgVehicles
 	class MD_Large_Kit;
 	class Pot;
 	class CanisterGasoline;
-	
-	class MD_Crafting_Book: BookDeadSouls
-	{
-		scope=2;
-		title="Basic Crafting Guide";
-		author="Captain Hel";
-		simulation="inventoryItem";
-		displayName="Basic Crafting Guide";
-		descriptionShort="With this you can craft items at the MD Craftbench. Hold book in hand and look at the craftbench to get the prompt to craft. The prompt will show only if you have the required items inside the craftbench.";
-		model="\DZ\gear\books\Book_kniga.p3d";
-		itemSize[]={1,2};
-		hiddenSelectionsTextures[]=
-		{
-			"\MuchDecos\data\book\book_crafting_guide_texture.paa"
-		};
-		hiddenSelections[]=
-		{
-			"camoGround"
-		};
-		class DamageSystem
-		{
-			class GlobalHealth
-			{
-				class Health
-				{
-					hitpoints = 100000000000;
-				};
-			};
-		};	
-	};
-
 	class MD_Box_C: MD_Item
 	{		
 		scope=2;
@@ -99,21 +60,6 @@ class CfgVehicles
 		model="\DZ\structures_bliss\residential\Misc\Garbage_Bin2.p3d";
 	};
 	class MD_StaticTrashCan : MD_TrashCan {};
-
-	class HouseNoDestruct;
-	class MD_Grave: HouseNoDestruct
-	{
-		scope=2;
-		model="\DZ\structures\specific\cemeteries\cemetery_grave4.p3d";
-		storageCategory=1;
-		lootCategory="Crafted";
-		useEntityHierarchy="true";
-		slopeTolerance=0.30000001;
-		alignHologramToTerain=1;
-		yawPitchRollLimit[]={10,10,10};
-		hologramMaterial="tile";
-		hologramMaterialPath="dz\gear\cultivation\data";
-	};
 
 	class MD_Small_WoodBox: MD_Kit
 	{
@@ -181,33 +127,6 @@ class CfgVehicles
 		displayName="Bucket";
 		descriptionShort="Bucket used to store water or other small items. Can be used to craft flower pots.";
 		model="\DZ\structures\furniture\decoration\bucket\bucket.p3d";
-	};
-
-	class CombinationLock;
-	class MD_Padlock: CombinationLock
-	{
-		scope=2;
-		displayName="Padlock";
-		descriptionShort="Used to lock MuchDecos buildings";
-		model="\MuchDecos\data\padlock\Padlock.p3d";
-		hiddenSelectionsTextures[]=
-		{
-			"\MuchDecos\data\padlock\Padlock_co.paa"
-		};
-		hiddenSelections[]=
-		{
-			"zbytek"
-		};
-		class DamageSystem
-		{
-			class GlobalHealth
-			{
-				class Health
-				{
-					hitpoints = 100000000000;
-				};
-			};
-		};
 	};
 
 	class MD_WhiteFridge: MD_Item

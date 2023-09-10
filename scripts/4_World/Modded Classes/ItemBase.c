@@ -1,6 +1,40 @@
 modded class ItemBase
-{  	
-	bool IsFacingPlayer( PlayerBase player)
+{	
+	vector Get_ItemPlacingPosMD()
+	{
+		return "0 0 0";
+	}
+
+	vector Get_ItemPlacingOrientationMD()
+	{		
+		return "0 0 0";
+	}
+	
+	string Get_ItemNameMD()
+	{
+		return GetType().Substring(0,GetType().Length() - 4);
+	}
+
+	string Get_KitNameMD()
+	{
+		return GetType() + "_Kit";
+	}
+
+	bool IsInvEmptyMD()
+	{   
+		if (GetNumberOfItems() < 1 &&  GetInventory().AttachmentCount() < 1)
+		{
+			return true;
+		}
+		return false;
+	}
+
+	bool IsMDWallOrGate()
+	{
+		return false;
+	}
+	
+	bool IsMDFacingPlayer( PlayerBase player)
 	{
 		vector fence_pos = GetPosition();
 		vector player_pos = player.GetPosition();
@@ -24,40 +58,6 @@ modded class ItemBase
 			}
 		}
 		
-		return false;
-	}
-	
-    string Get_MDKitName()
-	{
-		return "MD_Item_Kit";
-	}
-	
-	string Get_MDItemName()
-	{
-		return "MD_Item";
-	}
-
-	vector Get_MDItemPos()
-	{
-		return "0 0 0";
-	}
-
-    bool CanMakeMD_Grave()
-    {
-        return false;
-    }
-
-    bool IsInvEmpty()
-	{   
-		if (GetNumberOfItems() < 1 &&  GetInventory().AttachmentCount() < 1)
-		{
-			return true;
-		}
-		return false;
-	}
-
-	bool IsWallOrGate()
-	{
 		return false;
 	}
 };

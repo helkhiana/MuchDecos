@@ -1,0 +1,18 @@
+Fixed:
+- Item placement flickering and sometimes failing to place
+- General changes and fixes to bring code in line with my other mods
+
+Removed:
+- Padlock
+- Haybale
+- Crafting Book
+- Grave making
+- Grave shovel
+- Ability to use Padlock on openable items
+- Power Transformer (it was too buggy and abusable)
+
+Changed:
+- Removed craftbench crafting and made them regular recipes
+- Scarecrow recipe is combine clothing item with 1 firewood
+- Barbed wire fence kit recipe is combine barbed wire and metal wire
+Note: Workbench (Craftbench) still has the slots to store resources, just can't use it to craft anything

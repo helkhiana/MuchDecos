@@ -12,18 +12,18 @@ class MD_Item: ItemBase
 };
 
 class MD_Item_Kit: ItemBase
-{	
+{		
 	override void OnPlacementComplete(Man player, vector position = "0 0 0", vector orientation = "0 0 0")
 	{
 		super.OnPlacementComplete(player, position, orientation);
-		if ( GetGame().IsServer() )
-		{				
-			EntityAI kitItem = EntityAI.Cast(GetGame().CreateObject(Get_MDItemName(), position, false ));
+		if (GetGame().IsServer())
+		{
+			EntityAI kitItem = EntityAI.Cast(GetGame().CreateObjectEx(Get_ItemNameMD(), position, ECE_PLACE_ON_SURFACE));
 			kitItem.SetPosition(position);
-			kitItem.SetOrientation(orientation);			
+			kitItem.SetOrientation(orientation);
 		}
-		
-		SetIsPlaceSound( true );
+
+		SetIsPlaceSound(true);
 	}
 	
 	override bool IsBasebuildingKit()

@@ -1,6 +1,6 @@
 class MD_CampBench : MD_StorageItem
 {
-    override vector Get_MDItemPos()
+    override vector Get_ItemPlacingPosMD()
 	{
 		return "0 0.2 0";
 	}
@@ -26,7 +26,7 @@ class MD_CampBench : MD_StorageItem
 
 class MD_WornBench : MD_StorageItem
 {	
-    override vector Get_MDItemPos()
+    override vector Get_ItemPlacingPosMD()
 	{
 		return "0 0.2 0";
 	}

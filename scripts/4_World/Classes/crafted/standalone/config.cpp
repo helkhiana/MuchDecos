@@ -29,22 +29,6 @@ class CfgVehicles
 			allowOwnedCargoManipulation=1;
 		};
 	};
-    
-	class MD_Haybale: MD_Item
-	{
-		scope=2;
-		displayName="Haybale";
-		descriptionShort="A haybale to stash your things";
-		model="\DZ\structures\industrial\misc\misc_haybale.p3d";
-		weight=500;
-		itemSize[]={10,7};
-		class Cargo
-		{
-			itemsCargoSize[]={10,5};
-			openable=0;
-			allowOwnedCargoManipulation=1;
-		};
-	};
 	
 	class MD_GraveCross_One: MD_Item
 	{

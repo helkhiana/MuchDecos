@@ -31,5 +31,7 @@ modded class PluginRecipesManager
 		RegisterRecipe(new CraftMD_Item(MD_WornTable_Kit.GetRecipeValues()));
 		RegisterRecipe(new CraftMD_Item(MD_SquareTable_Kit.GetRecipeValues()));
 		RegisterRecipe(new CraftMD_Item(MD_WornBench.GetRecipeValues()));
+		RegisterRecipe(new CraftMD_Item(MD_Scarecrow.GetRecipeValues()));
+		RegisterRecipe(new CraftMD_Item(MD_BarbedWireFence_Kit.GetRecipeValues()));		
 	}			
 }
